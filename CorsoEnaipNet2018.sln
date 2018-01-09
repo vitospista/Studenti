@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ripasso", "Ripasso", "{61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaipNet2018_IntCalculator", "CorsoEnaipNet2018_IntCalculator\CorsoEnaipNet2018_IntCalculator.csproj", "{3078C8DB-57E9-4071-BC45-5F660BD0F8E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Numbers", "CorsoEnaip2018_Numbers\CorsoEnaip2018_Numbers.csproj", "{56DB9F34-8B6C-4825-8674-D9F8146672AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3078C8DB-57E9-4071-BC45-5F660BD0F8E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3078C8DB-57E9-4071-BC45-5F660BD0F8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3078C8DB-57E9-4071-BC45-5F660BD0F8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3078C8DB-57E9-4071-BC45-5F660BD0F8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DB9F34-8B6C-4825-8674-D9F8146672AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DB9F34-8B6C-4825-8674-D9F8146672AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DB9F34-8B6C-4825-8674-D9F8146672AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DB9F34-8B6C-4825-8674-D9F8146672AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3078C8DB-57E9-4071-BC45-5F660BD0F8E6} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
+		{56DB9F34-8B6C-4825-8674-D9F8146672AA} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
+	EndGlobalSection
+EndGlobal
