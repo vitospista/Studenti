@@ -10,31 +10,39 @@ namespace CorsoEnaip2018_Tiles
 {
     class Program
     {
+        static string APPLICATION_NAME = "Calcoli";
+
         static void Main(string[] args)
         {
-            string customer = "Generali";
-            double meters = 146.7;
-            double pack = 5; //square meters per package
-            double packPrice = 299.99;
+            //string customer = "Generali";
+            //double meters = 146.7;
+            //double pack = 5; //square meters per package
+            //double packPrice = 299.99;
 
-            double requiredPackages = meters / pack;
+            //double requiredPackages = meters / pack;
 
-            double ceiledPackages = Math.Ceiling(requiredPackages);
+            //double ceiledPackages = Math.Ceiling(requiredPackages);
 
-            double price = ceiledPackages * packPrice;
+            //double price = ceiledPackages * packPrice;
 
-            Console.WriteLine("Preventivo: " + price);
+            //Console.WriteLine("Preventivo: " + price);
 
             // vorrei un metodo di select che mi restituisca 4 valori.
             // ma i metodi possono restituire un valore solo!
             // quindi un codice come il seguente non esiste!
             // (meters, pack, packPrice, customer) = SelectWithId(3);
 
-            // devo creare delle strutture-dati che INCASPULANO le informazioni
+            // devo creare delle strutture-dati che INCAPSULANO le informazioni
 
             Estimate e = SelectWithId(3);
 
+            Print(e);
+
             Console.Read();
+
+            int count = Estimate.numeroDiEstimateInGiro();
+            double requiredPackages = e.getRequiredPackages();
+
         }
 
         static void InsertOnDatabase(
@@ -104,6 +112,25 @@ namespace CorsoEnaip2018_Tiles
 
             return e;
         }
+
+        static void Print(Estimate e)
+        {
+            Console.WriteLine("--- Preventivo ---");
+            Console.WriteLine($"Cliente: {e.customer}");
+            Console.WriteLine($"Metri richiesti: {e.meters}");
+            Console.WriteLine($"Metri per package: {e.pack}");
+            Console.WriteLine($"Prezzo del singolo package: {e.packPrice}");
+
+            double requiredPackages = e.meters / e.pack;
+            Console.WriteLine($"Numero di package richiesti: {requiredPackages}");
+
+            double ceiledPackages = Math.Ceiling(requiredPackages);
+
+            Console.WriteLine($"Numero di package da vendere: {ceiledPackages}");
+
+            double price = ceiledPackages * e.packPrice;
+            Console.WriteLine($"PREZZO FINALE: {price}");
+        }
     }
 
     class Estimate
@@ -112,5 +139,62 @@ namespace CorsoEnaip2018_Tiles
         public double pack;
         public double packPrice;
         public string customer;
+        // Non va bene avere campi pubblici per valori calcolati, perché:
+        // 1) chiunque crea un Estimate deve ricordarsi di calcolarli
+        // 2) chiunque può scriverci dentro quello che vuole.
+        //public double requiredPackages;
+        //public double ceiledPackages;
+        //public double price;
+        public double getRequiredPackages()
+        {
+            return this.meters / this.pack;
+        }
+
+        public double getCeiledPackages()
+        {
+            double required = this.getRequiredPackages();
+
+            return Math.Ceiling(required);
+        }
+
+        public static int numeroDiEstimateInGiro()
+        {
+            return 5;
+        }
+
+        public Estimate fatherEstimate;
     }
+
+
+    /*
+     * int i = 0;
+     * if (i < 10)
+     *     Console.Writeline(i);
+     *     i++;
+     *     goto: if
+     * else
+     *     goto: partedopo
+     * 
+     * label: partedopo;
+     * 
+     * 
+     * int i = 0;
+     * while(i < 10)
+     * {
+     *     Console.WriteLine(i);
+     *     i++;
+     * }
+     * 
+     * for(int i = 0; i < 10; i++)
+     * {
+     *     Console.WriteLine(i);
+     * }
+     * 
+     * 
+     * forever
+     * {
+     * }
+     * 
+     * 
+     */
 }
