@@ -10,14 +10,21 @@ namespace CorsoEnaip2018_Numbers
             //Console.WriteLine(FindMaxInt1());
             //Console.WriteLine(FindMaxInt2());
             //Console.WriteLine(FindMaxInt3());
-            //Floatings();
+            Floatings();
             //Console.WriteLine(GetMaxFloat());
 
-            double d1 = 0.1;
-            double d2 = 0.2;
-            Console.WriteLine("La somma è 0.3? " + (d1+d2 == 0.3));
+            CSharpNumberLimits();
 
             Console.Read();
+        }
+
+        private static void CSharpNumberLimits()
+        {
+            // 0.1 + 0.2 != 0.3 !!!
+            // per avere precisione massima vanno usati i decimal!
+            double d1 = 0.1;
+            double d2 = 0.2;
+            Console.WriteLine("La somma è 0.3? " + (d1 + d2 == 0.3));
         }
 
         private static int FindMaxInt1()
