@@ -24,6 +24,34 @@ namespace CorsoEnaip2018_FirstClasses
             i = IncrementIntReturn(i);
             Console.WriteLine(i);
 
+            int i2 = i;
+            Console.WriteLine($"Prima di fare i++: i = {i} e i2 = {i2}");
+            i++;
+            Console.WriteLine($"Dopo aver fatto i++: i = {i} e i2 = {i2}");
+
+            Person p = new Person();
+            Console.WriteLine($"Età iniziale di p: {p.Age}");
+            p.Age = 27;
+            IncrementIntVoid(p.Age);
+            Console.WriteLine($"Età di p dopo IncrementIntVoid: {p.Age}");
+
+            IncrementPersonAge(p);
+            Console.WriteLine($"Età di p dopo IncrementPersonAge: {p.Age}");
+
+            Person p2 = p;
+            Console.WriteLine(
+                $"Prima di fare p.Age++: p.Age = {p.Age} e p2.Age = {p2.Age}");
+            p.Age++;
+            Console.WriteLine(
+                $"Dopo aver fatto p.Age++: p.Age = {p.Age} e p2.Age = {p2.Age}");
+
+            List<int> list1 = new List<int> { 1, 2, 3 };
+            List<int> list2 = list1;
+
+            list1.Add(4);
+
+            Console.WriteLine("list2 contiene il 4? " + (list2.Contains(4)));
+
             Console.Read();
         }
 
@@ -38,6 +66,11 @@ namespace CorsoEnaip2018_FirstClasses
             return i;
 
             //return i++;
+        }
+
+        static void IncrementPersonAge(Person p)
+        {
+            p.Age++;
         }
 
         /*
