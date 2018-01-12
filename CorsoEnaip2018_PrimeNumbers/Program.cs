@@ -13,6 +13,28 @@ namespace CorsoEnaip2018_PrimeNumbers
             // creo array con i numeri da 1 a 100
             // 2  3  4  5  6  7  8  9 10 11 12 13 14 15 ... 100
             // 0  1  2  3  4  5  6  7  8  9 10 11 12 13 ...  98
+            int[] a = new int[99];
+            for(int i = 0; i < 99; i++)
+                a[i] = i + 2;
+
+            for (int i = 0; i < 99; i++)
+            {
+                int prime = a[i];
+
+                if (prime != 0)
+                {
+                    for(int j = i + 1; j < 99; j++)
+                    {
+                        if (a[j] != 0)
+                        {
+                            if (a[j] % prime == 0)
+                            {
+                                a[j] = 0;
+                            }
+                        }
+                    }
+                }
+            }
 
             // parto da 2, pongo a 0 tutti i numeri dell'array
             // che sono multipli di 2.
@@ -31,14 +53,30 @@ namespace CorsoEnaip2018_PrimeNumbers
             // ho l'array finale con i numeri primi e tanti 0 in mezzo.
 
             // conto i numeri primi (cioè tutti i numeri dell'array != 0)
+            int count = 0;
+            
+            for(int i = 0; i < 99; i++)
+                if (a[i] != 0)
+                    count++;
 
             // creo un nuovo array lungo quanti sono i numeri primi
+            int[] result = new int[count];
 
             // itero sull'array originale, e quando incontro un numero != 0
             // lo metto nel nuovo array.
+            int i2 = 0;
+            for (int i = 0; i < 99; i++)
+            {
+                if (a[i] != 0)
+                {
+                    result[i2] = a[i];
+                    i2++;
+                }
+            }
 
-            // 2 3 0 5 0 7
-            // 2 3 5 7
+            // risultato finale:
+            // 2 3 0 5 0 7 ... 97
+            // 2 3 5 7 ... 97
         }
     }
 }
