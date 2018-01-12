@@ -52,6 +52,13 @@ namespace CorsoEnaip2018_FirstClasses
 
             Console.WriteLine("list2 contiene il 4? " + (list2.Contains(4)));
 
+            // Per creare un'intera nuova copia di Person,
+            // posso usare il metodo Clone dell'interfaccia ICloneable
+            Person clone = (Person)p.Clone();
+            Console.WriteLine($"Age del clone prima di p.Age++: {clone.Age}");
+            p.Age++;
+            Console.WriteLine($"Age del clone dopo p.Age++: {clone.Age}");
+
             Console.Read();
         }
 
@@ -88,5 +95,12 @@ namespace CorsoEnaip2018_FirstClasses
     class Person
     {
         public int Age;
+
+        public object Clone()
+        {
+            Person p = new Person();
+            p.Age = this.Age;
+            return p;
+        }
     }
 }
