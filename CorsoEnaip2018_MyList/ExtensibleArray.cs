@@ -79,8 +79,52 @@ namespace CorsoEnaip2018_MyList
              *         qui devo creare un array grande la metà.
              *        4 7 2 0
              */
+            // i = 5;
+            // _index = 5;
+            // _array.Length = 8;
+            // _array =    [5 4 7 5 2 0 0 0]
+            // first step: [4 7 5 2 0 0 0 0]
 
-            throw new NotImplementedException();
+            // _array =    [5 5 7 5 2 0 0 0]
+            // _array =    [5 7 5 2 0 0 0 0]
+            // _array =    [7 5 2 0 0 0 0 0]
+
+            // _array = [2 8 5]
+            // _array = [2 8 0]
+
+            for (int j = 0; j < this._index; j++)
+            {
+                while (this._array[j] == i)
+                {
+                    for(int jj = j + 1; jj < this._index; jj++)
+                    {
+                        this._array[jj - 1] = this._array[jj];
+                    }
+
+                    this._array[this._index - 1] = 0;
+                    this._index--;
+                }
+            }
+
+            if (this._index <= this._array.Length / 2)
+            {
+                int[] newArray = new int[this._index];
+
+                for(int j = 0; j < this._index; j++)
+                {
+                    newArray[j] = this._array[j];
+                }
+
+                this._array = newArray;
+            }
+
+            // _array =    [5 4 7 5 2 0 0]
+            // first step: [4 7 5 2 0 0 0]
+
+            // _array =    [5 4 7 6 5 0 0]
+            // first step: [4 7 6 0 0 0 0]
+            // newArray:   [0 0 0]
+            // newArray:   [4 7 6]
         }
 
         public int Count()

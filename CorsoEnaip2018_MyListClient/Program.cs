@@ -81,7 +81,31 @@ namespace CorsoEnaip2018_MyListClient
                 Console.WriteLine(ex.Message);
             }
 
+            ExtensibleArray a4 = new ExtensibleArray(0);
+            a4.Add(1);
+            a4.Add(1);
+            a4.Add(2);
+            a4.Add(1);
+            a4.Add(1);
+            a4.Add(1);
+            a4.Add(1);
+            a4.Add(3);
+            a4.Add(1);
 
+            a4.Remove(1);
+            Console.WriteLine($"a4[0] = {a4[0]}");
+            Console.WriteLine($"a4[1] = {a4[1]}");
+            Console.WriteLine($"a4.Count() = {a4.Count()}");
+
+            a4.Add(5);
+            a4.Add(7);
+            a4.Add(1);
+
+            List<int> l = new List<int>();
+            for(int i = 0; i < 100; i++)
+            {
+                l.Add(i);
+            }
 
             Console.Read();
         }
