@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CorsoEnaip2018_MyList;
+using CorsoEnaip2018_ExtensibleArray;
 
-namespace CorsoEnaip2018_MyListClient
+namespace CorsoEnaip2018_ExtensibleArrayClient
 {
     class Program
     {
@@ -92,7 +92,10 @@ namespace CorsoEnaip2018_MyListClient
             a4.Add(3);
             a4.Add(1);
 
+            // [1 1 2 1 1 1 1 3 1] index: 9
             a4.Remove(1);
+            // [2 3] index: 2
+
             Console.WriteLine($"a4[0] = {a4[0]}");
             Console.WriteLine($"a4[1] = {a4[1]}");
             Console.WriteLine($"a4.Count() = {a4.Count()}");
@@ -100,12 +103,13 @@ namespace CorsoEnaip2018_MyListClient
             a4.Add(5);
             a4.Add(7);
             a4.Add(1);
+            // [2 3 5 7 1] index: 5
 
-            List<int> l = new List<int>();
-            for(int i = 0; i < 100; i++)
-            {
-                l.Add(i);
-            }
+            //List<int> l = new List<int>();
+            //for(int i = 0; i < 100; i++)
+            //{
+            //    l.Add(i);
+            //}
 
             Console.Read();
         }

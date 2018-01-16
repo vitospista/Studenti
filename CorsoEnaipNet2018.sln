@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Arrays", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_PrimeNumbers", "CorsoEnaip2018_PrimeNumbers\CorsoEnaip2018_PrimeNumbers.csproj", "{4B878DFF-E09D-4666-BE5B-EE215DF37F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_MyList", "CorsoEnaip2018_MyList\CorsoEnaip2018_MyList.csproj", "{25B2DF05-7477-4156-AE5C-CAB9E15B1D00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_ExtensibleArray", "CorsoEnaip2018_ExtensibleArray\CorsoEnaip2018_ExtensibleArray.csproj", "{25B2DF05-7477-4156-AE5C-CAB9E15B1D00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_MyListClient", "CorsoEnaip2018_MyListClient\CorsoEnaip2018_MyListClient.csproj", "{532E844A-22D8-45A1-A489-2A58DFC8D78E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_ExtensibleArrayClient", "CorsoEnaip2018_ExtensibleArrayClient\CorsoEnaip2018_ExtensibleArrayClient.csproj", "{532E844A-22D8-45A1-A489-2A58DFC8D78E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorsoEnaip2018_MyList
+namespace CorsoEnaip2018_ExtensibleArray
 {
     /// <summary>
     /// Array per aggiungere e togliere elementi
@@ -84,13 +84,18 @@ namespace CorsoEnaip2018_MyList
             // _array.Length = 8;
             // _array =    [5 4 7 5 2 0 0 0]
             // first step: [4 7 5 2 0 0 0 0]
+            //second step: [4 7 2 0 0 0 0 0]
 
             // _array =    [5 5 7 5 2 0 0 0]
             // _array =    [5 7 5 2 0 0 0 0]
             // _array =    [7 5 2 0 0 0 0 0]
+            // _array =    [7 2 0 0 0 0 0 0]
 
             // _array = [2 8 5]
             // _array = [2 8 0]
+
+            // _array =    [5 4 7 5 7 8 6 9]
+            // _index = 6
 
             for (int j = 0; j < this._index; j++)
             {

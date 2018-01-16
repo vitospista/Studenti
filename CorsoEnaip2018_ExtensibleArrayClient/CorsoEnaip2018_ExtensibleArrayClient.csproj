@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CorsoEnaip2018_MyList\CorsoEnaip2018_MyList.csproj">
+    <ProjectReference Include="..\CorsoEnaip2018_ExtensibleArray\CorsoEnaip2018_ExtensibleArray.csproj">
       <Project>{25b2df05-7477-4156-ae5c-cab9e15b1d00}</Project>
-      <Name>CorsoEnaip2018_MyList</Name>
+      <Name>CorsoEnaip2018_ExtensibleArray</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
