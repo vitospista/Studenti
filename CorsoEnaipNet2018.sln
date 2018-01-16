@@ -29,6 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_ExtensibleAr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recursion.csproj", "{1449A771-517D-4150-A467-0F0C7EABB932}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispense", "Dispense", "{23815CB8-3990-4325-9744-52BE3616CFCE}"
+	ProjectSection(SolutionItems) = preProject
+		E:\CSharp - la memoria.pptx = E:\CSharp - la memoria.pptx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
