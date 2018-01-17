@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B}</ProjectGuid>
+    <ProjectGuid>{F8D7D308-182C-47DC-87B0-F6F9178BAF99}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CorsoEnaip2018_Properties</RootNamespace>
-    <AssemblyName>CorsoEnaip2018_Properties</AssemblyName>
+    <RootNamespace>CorsoEnaip2018_EsercizioSuOggetti1</RootNamespace>
+    <AssemblyName>CorsoEnaip2018_EsercizioSuOggetti1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MethodsRange.cs" />
-    <Compile Include="Persons.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="PropertiesRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FieldsRange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

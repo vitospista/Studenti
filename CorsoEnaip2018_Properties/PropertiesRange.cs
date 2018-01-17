@@ -55,5 +55,17 @@ namespace CorsoEnaip2018_Properties
         {
             return i >= this.min && i <= this.max;
         }
+
+        //readonly / only-get property
+        public int Interval
+        {
+            get
+            {
+                return this.Max - this.Min + 1;
+            }
+        }
+
+        // posso anche creare writeonly / only-set properties
+        // ma è raro
     }
 }

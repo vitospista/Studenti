@@ -29,12 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_ExtensibleAr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recursion.csproj", "{1449A771-517D-4150-A467-0F0C7EABB932}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispense", "Dispense", "{23815CB8-3990-4325-9744-52BE3616CFCE}"
-	ProjectSection(SolutionItems) = preProject
-		E:\CSharp - la memoria.pptx = E:\CSharp - la memoria.pptx
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Properties", "CorsoEnaip2018_Properties\CorsoEnaip2018_Properties.csproj", "{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_EsercizioSuOggetti1", "CorsoEnaip2018_EsercizioSuOggetti1\CorsoEnaip2018_EsercizioSuOggetti1.csproj", "{F8D7D308-182C-47DC-87B0-F6F9178BAF99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +91,10 @@ Global
 		{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D7D308-182C-47DC-87B0-F6F9178BAF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D7D308-182C-47DC-87B0-F6F9178BAF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D7D308-182C-47DC-87B0-F6F9178BAF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D7D308-182C-47DC-87B0-F6F9178BAF99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +113,6 @@ Global
 		{532E844A-22D8-45A1-A489-2A58DFC8D78E} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
 		{1449A771-517D-4150-A467-0F0C7EABB932} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
 		{3A4E2FB1-5A2B-4A17-8F80-E4B7F0294D3B} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
+		{F8D7D308-182C-47DC-87B0-F6F9178BAF99} = {61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}
 	EndGlobalSection
 EndGlobal

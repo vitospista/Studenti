@@ -13,8 +13,14 @@ namespace CorsoEnaip2018_Properties
             //UseFieldsRange();   
             //UseMethodsRange();
             UsePropertiesRange();
+            OnlyGetProperties();
 
             Console.Read();
+        }
+
+        private static void OnlyGetProperties()
+        {
+            throw new NotImplementedException();
         }
 
         private static void UsePropertiesRange()
