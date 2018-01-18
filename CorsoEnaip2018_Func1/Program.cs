@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorsoEnaip2018_EsercizioSuOggetti1
+namespace CorsoEnaip2018_Func1
 {
     class Program
     {
@@ -30,8 +30,53 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
 
             List<string> names = getNameList(list);
             List<Employee> employeesWithA = filterEmployeesWithA(list);
-            List<Employee> employeesPre2000 = filterEmployeesPre2000(list);
-            List<Employee> employeesSuperRich = filterEmployeesSuperRich(list);
+
+            // posso passare metodi come parametri!
+            // Non eseguo il metodo sul momento, lo passo soltanto!
+            // poi è filter a decidere quando e come chiamarlo
+            // per ottenerne un risultato.
+            List<Employee> employeesPre2000 = filter(list, isYearPre2000);
+            List<Employee> employeePre1970 = filter(list, isYearPre1970);
+            List<Employee> employeesSuperRich = filter(list, isSalaryMoreThan25000);
+
+            // lambda expression
+            //Func<Employee, bool> lambdaIsYearPre2000 =
+            //    (Employee e) =>
+            //    {
+            //        return e.Birth.Year < 2000;
+            //    };
+
+            // il tipo Employee è già chiaro nella dichiarazione,
+            // posso ometterlo
+            //Func<Employee, bool> lambdaIsYearPre2000 =
+            //    (e) => { return e.Birth.Year < 2000; };
+
+            // il parametro è uno solo, quindi non mi servono le ()
+            //Func<Employee, bool> lambdaIsYearPre2000 =
+            //    e => { return e.Birth.Year < 2000; };
+
+            // siccome il Body è una singola istruzione semplice,
+            // posso evitare le {} e il return:
+            Func<Employee, bool> lambdaIsYearPre2000 =
+                e => e.Birth.Year < 2000;
+
+            employeesPre2000 = filter(list, lambdaIsYearPre2000);
+
+            // posso scrivere la lambda direttamente come parametro di un metodo
+            employeesPre2000 = filter(list, e => e.Birth.Year < 2000);
+            employeePre1970 = filter(list, e => e.Birth.Year < 1970);
+            employeesSuperRich = filter(list, e => e.Salary > 25000);
+            
+            // implementare i seguenti filtri:
+            
+            // lista di impiegati nati in Aprile
+            // lista di impiegati maschi
+            // lista di impiegati con più di un anno di servizio
+            // lista di impiegati con nome che è più lungo di 4 caratteri
+            
+            // farlo sia creando metodi appositi
+            // sia usando lambda expression.
+
             double percentageOfFemales = calculatePercentageOfFemales(list);
         }
 
@@ -39,7 +84,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
         {
             List<string> names = new List<string>();
 
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 names.Add(list[i].Name);
             }
@@ -51,30 +96,36 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
         {
             List<Employee> filtered = new List<Employee>();
 
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
                 if (list[i].Name.StartsWith("A"))
                     filtered.Add(list[i]);
 
             return filtered;
         }
 
-        private static List<Employee> filterEmployeesPre2000(List<Employee> list)
+        private static bool isYearPre2000(Employee e)
         {
-            List<Employee> filtered = new List<Employee>();
-
-            for (int i = 0; i < list.Count; i++)
-                if (list[i].Birth.Year < 2000)
-                    filtered.Add(list[i]);
-
-            return filtered;
+            return e.Birth.Year < 2000;
         }
 
-        private static List<Employee> filterEmployeesSuperRich(List<Employee> list)
+        private static bool isYearPre1970(Employee e)
+        {
+            return e.Birth.Year < 1970;
+        }
+
+        private static bool isSalaryMoreThan25000(Employee employee)
+        {
+            return employee.Salary > 25000;
+        }
+
+        private static List<Employee> filter(
+            List<Employee> list,
+            Func<Employee, bool> mustInclude)
         {
             List<Employee> filtered = new List<Employee>();
 
             for (int i = 0; i < list.Count; i++)
-                if (list[i].Salary > 25000)
+                if (mustInclude(list[i]))
                     filtered.Add(list[i]);
 
             return filtered;
@@ -83,8 +134,8 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
         private static double calculatePercentageOfFemales(List<Employee> list)
         {
             int femaleCount = 0;
-            
-            for(int i = 0; i < list.Count; i++)
+
+            for (int i = 0; i < list.Count; i++)
                 if (list[i].Sex == SexType.Female)
                     femaleCount++;
 
@@ -108,6 +159,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
                 Sex = SexType.Male,
                 Birth = new DateTime(1970, 3, 1),
                 Salary = 15000,
+                YearsOfService = 2,
             };
             list.Add(e1);
 
@@ -118,6 +170,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
                 Sex = SexType.Male,
                 Birth = new DateTime(2000, 6, 10),
                 Salary = 5000,
+                YearsOfService = 1,
             };
             list.Add(e2);
 
@@ -128,6 +181,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
                 Sex = SexType.Female,
                 Birth = new DateTime(1999, 12, 25),
                 Salary = 26000,
+                YearsOfService = 10,
             };
             list.Add(e3);
 
@@ -138,6 +192,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
                 Sex = SexType.Male,
                 Birth = new DateTime(2002, 9, 30),
                 Salary = 35000,
+                YearsOfService = 1
             };
             list.Add(e4);
 
@@ -166,6 +221,7 @@ namespace CorsoEnaip2018_EsercizioSuOggetti1
         public SexType Sex { get; set; }
         public DateTime Birth { get; set; }
         public decimal Salary { get; set; }
+        public int YearsOfService { get; set; }
     }
 
     enum SexType
