@@ -28,7 +28,6 @@ namespace CorsoEnaip2018_Func1
              */
             List<Employee> list = createList();
 
-            List<string> names = getNameList(list);
             List<Employee> employeesWithA = filterEmployeesWithA(list);
 
             // posso passare metodi come parametri!
@@ -66,30 +65,25 @@ namespace CorsoEnaip2018_Func1
             employeesPre2000 = filter(list, e => e.Birth.Year < 2000);
             employeePre1970 = filter(list, e => e.Birth.Year < 1970);
             employeesSuperRich = filter(list, e => e.Salary > 25000);
-            
+
             // implementare i seguenti filtri:
-            
+
             // lista di impiegati nati in Aprile
             // lista di impiegati maschi
             // lista di impiegati con più di un anno di servizio
             // lista di impiegati con nome che è più lungo di 4 caratteri
-            
+
             // farlo sia creando metodi appositi
             // sia usando lambda expression.
 
+            // (esecizio lasciato agli studenti)
+            // (Employee e) => { return e.Name; }
+
+            List<string> names = map(list, e => e.Name);
+            List<string> surnames = map(list, e => e.Surname);
+            List<decimal> salaries = map(list, e => e.Salary);
+
             double percentageOfFemales = calculatePercentageOfFemales(list);
-        }
-
-        private static List<string> getNameList(List<Employee> list)
-        {
-            List<string> names = new List<string>();
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                names.Add(list[i].Name);
-            }
-
-            return names;
         }
 
         private static List<Employee> filterEmployeesWithA(List<Employee> list)
@@ -129,6 +123,20 @@ namespace CorsoEnaip2018_Func1
                     filtered.Add(list[i]);
 
             return filtered;
+        }
+
+        private static List<T> map<T>(
+            List<Employee> list,
+            Func<Employee, T> projection)
+        {
+            List<T> projected = new List<T>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                projected.Add(projection(list[i]));
+            }
+
+            return projected;
         }
 
         private static double calculatePercentageOfFemales(List<Employee> list)
