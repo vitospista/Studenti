@@ -46,7 +46,8 @@ namespace CorsoEnaip2018_Func1
             //    };
 
             // il tipo Employee è già chiaro nella dichiarazione,
-            // posso ometterlo
+            // e quindi C# con la 'Type Inference' lo capisce da solo.
+            // Quindi posso ometterlo.
             //Func<Employee, bool> lambdaIsYearPre2000 =
             //    (e) => { return e.Birth.Year < 2000; };
 
