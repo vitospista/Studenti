@@ -116,25 +116,4 @@ namespace CorsoEnaip2018_Inheritance
         public decimal Salary { get; set; }
         public bool IsExternal { get; set; }
     }
-
-
-    /*
-     * Esercizio:
-     * 
-     * -) costruire una classe base Shape con i metodi virtual
-     *     -) void Draw (stampa in console qualcosa)
-     *     -) double CalculateArea()
-     *     -) double CalculatePerimeter()
-     *     
-     * -) costruire delle classi derivate:
-     *      -) Rectangle
-     *      -) Circle
-     *      -) Line
-     *    per ogni classe derivata, aggiungere le opportune proprietà in più.
-     *    per ogni classe, fare l'override dei metodi di Shape.
-     * 
-     * -) Creare una lista di Shape, e chiamare a turno
-     *    Draw, CalculateArea, ... iterando sulla lista.
-     * 
-     */
 }

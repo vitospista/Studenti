@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_NestedClassP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_IntCalculator_FuncDictionary", "CorsoEnaip2018_IntCalculator_FuncDictionary\CorsoEnaip2018_IntCalculator_FuncDictionary.csproj", "{D1822A9A-0FC9-48AF-9756-C9D9815E5FA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Shapes", "CorsoEnaip2018_Shapes\CorsoEnaip2018_Shapes.csproj", "{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,10 @@ Global
 		{D1822A9A-0FC9-48AF-9756-C9D9815E5FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1822A9A-0FC9-48AF-9756-C9D9815E5FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1822A9A-0FC9-48AF-9756-C9D9815E5FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,5 +182,6 @@ Global
 		{1234A684-697E-4975-8B79-43DAA8052957} = {8E7273DE-202A-4DFD-94E1-550326131DB6}
 		{9ACD9D9A-2E1B-435F-AA3D-A7A800C90FD7} = {8E7273DE-202A-4DFD-94E1-550326131DB6}
 		{D1822A9A-0FC9-48AF-9756-C9D9815E5FA6} = {8E7273DE-202A-4DFD-94E1-550326131DB6}
+		{5F6A81B7-77BE-4E8B-800F-DAEAC4EE34EE} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 	EndGlobalSection
 EndGlobal

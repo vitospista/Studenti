@@ -83,7 +83,7 @@ namespace CorsoEnaip2018_IntCalculator_FuncDictionary
             //    "+", "-", "*", "/", "%"
             //};
 
-            while (!operationDictionary.Keys.Contains(operation))
+            while (!operationDictionary.ContainsKey(operation))
             {
                 Console.Write("Non hai inserito un'operazione valida! Riprova: ");
                 operation = Console.ReadLine();
