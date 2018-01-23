@@ -1,0 +1,63 @@
+La provetta del 26 gennaio avrà esercizi di questo tipo:
+
+1)
+Un gruppo di bambini (da 3 a 6, a scelta) sta giocando a nascondino.
+Devono decidere a chi tocca cercare gli altri.
+Un bambino sceglie un numero alto (ad esempio 23).
+Un altro bambino comincia a contare da 1 a 23, e per ogni numero indica un bambino diverso.
+Quando è arrivato all'ultimo bambino, ricomincia dal primo.
+Va avanti finché non arriva a 23.
+A quel punto il bambino su cui ricade il 23 è quello che dovrà cercare gli altri.
+
+Implementare un programma Console che:
+- crea una classe Bambino (basta che abbia la proprietà Nome)
+- crea una lista di bambini
+- stampa la lista di bambini
+- chiede all'utente il numero per la conta
+- trova il bambino che deve cercare gli altri e ne stampa il nome.
+
+Quale operatore tra numeri interi si può usare per contare i bambini da 1 a 23 e trovare quello che deve contare?
+
+
+
+2)
+Utilizzando la classe Bambino di prima,
+aggiungere ad ogni bambino una lista di amici. Questi amici sono altri bambini.
+Quando un bambino aggiunge un altro bambino come amico,
+  anche l'amico deve aggiungere il primo bambino nella usa lista di amici.
+Implementare un programma Console che:
+- Prova ad aggiungere dei bambini alla lista di amici di altri bambini;
+- Alla fine stampa per ogni bambino la sua lista di amici.
+
+
+
+3) Prendere esercizio Newsfeed,
+aggiungere una classe Database che implementa ISubscriber,
+e al Receive salva su una tabella di un database SQL la notizia ricevuta.
+
+
+
+4) Quali sono le differenze tra una class abstract e una interface?
+
+
+
+5) Una banca eroga mutui alle persone, a condizione che la persona:
+-) abbia meno di 60 anni
+-) abbia uno stipendio annuale di almeno 12.000 euro.
+In base all'importo richiesto da una persona, la banca:
+- calcola lo stipendio mensile della persona
+- calcola il quinto dello stipendio, e lo considera come rata del mutuo
+- calcola il valore totale del mutuo, prendendo il valore chiesto dalla persona
+    e aggiungendo il 30% di interesse totale.
+- calcola il numero di rate mensili, dato il valore totale da restituire e la rata mensile.
+- restituisce un oggetto che contiene:
+    - totale soldi da restituire
+	- importo rata mensile
+	- numero rate
+	- numero anni di mutuo.
+
+la classe Banca avrà 2 metodi pubblici,
+-) uno che dice se la persona può chiedere un mutuo oppure no,
+-) uno che calcola effettivamente il mutuo.
+    se chiamo il secondo metodo usando una persona che non ha i requisiti,
+	il metodo deve lanciare una opportuna eccezione.
