@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CorsoEnaip2018_Family
 {
@@ -10,6 +7,8 @@ namespace CorsoEnaip2018_Family
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("A long long time ago, in a galaxy far away...");
+
             var mum = new Mum("Leila");
             var dad = new Dad("Han Solo");
             mum.MakeBaby(dad, "Kylo Ren");
@@ -18,6 +17,7 @@ namespace CorsoEnaip2018_Family
             Console.Read();
         }
     }
+
 
     class Person
     {
