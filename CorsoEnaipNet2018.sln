@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Family_Event
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_NewsFeed_Events", "CorsoEnaip2018_NewsFeed_Events\CorsoEnaip2018_NewsFeed_Events.csproj", "{41D62322-59A1-4F18-B198-542F20762739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_CompleteName_Events", "CorsoEnaip2018_CompleteName_Events\CorsoEnaip2018_CompleteName_Events.csproj", "{E38F453C-349C-4D65-96EA-E0D3AC7C5D58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{41D62322-59A1-4F18-B198-542F20762739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41D62322-59A1-4F18-B198-542F20762739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41D62322-59A1-4F18-B198-542F20762739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38F453C-349C-4D65-96EA-E0D3AC7C5D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38F453C-349C-4D65-96EA-E0D3AC7C5D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38F453C-349C-4D65-96EA-E0D3AC7C5D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38F453C-349C-4D65-96EA-E0D3AC7C5D58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -256,5 +262,6 @@ Global
 		{7F19E476-3108-44E2-8E1C-084ACA3E2859} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 		{61D1A788-E9E9-4C2D-8E49-118C5F7863F3} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 		{41D62322-59A1-4F18-B198-542F20762739} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
+		{E38F453C-349C-4D65-96EA-E0D3AC7C5D58} = {8E7273DE-202A-4DFD-94E1-550326131DB6}
 	EndGlobalSection
 EndGlobal
