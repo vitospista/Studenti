@@ -24,7 +24,7 @@ Quale operatore tra numeri interi si può usare per contare i bambini da 1 a 23 e
 Utilizzando la classe Bambino di prima,
 aggiungere ad ogni bambino una lista di amici. Questi amici sono altri bambini.
 Quando un bambino aggiunge un altro bambino come amico,
-  anche l'amico deve aggiungere il primo bambino nella usa lista di amici.
+  anche l'amico deve aggiungere il primo bambino nella sua lista di amici.
 Implementare un programma Console che:
 - Prova ad aggiungere dei bambini alla lista di amici di altri bambini;
 - Alla fine stampa per ogni bambino la sua lista di amici.

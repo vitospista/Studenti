@@ -30,8 +30,14 @@ namespace CorsoEnaip2018_ExtensionMethods
             else
                 Console.WriteLine("Il gruppo deve chiamare un taxi.");
 
-            list.Any(x => x.IsSober);
-            list.All(x => x.Age > 18);
+
+            // senza mettere 'this' sul metodo,
+            // dovrei usarlo così:
+            //ListExtension.Any(list, x => x.IsSober);
+
+            //con il 'this' sul primo parametro,
+            // posso usare il metodo Any come se appartenesse a list.
+            //list.Any(x => x.IsSober);
 
             Console.Read();
         }
@@ -44,9 +50,14 @@ namespace CorsoEnaip2018_ExtensionMethods
         public bool IsSober { get; set; }
     }
 
-
     static class ListExtension
     {
+        // I metodi d'estensione:
+        // -) Sono dichiarati in una classe statica
+        // -) sono statici
+        // -) dichiarano un parametro con il 'this'
+        // -) gli oggetti di quel tipo vedranno un metodo in più.
+
         public static bool Any<T>(this IEnumerable<T> list, Func<T, bool> condition)
         {
             foreach (var el in list)
