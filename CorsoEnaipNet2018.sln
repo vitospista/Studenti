@@ -70,6 +70,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB991B04-6F97-4331-AAC6-22CC410E4DB0}"
 	ProjectSection(SolutionItems) = preProject
 		Preparazione provetta 26 gennaio.txt = Preparazione provetta 26 gennaio.txt
+		provetta 26 gennaio.md = provetta 26 gennaio.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispense", "Dispense", "{CA8C711F-3409-4D6B-9D8A-0B40B8D6D855}"
@@ -100,6 +101,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Esercizio2objects", "CorsoEnaip2018_Esercizio2objects\CorsoEnaip2018_Esercizio2objects.csproj", "{F70977D0-2555-4759-8302-8571A2D8026A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Esercizio3", "CorsoEnaip2018_Esercizio3\CorsoEnaip2018_Esercizio3.csproj", "{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Test26gennaio", "CorsoEnaip2018_Test26gennaio\CorsoEnaip2018_Test26gennaio.csproj", "{D66A3B00-31F2-4C34-B5C2-DE327BEF932E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -267,6 +270,10 @@ Global
 		{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66A3B00-31F2-4C34-B5C2-DE327BEF932E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66A3B00-31F2-4C34-B5C2-DE327BEF932E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66A3B00-31F2-4C34-B5C2-DE327BEF932E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66A3B00-31F2-4C34-B5C2-DE327BEF932E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -312,5 +319,6 @@ Global
 		{B6AFF1FA-C64F-41C8-98C9-991E8FD823E8} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{F70977D0-2555-4759-8302-8571A2D8026A} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+		{D66A3B00-31F2-4C34-B5C2-DE327BEF932E} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 	EndGlobalSection
 EndGlobal
