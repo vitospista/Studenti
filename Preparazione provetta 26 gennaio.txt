@@ -49,7 +49,8 @@ In base all'importo richiesto da una persona, la banca:
 - calcola il quinto dello stipendio, e lo considera come rata del mutuo
 - calcola il valore totale del mutuo, prendendo il valore chiesto dalla persona
     e aggiungendo il 30% di interesse totale.
-- calcola il numero di rate mensili, dato il valore totale da restituire e la rata mensile.
+- calcola il numero di rate mensili, dato il valore totale da restituire
+  e la rata mensile.
 - restituisce un oggetto che contiene:
     - totale soldi da restituire
 	- importo rata mensile

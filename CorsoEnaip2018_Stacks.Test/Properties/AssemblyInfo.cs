@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CorsoEnaip2018_Test26gennaio")]
+[assembly: AssemblyTitle("CorsoEnaip2018_Stacks.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CorsoEnaip2018_Test26gennaio")]
+[assembly: AssemblyProduct("CorsoEnaip2018_Stacks.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d66a3b00-31f2-4c34-b5c2-de327bef932e")]
+[assembly: Guid("959ee129-921e-4f4b-8ba4-439deccfab74")]
 
 // Version information for an assembly consists of the following four values:
 //
