@@ -69,6 +69,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_NewsFeed", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB991B04-6F97-4331-AAC6-22CC410E4DB0}"
 	ProjectSection(SolutionItems) = preProject
+		Esercizi.txt = Esercizi.txt
 		Preparazione provetta 26 gennaio.txt = Preparazione provetta 26 gennaio.txt
 		provetta 26 gennaio.md = provetta 26 gennaio.md
 	EndProjectSection
@@ -105,6 +106,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Stacks", "CorsoEnaip2018_Stacks\CorsoEnaip2018_Stacks.csproj", "{3E1915E6-9FAC-4E80-90D7-FB2E3BE9FA63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Stacks.Test", "CorsoEnaip2018_Stacks.Test\CorsoEnaip2018_Stacks.Test.csproj", "{959EE129-921E-4F4B-8BA4-439DECCFAB74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Employees", "CorsoEnaip2018_Employees\CorsoEnaip2018_Employees.csproj", "{441E694E-0FA4-4126-B98B-657CCA3CF0AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Employees.Test", "CorsoEnaip2018_Employees.Test\CorsoEnaip2018_Employees.Test.csproj", "{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -280,6 +285,14 @@ Global
 		{959EE129-921E-4F4B-8BA4-439DECCFAB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{959EE129-921E-4F4B-8BA4-439DECCFAB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{959EE129-921E-4F4B-8BA4-439DECCFAB74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441E694E-0FA4-4126-B98B-657CCA3CF0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441E694E-0FA4-4126-B98B-657CCA3CF0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441E694E-0FA4-4126-B98B-657CCA3CF0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441E694E-0FA4-4126-B98B-657CCA3CF0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -327,5 +340,7 @@ Global
 		{8DDEB4AD-6A72-428A-9FEF-A1CB5D8B60F7} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{3E1915E6-9FAC-4E80-90D7-FB2E3BE9FA63} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{959EE129-921E-4F4B-8BA4-439DECCFAB74} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+		{441E694E-0FA4-4126-B98B-657CCA3CF0AF} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
+		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 	EndGlobalSection
 EndGlobal

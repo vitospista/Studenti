@@ -1,0 +1,28 @@
+1) SCACCHI
+Modellare il gioco degli scacchi con opportuni oggetti.
+In particolare:
+-) Una classe ChessSquare rappresenta una singola casella sulla scacchiera;
+-) Una classe ChessBoard contiene la lista completa di ChessSquare
+-) Una classe astratta ChessPiece fa da classe base per i vari pezzi,
+   e contiene i membri seguenti:
+    -) bool CanMoveTo(ChessSquare square)
+	-) void MoveTo(ChessSquare square)
+	-) Square ActualPosition { get; }
+	-) ColorType Color { get; }      // è il colore Bianco o Nero
+-) Ogni pezzo implementa questi due metodi in base alle mosse che può fare.
+    Ad esempio la classe ChessPawn rappresenta una torre,
+	e può muoversi solo verso caselle che hanno la stessa coordinata orizzontale
+	o la stessa coordinata verticale di quella attuale.
+Ogni parte di questo esercizio può essere svolto su più livelli di difficoltà, dal più facile in su:
+-) ChessSquare:
+    1) implementarlo come coppia di coordinate intere, da 0 a 7 (quindi 8 righe e 8 colonne)
+	2) implementarlo come coppia di coordinate, una intera (da 1 a 8) e una come lettera (da 'A' a 'H')
+	    (diventa più difficile gestire i movimenti, ad esempio per un pedone non basta fare 'riga++',
+		devo passare da una lettera alla successiva)
+-) CanMoveTo:
+    1) implementarlo solo verificando che la casella di arrivo sia nelle mosse possibili
+	    (esempio: non posso muovere un pedone di 3 mosse avanti)
+	2) implementarlo verificando come al punto 1), e poi verificando che:
+		a) se il pezzo è un Re, non deve finire sotto scacco;
+		b) se il pezzo è un altro, il suo movimento non deve provocare uno scacco del proprio Re.
+-)
