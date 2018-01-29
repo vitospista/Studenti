@@ -9,7 +9,7 @@ namespace CorsoEnaip2018_Stacks.Test
         [TestMethod]
         public void The_subscribers_receive_the_Put_element()
         {
-            var s = new ObservableStack<int>(3);
+            var s = new CountableStack<int>(3);
             var sub1 = new StackSubscriber<int>();
             var sub2 = new StackSubscriber<int>();
             s.Subscribe(sub1);
@@ -22,7 +22,7 @@ namespace CorsoEnaip2018_Stacks.Test
         [TestMethod]
         public void The_subscribers_receive_the_Pop_element()
         {
-            var s = new ObservableStack<int>(3);
+            var s = new CountableStack<int>(3);
             s.Put(40);
             s.Put(41);
             var sub1 = new StackSubscriber<int>();
@@ -38,7 +38,7 @@ namespace CorsoEnaip2018_Stacks.Test
         [TestMethod]
         public void An_unsubscribed_does_not_receive_the_Put_element()
         {
-            var s = new ObservableStack<int>(3);
+            var s = new CountableStack<int>(3);
             var sub1 = new StackSubscriber<int>();
             var sub2 = new StackSubscriber<int>();
             s.Subscribe(sub1);
@@ -53,7 +53,7 @@ namespace CorsoEnaip2018_Stacks.Test
         [TestMethod]
         public void An_unsubscribed_does_not_receive_the_Pop_element()
         {
-            var s = new ObservableStack<int>(3);
+            var s = new CountableStack<int>(3);
             var sub1 = new StackSubscriber<int>();
             var sub2 = new StackSubscriber<int>();
             s.Subscribe(sub1);
