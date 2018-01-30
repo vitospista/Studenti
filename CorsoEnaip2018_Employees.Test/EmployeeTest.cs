@@ -9,6 +9,14 @@ namespace CorsoEnaip2018_Employees.Test
     public class EmployeeTest
     {
         [TestMethod]
+        public void new_Employee_add_0_to_salary()
+        {
+            var e = new Employee();
+            e.AddSalary(2018, 1);
+            Assert.AreEqual(0, e.TotalPay);
+        }
+
+        [TestMethod]
         public void Employee_AddSalary_cumulates_salaries()
         {
             var c = new FixedPayCalculator();
@@ -43,11 +51,14 @@ namespace CorsoEnaip2018_Employees.Test
             commissionCalc.AddCommission(new DateTime(2018, 1, 20), 10000);
             commissionCalc.AddCommission(new DateTime(2018, 1, 29), 20000);
 
+            var noFamilyCalc = new NoFamilyBonusCalculator();
+            var bigFamilyCalc = new BigFamilyBonusCalculator();
+
             var list = new List<Employee>
             {
-                new Employee { PayCalculator = fixedCalc },
-                new Employee { PayCalculator = hourlyCalc },
-                new Employee { PayCalculator = commissionCalc },
+                new Employee { PayCalculator = fixedCalc, BonusCalculator = noFamilyCalc },
+                new Employee { PayCalculator = hourlyCalc, BonusCalculator = noFamilyCalc },
+                new Employee { PayCalculator = commissionCalc, BonusCalculator = bigFamilyCalc },
             };
 
             foreach(var e in list)
@@ -59,6 +70,7 @@ namespace CorsoEnaip2018_Employees.Test
             foreach (var e in list)
                 e.AddSalary(2018, 2);
         }
+
         // TODO: approfondire Equals
         //[TestMethod]
         //public void CheckC()

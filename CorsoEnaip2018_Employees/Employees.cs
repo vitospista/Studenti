@@ -22,15 +22,34 @@ namespace CorsoEnaip2018_Employees
 
     public class Employee
     {
+        public Employee()
+        {
+            PayCalculator = NullPayCalculator.Instance;
+            BonusCalculator = NullBonusCalculator.Instance;
+            MalusCalculator = NullMalusCalculator.Instance;
+        }
+
         public decimal TotalPay { get; private set; }
 
         public PayCalculator PayCalculator { get; set; }
 
+        public BonusCalculator BonusCalculator { get; set; }
+
+        public MalusCalculator MalusCalculator { get; set; }
+
         public void AddSalary(int year, int month)
         {
-            var salary = PayCalculator.CalculatePay(year, month);
+            var rawSalary = PayCalculator.CalculatePay(year, month);
+
+            var malus = MalusCalculator.CalculateMalus(rawSalary);
+
+            var bonus = BonusCalculator.CalculateBonus();
+
+            var salary = rawSalary + bonus - malus;
 
             TotalPay += salary;
         }
+
+        public bool IsUnderLegalRefound { get; set; }
     }
 }

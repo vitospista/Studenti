@@ -100,4 +100,22 @@ namespace CorsoEnaip2018_Employees
                 _commissions.Add(day, amount);
         }
     }
+
+    public class NullPayCalculator : PayCalculator
+    {
+        static NullPayCalculator()
+        {
+            Instance = new NullPayCalculator();
+        }
+
+        public static NullPayCalculator Instance { get; }
+
+        private NullPayCalculator()
+        { }
+
+        public override decimal CalculatePay(int year, int month)
+        {
+            return 0;
+        }
+    }
 }
