@@ -117,6 +117,10 @@ namespace CorsoEnaip2018_NewsFeed
 
         public void Publish(string news)
         {
+            var s1 = _subscribers[0];
+            var computer = (Computer)s1;
+            var name = computer.Name;
+
             foreach (var sub in _subscribers)
                 sub.Receive(Name, news);
         }

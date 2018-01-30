@@ -20,109 +20,17 @@ namespace CorsoEnaip2018_Employees
     * Ogni Employee ha un metodo CalculatePay, e una proprietà TotalPay.
     */
 
-    public abstract class Employee
+    public class Employee
     {
         public decimal TotalPay { get; private set; }
 
-        public void AddSalary(decimal salary)
+        public PayCalculator PayCalculator { get; set; }
+
+        public void AddSalary(int year, int month)
         {
+            var salary = PayCalculator.CalculatePay(year, month);
+
             TotalPay += salary;
-        }
-
-        public abstract decimal CalculatePay(int year, int month);
-    }
-
-    public class FixedSalaryEmployee : Employee
-    {
-        public decimal MonthlySalary { get; set; }
-
-        public override decimal CalculatePay(int year, int month)
-        {
-            return MonthlySalary;
-        }
-    }
-
-    public class HourlyEmployee : Employee
-    {
-        private Dictionary<DateTime, int> _hours;
-
-        public HourlyEmployee()
-        {
-            _hours = new Dictionary<DateTime, int>();
-        }
-
-        public void AddWorkedHours(DateTime day, int hours)
-        {
-            if (_hours.ContainsKey(day))
-            {
-                _hours[day] += hours;
-                // è esattamente equivalente a:
-                //_hours[day] = _hours[day] + hours;
-            }
-            else
-            {
-                _hours.Add(day, hours);
-            }
-        }
-
-        public override decimal CalculatePay(int year, int month)
-        {
-            decimal totalMonthlySalary = 0;
-
-            var filteredHours = _hours
-                .Where(x => x.Key.Year == year && x.Key.Month == month);
-
-            foreach (var h in filteredHours)
-                totalMonthlySalary += amoutForHours(h.Value);
-
-            return totalMonthlySalary;
-        }
-
-        private decimal amoutForHours(int h)
-        {
-            var extraordinaries = h - 8;
-
-            if (extraordinaries > 0)
-            {
-                return 8 * HourlySalary + extraordinaries * HourlySalary * (decimal)1.5;
-            }
-            else
-            {
-                return h * HourlySalary;
-            }
-        }
-
-        public decimal HourlySalary { get; set; }
-    }
-
-    public class CommissionEmployee : Employee
-    {
-        private Dictionary<DateTime, decimal> _commissions;
-
-        public CommissionEmployee()
-        {
-            _commissions = new Dictionary<DateTime, decimal>();
-        }
-
-        public decimal CommissionPercentage { get; set; }
-
-        public override decimal CalculatePay(int year, int month)
-        {
-            return _commissions
-                .Where(x => x.Key.Year == year && x.Key.Month == month)
-                .Sum(x => x.Value) * CommissionPercentage;
-        }
-
-        public void AddCommission(DateTime day, decimal amount)
-        {
-            if (_commissions.ContainsKey(day))
-            {
-                _commissions[day] += amount;
-            }
-            else
-            {
-                _commissions.Add(day, amount);
-            }
         }
     }
 }
