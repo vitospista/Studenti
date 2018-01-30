@@ -1,0 +1,47 @@
+PRIMO STEP
+
+Il cliente ha un elenco di istanze di una certa classe di dominio.
+Questa classe ha alcune proprietà
+    (crearne alcune a scelta, di diversi tipi: bool, int, double, string, ...);
+
+Il cliente vuole salvare queste istanze in un file,
+    salvando una istanza su ogni riga,
+    e formattando gli oggetti in formato JSON (vedi più sotto).
+
+Implementare una classe Saver
+    che prenda l'elenco di istanze, le trasformi in stringhe e le salvi sul file.
+
+---------
+
+SECONDO STEP
+
+Successivamente, il cliente chiede una change request:
+vuole decidere il formato di salvataggio, a seconda dei casi,
+in almeno due forme: JSON e QueryString.
+
+Data la seguente classe di dominio:
+class C
+{
+    public string Code { get; }
+	public int Value { get; }
+	public bool IsValid { get;}
+}
+e una istanza con questi valori:
+var c = new C { Code = "c1", Value = 123, IsValid = true };
+
+la rappresentazione json su una riga è:
+{ "Code": "c1", "Value": 123, "IsValid": true }
+
+mentre la rappresentazione querystring è:
+Code=c1;Value=123;IsValid=true
+
+Re-implementare il problema usando il pattern Strategy:
+porre le due formattazioni in due classi distinte, che derivino
+    da una classe comune Formatter (con un metodo abstract da sovrascrivere).
+La classe Saver avrà una proprietà di tipo Formatter, settata dall'esterno.
+Il Saver deve occuparsi solo di aprire il file,
+    aggiungerci l'elenco di stringhe formattate,
+    e chiudere il file.
+Il Saver deve demandare al Formatter
+    la responsabilità di formattare la singola riga.
+
