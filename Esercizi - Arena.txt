@@ -1,0 +1,7 @@
+Si supponga di dover progettare gli oggetti di un videogioco di combattimento.
+Ci sono tre tipi di personaggi:
+1) guerrieri
+2) stregoni
+3) orchi
+Ogni singolo personaggio ha un certo numero di punti-vita di partenza.
+Quando viene attaccato, perde un tot di punti-vita...

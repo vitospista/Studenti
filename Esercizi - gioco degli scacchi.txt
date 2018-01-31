@@ -21,8 +21,11 @@ Ogni parte di questo esercizio può essere svolto su più livelli di difficoltà, d
 		devo passare da una lettera alla successiva)
 -) CanMoveTo:
     1) implementarlo solo verificando che la casella di arrivo sia nelle mosse possibili
-	    (esempio: non posso muovere un pedone di 3 mosse avanti)
-	2) implementarlo verificando come al punto 1), e poi verificando che:
+	    (esempio: non posso muovere un pedone di 3 mosse avanti);
+	2) implementarlo verificando che sia rispettata la condizione al punto 1)
+	    e in più che non ci siano pezzi in mezzo (una torre o un alfiere
+		non possono "scavalcare" gli altri pezzi!)
+	3) implementarlo verificando come al punto 1), e poi verificando che:
 		a) se il pezzo è un Re, non deve finire sotto scacco;
 		b) se il pezzo è un altro, il suo movimento non deve provocare uno scacco del proprio Re.
 -)

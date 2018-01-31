@@ -69,6 +69,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_NewsFeed", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB991B04-6F97-4331-AAC6-22CC410E4DB0}"
 	ProjectSection(SolutionItems) = preProject
+		Esercizi - Arena.txt = Esercizi - Arena.txt
 		Esercizi - Employee.txt = Esercizi - Employee.txt
 		Esercizi - gioco degli scacchi.txt = Esercizi - gioco degli scacchi.txt
 		Esercizi - salvataggio su file.txt = Esercizi - salvataggio su file.txt

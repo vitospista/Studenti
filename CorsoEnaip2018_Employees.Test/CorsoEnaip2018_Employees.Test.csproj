@@ -57,6 +57,7 @@
     <Compile Include="MalusCalculatorTest.cs" />
     <Compile Include="PayCalculatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveToDatabaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CorsoEnaip2018_Employees\CorsoEnaip2018_Employees.csproj">
