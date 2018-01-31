@@ -29,6 +29,10 @@ namespace CorsoEnaip2018_Employees
             MalusCalculator = NullMalusCalculator.Instance;
         }
 
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
         public decimal TotalPay { get; private set; }
 
         public PayCalculator PayCalculator { get; set; }
@@ -49,7 +53,5 @@ namespace CorsoEnaip2018_Employees
 
             TotalPay += salary;
         }
-
-        public bool IsUnderLegalRefound { get; set; }
     }
 }

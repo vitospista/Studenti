@@ -23,6 +23,10 @@ namespace CorsoEnaip2018_Employees
 
     public class HourlyPayCalculator : PayCalculator
     {
+        public IReadOnlyDictionary<DateTime, int> Hours
+        {
+            get { return _hours; }
+        }
         private Dictionary<DateTime, int> _hours;
 
         public HourlyPayCalculator()
