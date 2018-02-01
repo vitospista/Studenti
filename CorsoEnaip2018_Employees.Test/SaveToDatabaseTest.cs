@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CorsoEnaip2018_Employees.Test
 {
     [TestClass]
-    class SaveToDatabaseTest
+    public class SaveToDatabaseTest
     {
         [TestMethod]
         public void SaveAndGet()
@@ -22,30 +22,23 @@ namespace CorsoEnaip2018_Employees.Test
 
             conn.Open();
 
-            foreach(var e in list)
+            var insertOperations = new Dictionary<Type, Action<Employee, IDbConnection>>
             {
-
-                
-
-                if (e.PayCalculator.GetType() == typeof(FixedPayCalculator))
-                {
-                }
-                else if (e.PayCalculator.GetType() == typeof(HourlyPayCalculator))
-                {
-                }
-                else
-                {
-                    // TODO... for CommissionPayCalculator
-                }
-
-                cmd.ExecuteNonQuery();
-            }
-            
-            
-
-            conn.Close();
+                { typeof(FixedPayCalculator), InsertFixedPayEmployee },
+                { typeof(HourlyPayCalculator), InsertHourlyPayEmployee },
+            };
 
             // salvo la lista di Employee su una tabella del database.
+            foreach (var e in list)
+            {
+                var calculatorType = e.PayCalculator.GetType();
+
+                var insertAction = insertOperations[calculatorType];
+
+                insertAction(e, conn);
+            }
+            
+            conn.Close();
 
             // recupero dal database la lista.
 
@@ -63,16 +56,16 @@ namespace CorsoEnaip2018_Employees.Test
             hourlyCalc.AddWorkedHours(new DateTime(2018, 1, 15), 8);
             hourlyCalc.AddWorkedHours(new DateTime(2018, 1, 16), 9);
 
-            var commissionCalc = new CommissionPayCalculator();
-            commissionCalc.CommissionPercentage = (decimal)0.02;
-            commissionCalc.AddCommission(new DateTime(2018, 1, 20), 10000);
-            commissionCalc.AddCommission(new DateTime(2018, 1, 29), 20000);
+            //var commissionCalc = new CommissionPayCalculator();
+            //commissionCalc.CommissionPercentage = (decimal)0.02;
+            //commissionCalc.AddCommission(new DateTime(2018, 1, 20), 10000);
+            //commissionCalc.AddCommission(new DateTime(2018, 1, 29), 20000);
 
             var list = new List<Employee>
             {
                 new Employee { Name = "Mario Rossi", PayCalculator = fixedCalc },
                 new Employee { Name = "Tonio Cartonio", PayCalculator = hourlyCalc },
-                new Employee { Name = "Gigi Pirola", PayCalculator = commissionCalc },
+                //new Employee { Name = "Gigi Pirola", PayCalculator = commissionCalc },
             };
 
             return list;
@@ -90,9 +83,12 @@ namespace CorsoEnaip2018_Employees.Test
                 "VALUES" +
                 "(@Name, @PayCalculatorType,@TotalPay,@MonthlySalary)";
 
+            // employee properties
             cmd.Parameters.Add(new SqlParameter("Name", e.Name));
-            cmd.Parameters.Add(new SqlParameter("PayCalculatorType", e.PayCalculator.GetType().Name));
             cmd.Parameters.Add(new SqlParameter("TotalPay", e.TotalPay));
+
+            // fixed pay calculator
+            cmd.Parameters.Add(new SqlParameter("PayCalculatorType", e.PayCalculator.GetType().Name));
             cmd.Parameters.Add(new SqlParameter("MonthlySalary", fixedCalc.MonthlySalary));
 
             cmd.ExecuteNonQuery();
@@ -105,10 +101,10 @@ namespace CorsoEnaip2018_Employees.Test
             var employeeCmd = conn.CreateCommand();
             employeeCmd.CommandType = CommandType.Text;
             employeeCmd.CommandText =
-                "INSERT INTO Employees " +
-                "(Name,PayCalculatorType,TotalPay,HourlySalary) OUTPUT INSERTED.ID" +
-                "VALUES" +
-                "(@Name, @PayCalculatorType,@TotalPay,@HourlySalary);";
+                " INSERT INTO Employees " +
+                " (Name,PayCalculatorType,TotalPay,HourlySalary) OUTPUT INSERTED.ID" +
+                " VALUES" +
+                " (@Name, @PayCalculatorType,@TotalPay,@HourlySalary);";
 
             employeeCmd.Parameters.Add(new SqlParameter("Name", e.Name));
             employeeCmd.Parameters.Add(new SqlParameter("PayCalculatorType", e.PayCalculator.GetType().Name));
