@@ -114,11 +114,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Employees", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Employees.Test", "CorsoEnaip2018_Employees.Test\CorsoEnaip2018_Employees.Test.csproj", "{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B0EB4A6-2AA0-4A5D-82F5-E1DC9D1F3207}"
-	ProjectSection(SolutionItems) = preProject
-		..\DatabaseCorso.sql = ..\DatabaseCorso.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
