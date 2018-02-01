@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BonusCalculators.cs" />
+    <Compile Include="EmployeeDatabase.cs" />
     <Compile Include="Employees.cs" />
+    <Compile Include="ISaver.cs" />
     <Compile Include="MalusCalculator.cs" />
     <Compile Include="PayCalculators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

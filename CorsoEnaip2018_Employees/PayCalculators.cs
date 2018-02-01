@@ -9,11 +9,18 @@ namespace CorsoEnaip2018_Employees
     public abstract class PayCalculator
     {
         public abstract decimal CalculatePay(int year, int month);
+
+        public abstract void AcceptSaver(ISaver saver, Employee e);
     }
 
     public class FixedPayCalculator : PayCalculator
     {
         public decimal MonthlySalary { get; set; }
+
+        public override void AcceptSaver(ISaver saver, Employee e)
+        {
+            saver.Save(e, this);
+        }
 
         public override decimal CalculatePay(int year, int month)
         {
@@ -32,6 +39,11 @@ namespace CorsoEnaip2018_Employees
         public HourlyPayCalculator()
         {
             _hours = new Dictionary<DateTime, int>();
+        }
+
+        public override void AcceptSaver(ISaver saver, Employee e)
+        {
+            saver.Save(e, this);
         }
 
         public override decimal CalculatePay(int year, int month)
@@ -89,6 +101,11 @@ namespace CorsoEnaip2018_Employees
 
         public decimal CommissionPercentage { get; set; }
 
+        public override void AcceptSaver(ISaver saver, Employee e)
+        {
+            saver.Save(e, this);
+        }
+
         public override decimal CalculatePay(int year, int month)
         {
             return _commissions
@@ -116,6 +133,11 @@ namespace CorsoEnaip2018_Employees
 
         private NullPayCalculator()
         { }
+
+        public override void AcceptSaver(ISaver saver, Employee e)
+        {
+            saver.Save(e, this);
+        }
 
         public override decimal CalculatePay(int year, int month)
         {

@@ -18,30 +18,14 @@ namespace CorsoEnaip2018_Employees.Test
             // creo lista di Employee con Pay/Bonus/Malus diversi.
             var list = createEmployees();
 
-            var conn = new SqlConnection(@"Data Source=TRISRV10\SQLEXPRESS;Initial Catalog=CorsoEuris_Kraus;Integrated Security=True");
+            var db = new EmployeeDatabase(@"Data Source=TRISRV10\SQLEXPRESS;Initial Catalog=CorsoEuris_Kraus;Integrated Security=True");
 
-            conn.Open();
+            db.Save(list);
 
-            var insertOperations = new Dictionary<Type, Action<Employee, IDbConnection>>
-            {
-                { typeof(FixedPayCalculator), InsertFixedPayEmployee },
-                { typeof(HourlyPayCalculator), InsertHourlyPayEmployee },
-            };
+            //var saved = db.FindAll();
 
-            // salvo la lista di Employee su una tabella del database.
-            foreach (var e in list)
-            {
-                var calculatorType = e.PayCalculator.GetType();
-
-                var insertAction = insertOperations[calculatorType];
-
-                insertAction(e, conn);
-            }
-            
-            conn.Close();
-
+            // TODO: assert...
             // recupero dal database la lista.
-
             // verifico che la nuova lista ha gli stessi valori
             // della lista di partenza.
         }
@@ -69,66 +53,6 @@ namespace CorsoEnaip2018_Employees.Test
             };
 
             return list;
-        }
-
-        private void InsertFixedPayEmployee(Employee e, IDbConnection conn)
-        {
-            var fixedCalc = (FixedPayCalculator)e.PayCalculator;
-
-            var cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText =
-                "INSERT INTO Employees " +
-                "(Name,PayCalculatorType,TotalPay,MonthlySalary)" +
-                "VALUES" +
-                "(@Name, @PayCalculatorType,@TotalPay,@MonthlySalary)";
-
-            // employee properties
-            cmd.Parameters.Add(new SqlParameter("Name", e.Name));
-            cmd.Parameters.Add(new SqlParameter("TotalPay", e.TotalPay));
-
-            // fixed pay calculator
-            cmd.Parameters.Add(new SqlParameter("PayCalculatorType", e.PayCalculator.GetType().Name));
-            cmd.Parameters.Add(new SqlParameter("MonthlySalary", fixedCalc.MonthlySalary));
-
-            cmd.ExecuteNonQuery();
-        }
-
-        private void InsertHourlyPayEmployee(Employee e, IDbConnection conn)
-        {
-            var hourlyCalc = (HourlyPayCalculator)e.PayCalculator;
-
-            var employeeCmd = conn.CreateCommand();
-            employeeCmd.CommandType = CommandType.Text;
-            employeeCmd.CommandText =
-                " INSERT INTO Employees " +
-                " (Name,PayCalculatorType,TotalPay,HourlySalary) OUTPUT INSERTED.ID" +
-                " VALUES" +
-                " (@Name, @PayCalculatorType,@TotalPay,@HourlySalary);";
-
-            employeeCmd.Parameters.Add(new SqlParameter("Name", e.Name));
-            employeeCmd.Parameters.Add(new SqlParameter("PayCalculatorType", e.PayCalculator.GetType().Name));
-            employeeCmd.Parameters.Add(new SqlParameter("TotalPay", e.TotalPay));
-            employeeCmd.Parameters.Add(new SqlParameter("HourlySalary", hourlyCalc.HourlySalary));
-
-            var employeeId = (int)employeeCmd.ExecuteScalar();
-
-            foreach(var s in hourlyCalc.Hours)
-            {
-                var schedulationCmd = conn.CreateCommand();
-                schedulationCmd.CommandType = CommandType.Text;
-                schedulationCmd.CommandText =
-                    "INSERT INTO Schedulations " +
-                    "(EmployeeId,Date,WorkedHours)" +
-                    "VALUES" +
-                    "(@EmployeeId, @Date,@WorkedHours);";
-
-                schedulationCmd.Parameters.Add(new SqlParameter("EmployeeId", employeeId));
-                schedulationCmd.Parameters.Add(new SqlParameter("Date", s.Key));
-                schedulationCmd.Parameters.Add(new SqlParameter("WorkedHours", s.Value));
-
-                schedulationCmd.ExecuteNonQuery();
-            }
         }
     }
 }
