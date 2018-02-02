@@ -38,11 +38,6 @@ namespace CorsoEnaip2018_Employees
             _connection.Close();
         }
 
-        //public void Save(Employee e, PayCalculator payCalculator)
-        //{
-            
-        //}
-
         public void Save(Employee e, FixedPayCalculator c)
         {
             var cmd = _connection.CreateCommand();
@@ -169,16 +164,68 @@ namespace CorsoEnaip2018_Employees
         }
 
 
-
-
-
-
-
-
         public List<Employee> FindAll()
+        {
+            _connection = new SqlConnection(_connectionString);
+
+            _connection.Open();
+
+            var cmd = _connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Employees";
+
+            var reader = cmd.ExecuteReader();
+
+            var list = new List<Employee>();
+
+            while (reader.Read())
+            {
+                var e = new Employee();
+
+                e.Id = (int)reader["Id"];
+                e.Name = (string)reader["Name"];
+                e.TotalPay = (decimal)reader["TotalPay"];
+
+                var payType = (string)reader["PayCalculatorType"];
+
+                switch (payType)
+                {
+                    case nameof(FixedPayCalculator):
+                        var fixedCalc = new FixedPayCalculator();
+                        fixedCalc.MonthlySalary = (decimal)reader["MonthlySalary"];
+                        break;
+                    case nameof(HourlyPayCalculator):
+                        var hourlyCalc = new HourlyPayCalculator();
+                        hourlyCalc.HourlySalary = (decimal)reader["HourlySalary"];
+                        // TODO: pesca le schedulations di questo employee.
+                        break;
+                    case nameof(CommissionPayCalculator):
+                        var commCalc = new CommissionPayCalculator();
+                        commCalc.CommissionPercentage = (decimal)reader["CommissionPercentage"];
+                        //TODO: pesca le Commissions di questo Employee
+                        break;
+                    case nameof(NullPayCalculator):
+                        break;
+                    default:
+                        throw new ArgumentException($"'{payType}' is not a known PayCalculator!");
+                }
+
+                list.Add(e);
+            }
+
+            _connection.Close();
+
+            return list;
+        }
+
+        private Dictionary<DateTime, int> getSchedulations(int employeeId)
         {
             throw new NotImplementedException();
         }
 
+        private Dictionary<DateTime, decimal> getCommissions(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

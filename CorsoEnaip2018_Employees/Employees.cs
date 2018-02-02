@@ -33,7 +33,7 @@ namespace CorsoEnaip2018_Employees
 
         public string Name { get; set; }
 
-        public decimal TotalPay { get; private set; }
+        public decimal TotalPay { get; set; }
 
         public PayCalculator PayCalculator { get; set; }
 
