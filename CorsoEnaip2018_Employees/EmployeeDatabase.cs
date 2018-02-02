@@ -94,7 +94,35 @@ namespace CorsoEnaip2018_Employees
 
         public void Save(Employee e, CommissionPayCalculator c)
         {
-            throw new NotImplementedException();
+            var cmd = _connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText =
+                 " UPDATE Employees SET" +
+                 " PayCalculatorType = @PayCalculatorType," +
+                 " CommissionPercentage = @CommissionPercentage" +
+                 " WHERE Id = @Id;";
+            cmd.Parameters.Add(new SqlParameter("PayCalculatorType", c.GetType().Name));
+            cmd.Parameters.Add(new SqlParameter("CommissionPercentage", c.CommissionPercentage));
+            cmd.Parameters.Add(new SqlParameter("Id", e.Id));
+
+            cmd.ExecuteNonQuery();
+
+            foreach (var s in c.Commissions)
+            {
+                var commissionCmd = _connection.CreateCommand();
+                commissionCmd.CommandType = CommandType.Text;
+                commissionCmd.CommandText =
+                    " INSERT INTO Commissions" +
+                    " (EmployeeId,Date,CommissionAmount)" +
+                    " VALUES" +
+                    " (@EmployeeId, @Date,@CommissionAmount);";
+
+                commissionCmd.Parameters.Add(new SqlParameter("EmployeeId", e.Id));
+                commissionCmd.Parameters.Add(new SqlParameter("Date", s.Key));
+                commissionCmd.Parameters.Add(new SqlParameter("CommissionAmount", s.Value));
+
+                commissionCmd.ExecuteNonQuery();
+            }
         }
 
         public void Save(Employee e, NullPayCalculator c)

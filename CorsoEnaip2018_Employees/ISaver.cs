@@ -8,7 +8,6 @@ namespace CorsoEnaip2018_Employees
 {
     public interface ISaver
     {
-        //void Save(Employee e, PayCalculator c);
         void Save(Employee e, FixedPayCalculator c);
         void Save(Employee e, HourlyPayCalculator c);
         void Save(Employee e, CommissionPayCalculator c);

@@ -92,7 +92,12 @@ namespace CorsoEnaip2018_Employees
 
     public class CommissionPayCalculator : PayCalculator
     {
-        private Dictionary<DateTime, decimal> _commissions;
+        public IReadOnlyDictionary<DateTime, decimal> Commissions
+        {
+            get { return _commissions; }
+        }
+
+        private readonly Dictionary<DateTime, decimal> _commissions;
 
         public CommissionPayCalculator()
         {

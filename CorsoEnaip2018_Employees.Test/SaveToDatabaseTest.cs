@@ -40,19 +40,27 @@ namespace CorsoEnaip2018_Employees.Test
             hourlyCalc.AddWorkedHours(new DateTime(2018, 1, 15), 8);
             hourlyCalc.AddWorkedHours(new DateTime(2018, 1, 16), 9);
 
-            //var commissionCalc = new CommissionPayCalculator();
-            //commissionCalc.CommissionPercentage = (decimal)0.02;
-            //commissionCalc.AddCommission(new DateTime(2018, 1, 20), 10000);
-            //commissionCalc.AddCommission(new DateTime(2018, 1, 29), 20000);
+            var commissionCalc = new CommissionPayCalculator();
+            commissionCalc.CommissionPercentage = (decimal)0.02;
+            commissionCalc.AddCommission(new DateTime(2018, 1, 20), 10000);
+            commissionCalc.AddCommission(new DateTime(2018, 1, 29), 20000);
 
             var list = new List<Employee>
             {
                 new Employee { Name = "Mario Rossi", PayCalculator = fixedCalc },
                 new Employee { Name = "Tonio Cartonio", PayCalculator = hourlyCalc },
-                //new Employee { Name = "Gigi Pirola", PayCalculator = commissionCalc },
+                new Employee { Name = "Gigi Pirola", PayCalculator = commissionCalc },
             };
 
             return list;
         }
     }
+
+    /*
+     * Single Responsibility Principle
+     * Open to extension, closed to modification
+     * Liskov Substitution Principle
+     * Interfaces Segregation
+     * Dependency Inversion Of Control
+     */
 }
