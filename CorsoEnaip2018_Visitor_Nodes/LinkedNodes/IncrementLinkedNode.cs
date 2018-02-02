@@ -7,12 +7,12 @@ namespace CorsoEnaip2018_Visitor_Nodes.LinkedNodes
     {
         public double Increment { get; set; }
 
-        public override void Accept(Accumulator a)
+        public override void Accept(ILinkedNodeVisitor v)
         {
-            a.Sum(this);
+            v.Visit(this);
 
             if (Next != null)
-                Next.Accept(a);
+                Next.Accept(v);
         }
     }
 }

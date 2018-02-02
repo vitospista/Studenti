@@ -1,0 +1,11 @@
+Riprendere l'esercizio sui Visitor dei nodi,
+
+e aggiungere: 
+
+1) un Visitor che calcola la media dei valori
+
+2) un Visitor che fa il conto di quanti nodi ci sono
+
+3) un Visitor che calcola la media dei valori in termini assoluti
+(IncrementLinkedNode con Increment = 6, DecrementLinkedNode con Decrement = 10
+     ===> media = 8)

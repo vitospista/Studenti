@@ -51,5 +51,28 @@ namespace CorsoEnaip2018_Visitor_Nodes
 
             Assert.AreEqual(4.3, acc.Total, 0.001);
         }
+
+        [TestMethod]
+        public void Multiplier_works()
+        {
+            var node = new IncrementLinkedNode
+            {
+                Increment = 5.4,
+                Next = new DecrementLinkedNode
+                {
+                    Decrement = 2.3,
+                    Next = new IncrementLinkedNode
+                    {
+                        Increment = 1.2
+                    }
+                }
+            };
+
+            var mul = new Multiplier();
+
+            node.Accept(mul);
+
+            Assert.AreEqual(5.4 / 2.3 * 1.2, mul.Total, 0.001);
+        }
     }
 }

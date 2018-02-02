@@ -1,4 +1,5 @@
-﻿using CorsoEnaip2018_Visitor_Nodes.Visitors;
+﻿using System;
+using CorsoEnaip2018_Visitor_Nodes.Visitors;
 
 namespace CorsoEnaip2018_Visitor_Nodes.LinkedNodes
 {
@@ -6,12 +7,12 @@ namespace CorsoEnaip2018_Visitor_Nodes.LinkedNodes
     {
         public double Decrement { get; set; }
 
-        public override void Accept(Accumulator a)
+        public override void Accept(ILinkedNodeVisitor v)
         {
-            a.Sum(this);
+            v.Visit(this);
 
             if (Next != null)
-                Next.Accept(a);
+                Next.Accept(v);
         }
     }
 }

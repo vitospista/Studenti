@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CorsoEnaip2018_Visitor_Nodes.Visitors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,6 @@ namespace CorsoEnaip2018_Visitor_Nodes.TreeNodes
 
         public List<TreeNode> Children { get; }
 
-        public abstract double Sum();
+        public abstract void Accept(ITreeNodeVisitor v);
     }
 }

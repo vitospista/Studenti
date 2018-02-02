@@ -6,6 +6,6 @@ namespace CorsoEnaip2018_Visitor_Nodes.LinkedNodes
     {
         public LinkedNode Next { get; set; }
 
-        public abstract void Accept(Accumulator a);
+        public abstract void Accept(ILinkedNodeVisitor v);
     }
 }

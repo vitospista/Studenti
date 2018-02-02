@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CorsoEnaip2018_Visitor_Nodes.Visitors;
 
 namespace CorsoEnaip2018_Visitor_Nodes.TreeNodes
 {
@@ -10,9 +6,12 @@ namespace CorsoEnaip2018_Visitor_Nodes.TreeNodes
     {
         public double Decrement { get; set; }
 
-        public override double Sum()
+        public override void Accept(ITreeNodeVisitor v)
         {
-            return -Decrement + Children.Sum(c => c.Sum());
+            v.Visit(this);
+
+            foreach (var c in Children)
+                c.Accept(v);
         }
     }
 }
