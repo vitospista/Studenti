@@ -1,0 +1,18 @@
+1)
+class Sale
+{
+    ProductName
+	EmployeeName
+	ShopName
+	Amount
+	Date
+}
+
+Generare 3 report in Excel:
+
+1) elenco "piatto" delle vendite.
+2) raggruppamento per data, ogni data occupa una riga,
+    e sotto quella riga l'elenco di Sale ordinate per Shop.
+3) raggruppamento per EmployeeName, in ogni riga si vuole:
+    EmployeeName, StartDate, EndDate, Amount totale venduto dall'Employee,
+	tutto ordinato per Amount: vengono prima gli Employee che hanno venduto di più.

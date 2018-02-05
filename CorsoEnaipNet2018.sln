@@ -73,6 +73,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB
 		Esercizi - Employee.txt = Esercizi - Employee.txt
 		Esercizi - gioco degli scacchi.txt = Esercizi - gioco degli scacchi.txt
 		Esercizi - salvataggio su file.txt = Esercizi - salvataggio su file.txt
+		Esercizi - template pattern.txt = Esercizi - template pattern.txt
 		Esercizi - Visitor.txt = Esercizi - Visitor.txt
 		Preparazione provetta 26 gennaio.txt = Preparazione provetta 26 gennaio.txt
 		provetta 26 gennaio.md = provetta 26 gennaio.md
@@ -116,6 +117,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Employees.Test", "CorsoEnaip2018_Employees.Test\CorsoEnaip2018_Employees.Test.csproj", "{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Visitor_Nodes", "CorsoEnaip2018_Visitor_Nodes\CorsoEnaip2018_Visitor_Nodes.csproj", "{E1671FFF-12E1-41C3-B2ED-22FE102C6336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Template_Sales", "CorsoEnaip2018_Template_Sales\CorsoEnaip2018_Template_Sales.csproj", "{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -303,6 +306,10 @@ Global
 		{E1671FFF-12E1-41C3-B2ED-22FE102C6336}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1671FFF-12E1-41C3-B2ED-22FE102C6336}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1671FFF-12E1-41C3-B2ED-22FE102C6336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -353,5 +360,6 @@ Global
 		{441E694E-0FA4-4126-B98B-657CCA3CF0AF} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 		{FDA58C6E-02B6-4A09-9BB4-BED1C0E63215} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 		{E1671FFF-12E1-41C3-B2ED-22FE102C6336} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
+		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 	EndGlobalSection
 EndGlobal
