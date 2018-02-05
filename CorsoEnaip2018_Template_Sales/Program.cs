@@ -1,6 +1,8 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,58 +13,35 @@ namespace CorsoEnaip2018_Template_Sales
     {
         static void Main(string[] args)
         {
-            SqlConnection conn = null;
-            SqlCommand cmd = null;
-            SqlDataReader reader = null;
-            try
+            var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            var filePath = Path.Combine(desktop, "test_report.xlsx");
+
+            var fileInfo = new FileInfo(@"C:\Users\triprog-1\Desktop\test_report.xlsx");
+
+            using (var file = new ExcelPackage(fileInfo))
             {
-                conn = new SqlConnection("");
-                conn.Open();
-                cmd = conn.CreateCommand();
-                reader = cmd.ExecuteReader();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                if (conn != null) conn.Dispose();
-                if (cmd != null) cmd.Dispose();
-                if (reader != null) reader.Dispose();
-            }
-
-            reader.Dispose();
-
-            cmd.Dispose();
-
-            conn.Dispose();
-
-            using (var conn2 = new SqlConnection("connection string"))
-            {
-                conn2.Open();
-
-                using (var cmd2 = conn2.CreateCommand())
+                using (var sheet = file.Workbook.Worksheets.Add("REPORT"))
                 {
-                    cmd2.CommandText = "select ...";
+                    sheet.Cells[1, 1].Value = "Mediaworld";
+                    sheet.Cells[1, 2].Value = "Mario Rossi";
 
-                    using (var reader2 = cmd2.ExecuteReader())
-                    {
-
-                    }
+                    file.Save();
                 }
             }
 
-            using (var conn2 = new SqlConnection("connection string"))
-            using (var cmd2 = conn2.CreateCommand())
-            {
 
-            }
 
-            //using (var workbook = EPPlus.CreateWorkbook("\Deskotop\file1"))
-            //{
+            //var list = createSaleList();
 
-            //}
+            //var ex1 = new FlatExport();
+            //ex1.Export(list);
+
+            //var ex2 = new DateExport();
+            //ex2.Export(list);
+
+            //var ex3 = new EmployeeExport();
+            //ex3.Export(list);
 
         }
     }
