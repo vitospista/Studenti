@@ -19,11 +19,11 @@ namespace CorsoEnaip2018_Template_Sales
             var flatReport = new FlatReport();
             flatReport.Export(list);
 
-            //var ex2 = new DateExport();
-            //ex2.Export(list);
+            var dateReport = new DateReport();
+            dateReport.Export(list);
 
-            //var ex3 = new EmployeeExport();
-            //ex3.Export(list);
+            var employeeReport = new EmployeeReport();
+            employeeReport.Export(list);
 
             Console.Write("Export finished! Press any key to exit...");
 
@@ -36,7 +36,10 @@ namespace CorsoEnaip2018_Template_Sales
             return new List<Sale>
             {
                 new Sale("Scudo templare", "Adam Kadmon", "WallMart", new DateTime(2018, 1, 2), 5),
-                new Sale("Chitarra", "Bob Dylan", "Rossoni Music", new DateTime(2018, 4, 15), 3000),
+                new Sale("Chitarra", "Bob Dylan", "Rossoni Music", new DateTime(2018, 1, 2), 3000),
+                new Sale("Ascia Bipenne", "Odino Junior", "WallMart", new DateTime(2018, 1, 2), 5),
+                new Sale("Corpo Alieno", "Adam Kadmon", "WallMart", new DateTime(2018, 2, 14), 750),
+                new Sale("Clavicembalo", "J. S. Bach", "Rossoni Music", new DateTime(2018, 4, 16), 3000),
             };
         }
     }

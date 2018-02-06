@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseReport.cs" />
+    <Compile Include="DateReport.cs" />
+    <Compile Include="EmployeeReport.cs" />
     <Compile Include="FlatReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

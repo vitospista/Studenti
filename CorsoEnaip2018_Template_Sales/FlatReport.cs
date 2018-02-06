@@ -9,43 +9,32 @@ using System.Threading.Tasks;
 
 namespace CorsoEnaip2018_Template_Sales
 {
-    class FlatReport
+    class FlatReport : BaseReport
     {
-        public void Export(IEnumerable<Sale> sales)
+        protected override void export(IEnumerable<Sale> sales, ExcelWorksheet sheet)
         {
-            var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var filePath = Path.Combine(desktop, "flat_report.xlsx");
-            var fileInfo = new FileInfo(filePath);
+            int row = 1;
 
-            using (var file = new ExcelPackage(fileInfo))
+            foreach (var s in sales)
             {
-                using (var sheet = file.Workbook.Worksheets["REPORT"]
-                    ?? file.Workbook.Worksheets.Add("REPORT"))
-                {
-                    int row = 1;
+                sheet.Cells[row, 1].Value = s.ProductName;
 
-                    foreach (var s in sales)
-                    {
-                        sheet.Cells[row, 1].Value = s.ProductName;
+                sheet.Cells[row, 2].Value = s.EmployeeName;
 
-                        sheet.Cells[row, 2].Value = s.EmployeeName;
+                sheet.Cells[row, 3].Value = s.ShopName;
 
-                        sheet.Cells[row, 3].Value = s.ShopName;
+                sheet.Cells[row, 4].Value = s.Date;
+                sheet.Cells[row, 4].Style.Numberformat.Format = "yyyy-mm-dd";
 
-                        sheet.Cells[row, 4].Value = s.Date;
-                        sheet.Cells[row, 4].Style.Numberformat.Format = "yyyy-mm-dd";
+                sheet.Cells[row, 5].Value = s.Amount;
 
-                        sheet.Cells[row, 5].Value = s.Amount;
-
-                        row++;
-                    }
-
-                    file.Save();
-                }
+                row++;
             }
+        }
 
-            // se voglio avviare Excel dopo aver fatto l'export
-            //Process.Start(filePath);
+        protected override string getFileName()
+        {
+            return "flat_report.xlsx";
         }
     }
 }
