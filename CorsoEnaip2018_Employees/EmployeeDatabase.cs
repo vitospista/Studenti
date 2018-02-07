@@ -30,14 +30,29 @@ namespace CorsoEnaip2018_Employees
 
                 e.PayCalculator.AcceptSaver(this, e);
 
-                //saveBonusCalculator(e);
-
                 //saveMalusCalculator(e);
             }
 
             _connection.Close();
         }
+        private int saveEmployee(Employee e)
+        {
+            var cmd = _connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText =
+                " INSERT INTO Employees" +
+                " (Name,TotalPay,BonusCalculatorType) OUTPUT INSERTED.ID" +
+                " VALUES" +
+                " (@Name,@TotalPay,@BonusCalculatorType)";
 
+            cmd.Parameters.Add(new SqlParameter("Name", e.Name));
+            cmd.Parameters.Add(new SqlParameter("TotalPay", e.TotalPay));
+            cmd.Parameters.Add(new SqlParameter("BonusCalculatorType", e.BonusCalculator.GetType().Name));
+
+            int id = (int)cmd.ExecuteScalar();
+
+            return id;
+        }
         public void Save(Employee e, FixedPayCalculator c)
         {
             var cmd = _connection.CreateCommand();
@@ -53,7 +68,6 @@ namespace CorsoEnaip2018_Employees
 
             cmd.ExecuteNonQuery();
         }
-
         public void Save(Employee e, HourlyPayCalculator c)
         {
             var cmd = _connection.CreateCommand();
@@ -86,7 +100,6 @@ namespace CorsoEnaip2018_Employees
                 schedulationCmd.ExecuteNonQuery();
             }
         }
-
         public void Save(Employee e, CommissionPayCalculator c)
         {
             var cmd = _connection.CreateCommand();
@@ -119,7 +132,6 @@ namespace CorsoEnaip2018_Employees
                 commissionCmd.ExecuteNonQuery();
             }
         }
-
         public void Save(Employee e, NullPayCalculator c)
         {
             var cmd = _connection.CreateCommand();
@@ -133,36 +145,6 @@ namespace CorsoEnaip2018_Employees
 
             cmd.ExecuteNonQuery();
         }
-
-
-        private void saveBonusCalculator(Employee e, SqlConnection conn)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void saveMalusCalculator(Employee e, SqlConnection conn)
-        {
-            throw new NotImplementedException();
-        }
-
-        private int saveEmployee(Employee e)
-        {
-            var cmd = _connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText =
-                " INSERT INTO Employees" +
-                " (Name,TotalPay) OUTPUT INSERTED.ID" +
-                " VALUES" +
-                " (@Name,@TotalPay)";
-
-            cmd.Parameters.Add(new SqlParameter("Name", e.Name));
-            cmd.Parameters.Add(new SqlParameter("TotalPay", e.TotalPay));
-
-            int id = (int)cmd.ExecuteScalar();
-
-            return id;
-        }
-
 
         public List<Employee> FindAll()
         {
@@ -185,6 +167,8 @@ namespace CorsoEnaip2018_Employees
                 e.Id = (int)reader["Id"];
                 e.Name = (string)reader["Name"];
                 e.TotalPay = (decimal)reader["TotalPay"];
+                e.BonusCalculator =
+                    createBonusCalculator((string)reader["BonusCalculatorType"]);
 
                 var payType = (string)reader["PayCalculatorType"];
 
@@ -218,6 +202,31 @@ namespace CorsoEnaip2018_Employees
             return list;
         }
 
+        private BonusCalculator createBonusCalculator(string calculatorName)
+        {
+            BonusCalculator bonusCalc;
+
+            switch (calculatorName)
+            {
+                case nameof(BigFamilyBonusCalculator):
+                    bonusCalc = new BigFamilyBonusCalculator();
+                    break;
+                case nameof(LittleFamilyBonusCalculator):
+                    bonusCalc = new LittleFamilyBonusCalculator();
+                    break;
+                case nameof(NoFamilyBonusCalculator):
+                    bonusCalc = new NoFamilyBonusCalculator();
+                    break;
+                case nameof(NullBonusCalculator):
+                    bonusCalc = NullBonusCalculator.Instance;
+                    break;
+                default:
+                    throw new ArgumentException("Invalid BonusCalculator");
+            }
+
+            return bonusCalc;
+        }
+
         private Dictionary<DateTime, int> getSchedulations(int employeeId)
         {
             throw new NotImplementedException();
@@ -227,5 +236,36 @@ namespace CorsoEnaip2018_Employees
         {
             throw new NotImplementedException();
         }
+    }
+
+    static class Constants
+    {
+        public const string EMPLOYEE_TABLE = "Employees";
+        public const string EMPLOYEE_NAME_FIELD = "Name";
+    }
+
+    public class ConnectionFactory
+    {
+        public IDbConnection CreateSqlServerConnection()
+        {
+            // ...
+            throw new NotImplementedException();
+        }
+
+        public IDbConnection CreateOracleSqlConnection()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface IConnectionFactory
+    {
+        IDbConnection CreateSqlServerConnection();
+        IDbConnection CreateOracleSqlConnection();
+    }
+
+    public class EmployeeApplication
+    {
+        public IConnectionFactory ConnectionFactory { get; set; }
     }
 }

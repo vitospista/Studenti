@@ -70,6 +70,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB991B04-6F97-4331-AAC6-22CC410E4DB0}"
 	ProjectSection(SolutionItems) = preProject
 		Esercizi - Arena.txt = Esercizi - Arena.txt
+		Esercizi - cup.txt = Esercizi - cup.txt
 		Esercizi - Employee.txt = Esercizi - Employee.txt
 		Esercizi - gioco degli scacchi.txt = Esercizi - gioco degli scacchi.txt
 		Esercizi - salvataggio su file.txt = Esercizi - salvataggio su file.txt
@@ -123,6 +124,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_FileSave_Template", "CorsoEnaip2018_FileSave_Template\CorsoEnaip2018_FileSave_Template.csproj", "{AF7CC4E0-0B67-4826-8BE8-F56F9115E43E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_FileSave_Strategy", "CorsoEnaip2018_FileSave_Strategy\CorsoEnaip2018_FileSave_Strategy.csproj", "{049FB6D3-5F49-4093-B97E-908FA67233C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_AbstractFactory", "CorsoEnaip2018_AbstractFactory\CorsoEnaip2018_AbstractFactory.csproj", "{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Cup", "CorsoEnaip2018_Cup\CorsoEnaip2018_Cup.csproj", "{566DFE29-B709-45A6-9413-EDDF414725C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -322,6 +327,14 @@ Global
 		{049FB6D3-5F49-4093-B97E-908FA67233C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{049FB6D3-5F49-4093-B97E-908FA67233C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{049FB6D3-5F49-4093-B97E-908FA67233C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{566DFE29-B709-45A6-9413-EDDF414725C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{566DFE29-B709-45A6-9413-EDDF414725C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{566DFE29-B709-45A6-9413-EDDF414725C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{566DFE29-B709-45A6-9413-EDDF414725C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -375,5 +388,7 @@ Global
 		{02FD115F-88E5-4D7D-85A4-B05B6D90E6D9} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{AF7CC4E0-0B67-4826-8BE8-F56F9115E43E} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{049FB6D3-5F49-4093-B97E-908FA67233C9} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+		{61C4B5A8-F1DB-40DB-B910-A6DA5FA0FFF0} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
+		{566DFE29-B709-45A6-9413-EDDF414725C8} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 	EndGlobalSection
 EndGlobal

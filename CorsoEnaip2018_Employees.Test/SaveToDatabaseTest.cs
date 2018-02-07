@@ -27,7 +27,7 @@ namespace CorsoEnaip2018_Employees.Test
             // fare un po' di assert per verificare che
             // i valori tirati su dal database siano proprio quelli della 
             // lista originale
-            Assert.AreEqual("Mario", saved[0].Name);
+            Assert.AreEqual("Mario Rossi", saved[0].Name);
 
             // TODO: assert...
             // recupero dal database la lista.
@@ -52,9 +52,24 @@ namespace CorsoEnaip2018_Employees.Test
 
             var list = new List<Employee>
             {
-                new Employee { Name = "Mario Rossi", PayCalculator = fixedCalc },
-                new Employee { Name = "Tonio Cartonio", PayCalculator = hourlyCalc },
-                new Employee { Name = "Gigi Pirola", PayCalculator = commissionCalc },
+                new Employee
+                {
+                    Name = "Mario Rossi",
+                    PayCalculator = fixedCalc,
+                    BonusCalculator = new BigFamilyBonusCalculator()
+                },
+                new Employee
+                {
+                    Name = "Tonio Cartonio",
+                    PayCalculator = hourlyCalc,
+                    BonusCalculator = new LittleFamilyBonusCalculator()
+                },
+                new Employee
+                {
+                    Name = "Gigi Pirola",
+                    PayCalculator = commissionCalc,
+                    BonusCalculator = new NoFamilyBonusCalculator()
+                },
             };
 
             return list;
