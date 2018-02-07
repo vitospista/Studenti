@@ -1,0 +1,37 @@
+*** REQUISITI ***
+
+Un negozio ha una cassa "intelligente", che registra, per ogni prodotto venduto:
+- nome del prodotto
+- prezzo
+- impiegato che l'ha venduto
+- ora della vendita.
+A fine giornata, il sistema informatico del negozio
+deve fare una serie di verifiche di validazione sulle vendite:
+- verifica che nessun prodotto è stato venduto fuori dall'orario di lavoro
+    (ad esempio, se il negozio è aperto fino alle 20:00, una vendita alle 20:01 è un problema!)
+- verifica che ogni dipendente abbia venduto almeno un prodotto
+- verifica che siano stati venduti prodotti di tipi diversi (cioè non tutti con lo stesso nome!)
+
+
+*** IMPLEMENTAZIONE ***
+
+Si può prendere la classe Sale dell'esercizio sui Sales.
+L'unica differenza è che, per creare le classi di Mock, è necessario inserire anche l'ora, non solo la data di vendita.
+
+Realizzare le validazioni con il pattern Template.
+Ci saranno quindi una classe base Validation e tre classi derivate.
+Il flusso del template è questo:
+1) pesca i dati dalla tabella Sales sul database
+2) fa la verifica sui dati
+3) restituisce un oggetto IResult:
+
+interface IResult
+{
+    bool IsOk { get; }
+    List<string> Errors { get; }
+}
+
+La verifica dei dati e la creazione di un oggetto che implementi IResult
+è responsabilità delle classi derivate.
+La parte di SELECT dal database invece è uguale per tutte le classi di validazione,
+e quindi sta nel metodo della classe base.
