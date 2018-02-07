@@ -75,12 +75,4 @@ namespace CorsoEnaip2018_Employees.Test
             return list;
         }
     }
-
-    /*
-     * Single Responsibility Principle
-     * Open to extension, closed to modification
-     * Liskov Substitution Principle
-     * Interfaces Segregation
-     * Dependency Inversion Of Control
-     */
 }

@@ -1,0 +1,5 @@
+Single Responsibility Principle
+Open to extension, closed to modification
+Liskov Substitution Principle
+Interfaces Segregation
+Dependency Inversion Of Control

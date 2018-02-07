@@ -104,6 +104,18 @@ namespace CorsoEnaip2018_AbstractFactory
         }
     }
 
+    class DatabaseRepository : IRepository
+    {
+        public List<string> FindAll()
+        {
+            var conn = new SqlConnection("");
+            var cmd = conn.CreateCommand();
+            // ...
+
+            return new List<string>();
+        }
+    }
+
     interface IRepository<T>
     {
         List<T> SelectAll();
@@ -113,9 +125,4 @@ namespace CorsoEnaip2018_AbstractFactory
         void Update(T model);
         void Delete(int id);
     }
-
-    class EmployeeRepository : IRepository<Employee>
-
-    class SchedulationRepository : IRepository<Schedulation>
-
 }

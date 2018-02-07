@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CorsoEnaip2018_Cup
+namespace CorsoEnaip2018_Cup_2
 {
     [TestClass]
     public class UnitTest1
