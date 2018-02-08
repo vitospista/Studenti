@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ripasso", "Ripasso", "{61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}"
 EndProject
@@ -79,6 +79,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB
 		Esercizi - Visitor.txt = Esercizi - Visitor.txt
 		Preparazione provetta 26 gennaio.txt = Preparazione provetta 26 gennaio.txt
 		provetta 26 gennaio.md = provetta 26 gennaio.md
+		Template - tubes.txt = Template - tubes.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispense", "Dispense", "{CA8C711F-3409-4D6B-9D8A-0B40B8D6D855}"
@@ -406,5 +407,8 @@ Global
 		{566DFE29-B709-45A6-9413-EDDF414725C8} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{1F8272F7-CB3C-43E3-A25D-0F6ECD13329F} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{F7E46D42-FE0C-45D5-9DC1-55297E38246B} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F070B229-D065-4021-B301-FCAAD756BD1B}
 	EndGlobalSection
 EndGlobal

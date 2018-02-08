@@ -1,0 +1,101 @@
+REQUISITI
+
+Una fabbrica forgia tubi di diverso tipo, e su ogni tubo applica delle operazioni in catena.
+I tubi possono essere in ghisa, in acciaio o in PVC.
+Ogni tubo ha le seguenti caratteristiche: lunghezza di progetto, lunghezza effettiva, peso di progetto, peso effettivo, colore.
+
+La sequenza di operazioni è:
+1) creazione tubo, con settaggio delle due lunghezze e dei due pesi.
+2) controllo sulle misure: se la lunghezza effettiva differisce da quella di progetto di più di un certo delta,
+    il tubo è segnato come difettoso. Lo stesso per il peso.
+3) colorazione finale del tubo in base al materiale.
+
+
+
+IMPLEMENTAZIONE
+
+1)
+Creare una classe astratta Tube con le proprietà di cui sopra,
+e poi una classe derivata per ogni materiale diverso (IronTube, PvcTube...).
+
+Creare una enum StatusType con i seguenti valori: New, Checked, Rejected, Ready.
+La classe Tube ha una proprietà di tipo StatusType (che potrebbe chiamarsi... Status?),
+    che viene settata dalle altre classi lungo il processo.
+
+2)
+Creare una classe di factory per la generazione del tubo.
+Il metodo CreateTube della factory:
+- riceve come input lunghezza e peso di progetto, oltre a una stringa che indica il materiale
+- crea un'istanza di una classe specifica di Tube (IronTube, PvcTube...) in base al materiale,
+    e setta lunghezza e peso di progetto sull'istanza.
+- setta lunghezza e peso effettivi partendo da quelli di progetto, ma aggiungendo o togliendo
+    un piccolo quantitativo generato a caso (usare la classe Random di .NET).
+- setta lo status del Tube a New.
+- restituisce l'istanza creata.
+
+Usare numeri realistici. Ad esempio,
+- lunghezza di progetto del tubo: 4 m.
+- Delta accettabile tra lunghezza di progetto ed effettiva: 0.001 m.
+- delta effettivi generati a caso: + o - 0.002 m.
+Quindi potrebbero generarsi tubi di lunghezza del tipo: 4.0018, 3.9996, 4.0003, 3.9986... e sarebbero validi solo il 2o e il 3o.
+
+3)
+Creare una classe Checker astratta, che faccia da template.
+Il suo metodo Check fa le seguenti cose:
+- prende un Tube in input
+- se il tubo è già in stato Rejected, il Checker non fa niente.
+- se il tubo è New o Checked, il Chekc controlla il tubo secondo i suoi vincoli
+    (l'effettivo controllo è demandato alle classi Checker derivate)
+- se il controllo passa, lo stato del tubo per quella caratteristica viene messo a Checked.
+- se il controllo del tubo non passa, lo status del tubo viene messo a Rejected.
+Ci sono due Checker derivati, per controllare peso e lunghezza: LengthChecker e WeightChecker.
+Nel caso del LengthChecker, controlla che la lunghezza effettiva del tubo stia dentro il delta definito.
+Lo stesso per il WeightChecker, ma controllando il peso.
+
+4)
+Creare una classe Filter, con un metodo RemoveRejected.
+Questo metodo prende in input una lista di Tube, e restituisce una nuova lista da cui sono stati rimossi
+tutti i tubi in stato Rejected (dentro il metodo, usare il Where di LINQ!).
+
+5)
+Creare una classe Painter, che lavori come Visitor.
+La classe deve settare il colore sui tubi, ponendo un colore diverso per ogni tipo diverso di tubo.
+Ad esempio, per i PvcTube, dovrà settare il colore ad Arancione (il colore del Tube può essere una semplice stringa!).
+Per implementare correttamente il pattern Visitor per questa classe, andranno creati:
+- un interfaccia IVisitor, con i 3 overload per i tre tipi di tubi di input
+- il metodo astratto "Accept(IVisitor visitor)" sulla classe base Tube, e tutti gli override sulle classi derivate da Tube.
+Ricordarsi che nel Visitor, chi dà l'avvio al giro è la classe visitata, non il visitor.
+
+6)
+Una classe finale Approver che pone in stato Ready tutti i tubi arrivati fino a qui.
+
+Nel Main ci si aspetta un flusso di questo tipo:
+
+var factory = new TubeFactory();
+var lc = new LengthChecker();
+var wc = new WeightChecker();
+var f = new Filter();
+var p = new Painter();
+var a = new Approver();
+
+var tubes = new List<Tube>
+{
+    factory.CreateTube(5.350, 235, "Pvc"),
+	factory.CreateTube(10.2, 390, "Cast Iron"),
+	factory.CreateTube(3.220, 72, "Steel"),
+};
+
+foreach(var t in tubes)
+{
+    lc.Check(t);
+	wc.Check(t);
+}
+
+var checkedTubes = f.RemoveRejected(tubes);
+
+foreach(var t in checkedTubes)
+{
+    t.Accept(p);
+	a.Approve(t);
+}
+
