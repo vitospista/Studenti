@@ -136,6 +136,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Cup_2", "Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_OverkillDesign", "CorsoEnaip2018_OverkillDesign\CorsoEnaip2018_OverkillDesign.csproj", "{F7E46D42-FE0C-45D5-9DC1-55297E38246B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_PreparazioneProvetta12febbraio", "CorsoEnaip2018_PreparazioneProvetta12febbraio\CorsoEnaip2018_PreparazioneProvetta12febbraio.csproj", "{C097CE43-2A5B-4204-8799-1D1908284755}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -350,6 +352,10 @@ Global
 		{F7E46D42-FE0C-45D5-9DC1-55297E38246B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7E46D42-FE0C-45D5-9DC1-55297E38246B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7E46D42-FE0C-45D5-9DC1-55297E38246B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C097CE43-2A5B-4204-8799-1D1908284755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C097CE43-2A5B-4204-8799-1D1908284755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C097CE43-2A5B-4204-8799-1D1908284755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C097CE43-2A5B-4204-8799-1D1908284755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -407,6 +413,7 @@ Global
 		{566DFE29-B709-45A6-9413-EDDF414725C8} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{1F8272F7-CB3C-43E3-A25D-0F6ECD13329F} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{F7E46D42-FE0C-45D5-9DC1-55297E38246B} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+		{C097CE43-2A5B-4204-8799-1D1908284755} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F070B229-D065-4021-B301-FCAAD756BD1B}

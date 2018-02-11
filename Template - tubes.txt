@@ -44,7 +44,7 @@ Creare una classe Checker astratta, che faccia da template.
 Il suo metodo Check fa le seguenti cose:
 - prende un Tube in input
 - se il tubo è già in stato Rejected, il Checker non fa niente.
-- se il tubo è New o Checked, il Chekc controlla il tubo secondo i suoi vincoli
+- se il tubo è New o Checked, il Check controlla il tubo secondo i suoi vincoli
     (l'effettivo controllo è demandato alle classi Checker derivate)
 - se il controllo passa, lo stato del tubo per quella caratteristica viene messo a Checked.
 - se il controllo del tubo non passa, lo status del tubo viene messo a Rejected.
