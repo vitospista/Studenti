@@ -1,0 +1,57 @@
+Si supponga di dover modellare il seguente dominio dati:
+
+C'è un negozio di noleggio DVD, che mantiene un elenco di utenti e dei loro abbonamenti.
+
+Un abbonamento può essere di due tipi:
+- a contante: l'utente carica un tot di soldi, e man mano che noleggia i DVD, il prezzo del noleggio viene scalato dal conto totale
+- a numero: l'utente si abbona per un tot di noleggi, e ad ogni noleggio il contatore scende di 1.
+
+Una richiesta di noleggio contiene il titolo del DVD e il costo di noleggio di quel DVD (film diversi possono avere costi diversi).
+
+Il funzionamento di entrambi gli abbonamenti è il seguente:
+- Un abbonamento riceve in input una richiesta di noleggio.
+- Come prima cosa controlla che la transazione sia possibile
+    (se a soldi, controlla che il saldo rimanente sia maggiore del costo del noleggio; se a numero, controlla che il contatore non sia a 0)
+- Se la transazione è possibile:
+    - la effettua (cioè scala dal totale);
+	- spara un evento con i dati del noleggio e le quantità rimanenti nel noleggio;
+	- ritorna true.
+- Se invece la transazione non è possibile:
+    - restituisce false.
+
+Un utente, appena creato, non ha abbonamento. Può avere in totale un solo abbonamento.
+
+
+IMPLEMENTAZIONE E SUGGERIMENTI
+
+Strutturare il sistema con le corrette classi e il corretto utilizzo dei pattern Strategy, Template, Null Object, Singleton, Factory.
+
+In particolare:
+
+- la classe User avrà almeno una proprietà Id (int).
+
+- una classe Manager tiene traccia della lista di User.
+	- ha un metodo AddUser, che crea un utente, lo aggiunge alla lista interna di utenti, gli affida un Id univoco, e restituisce quell'Id.
+	    Ad esempio, se c'erano già gli User con Id 1, 2, 3, AddUser crea un nuovo User con Id = 4 e restituisce 4
+		(quale metodo di LINQ permette di trovare il massimo tra le proprietà degli oggetti di una lista?)
+	- ha un metodo Get(int id), con cui tirare fuori dal Manager lo User con quell'Id.
+	    In questo modo si recupera uno User e gli si può dare un abbonamento.
+	- solo il Manager crea nuovi User, non devono essere usati costrutti 'new User()' fuori dal Manager.
+
+Per strutturare il Manager usare il pattern Singleton (perché c'è una sola anagrafica di utenti in tutto il sistema)
+
+Per strutturare la differenza di abbonamento sui diversi User usare il pattern Strategy.
+
+Per differenziare il comportamento dei due tipi di abbonamento fra di loro usare il pattern Template.
+
+- per la creazione degli abbonamenti, utilizzare il pattern Factory: creare una classe con un metodo Create, 
+il quale prende in input una stringa o un enum con il tipo di abbonamento voluto e crea il relativo Abbonamento.
+
+Per strutturare il fatto che lo User può essere senza abbonamento, usare il pattern Null Object
+
+Creare un'applicazione Console che:
+- chiama il Manager per creare utenti,
+- chiama la Factory per creare abbonamenti,
+- si aggancia all'evento "noleggio riuscito" di ogni abbonamento creato.
+    Il metodo agganciato stampa semplicemente in Console le informazioni dell'evento.
+
