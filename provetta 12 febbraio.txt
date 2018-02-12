@@ -3,15 +3,19 @@ Si supponga di dover modellare il seguente dominio dati:
 C'è un negozio di noleggio DVD, che mantiene un elenco di utenti e dei loro abbonamenti.
 
 Un abbonamento può essere di due tipi:
-- a contante: l'utente carica un tot di soldi, e man mano che noleggia i DVD, il prezzo del noleggio viene scalato dal conto totale
-- a numero: l'utente si abbona per un tot di noleggi, e ad ogni noleggio il contatore scende di 1.
+- a contante: l'utente carica un tot di soldi, e man mano che noleggia i DVD,
+il prezzo del noleggio viene scalato dal conto totale
+- a numero: l'utente si abbona per un tot di noleggi,
+e ad ogni noleggio il contatore scende di 1.
 
-Una richiesta di noleggio contiene il titolo del DVD e il costo di noleggio di quel DVD (film diversi possono avere costi diversi).
+Una richiesta di noleggio contiene il titolo del DVD e il costo di noleggio di quel DVD
+(film diversi possono avere costi diversi).
 
 Il funzionamento di entrambi gli abbonamenti è il seguente:
 - Un abbonamento riceve in input una richiesta di noleggio.
 - Come prima cosa controlla che la transazione sia possibile
-    (se a soldi, controlla che il saldo rimanente sia maggiore del costo del noleggio; se a numero, controlla che il contatore non sia a 0)
+    (se a soldi, controlla che il saldo rimanente sia maggiore del costo del noleggio;
+	se a numero, controlla che il contatore non sia a 0)
 - Se la transazione è possibile:
     - la effettua (cioè scala dal totale);
 	- spara un evento con i dati del noleggio e le quantità rimanenti nel noleggio;
@@ -24,7 +28,8 @@ Un utente, appena creato, non ha abbonamento. Può avere in totale un solo abbona
 
 IMPLEMENTAZIONE E SUGGERIMENTI
 
-Strutturare il sistema con le corrette classi e il corretto utilizzo dei pattern Strategy, Template, Null Object, Singleton, Factory.
+Strutturare il sistema con le corrette classi e il corretto utilizzo dei pattern
+    Strategy, Template, Null Object, Singleton, Factory.
 
 In particolare:
 
