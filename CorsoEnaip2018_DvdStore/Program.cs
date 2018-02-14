@@ -71,7 +71,12 @@ namespace CorsoEnaip2018_DvdStore
         public double Price { get; set; }
     }
 
-    public abstract class Subscription
+    public interface ISubscription
+    {
+        bool ApplyRent(Rent rent);
+    }
+
+    public abstract class Subscription : ISubscription
     {
         public bool ApplyRent(Rent rent)
         {

@@ -10,7 +10,7 @@ namespace CorsoEnaip2018_PreparazioneProvetta12febbraio
     {
         static void Main(string[] args)
         {
-            var factory = new TubeFactory();
+            ITubeFactory factory = new BrokenTubeFactory(); // new TubeFactory();
             var lc = new LengthChecker();
             var wc = new WeightChecker();
             var f = new Filter();
@@ -89,11 +89,24 @@ namespace CorsoEnaip2018_PreparazioneProvetta12febbraio
     #endregion
 
     #region Factory
-    class TubeFactory
+    interface ITubeFactory
+    {
+        Tube Create(double projectLength, double projectWeight, string type);
+    }
+
+    class BrokenTubeFactory : ITubeFactory
+    {
+        public Tube Create(double projectLength, double projectWeight, string type)
+        {
+            throw new Exception();
+        }
+    }
+
+    class TubeFactory : ITubeFactory
     {
         private static Random _r = new Random();
 
-        public Tube Create(double length, double weight, string type)
+        public Tube Create(double projectLength, double projectWeight, string type)
         {
             Tube t = null;
 
@@ -105,8 +118,8 @@ namespace CorsoEnaip2018_PreparazioneProvetta12febbraio
                 default: throw new ArgumentException("Not recognized tube type!");
             }
 
-            t.ProjectLength = length;
-            t.ProjectWeight = weight;
+            t.ProjectLength = projectLength;
+            t.ProjectWeight = projectWeight;
 
             t.RealLength = t.ProjectLength * (1 + ((_r.NextDouble() - 0.5) / 25));
             t.RealWeight = t.ProjectWeight * (1 + ((_r.NextDouble() - 0.5) / 10));

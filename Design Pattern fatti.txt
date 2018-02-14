@@ -1,0 +1,15 @@
+Singleton
+Null Object
+Strategy
+Template
+Factory
+Visitor
+Publish-Subscriber / Observer
+
+
+-- da vedere prima della fine del corso --
+Adapter
+Bridge
+Mediator
+Composite
+Repository
