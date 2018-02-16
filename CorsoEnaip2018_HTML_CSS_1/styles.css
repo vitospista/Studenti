@@ -1,0 +1,97 @@
+h1 {
+    font-family:"Comic Sans MS";
+    color:#00D;
+    background-color:#FF0;
+    font-size:2em;
+    margin: 0;
+}
+
+h2 {
+    font-family:"Tahoma";
+    background-color:#EEE;
+    font-size:1.5em;
+    font-weight:normal;
+}
+
+.preferred {
+    color: blue;
+    font-style: normal;
+}
+
+.author {
+    font-style: italic;
+}
+
+body {
+    margin: 0 auto;
+    width: 500px;
+}
+
+#cover {
+    width: 200px;
+    /* display: inline; */
+    /* height: 110px; */
+}
+
+#cover:hover {
+    width: 210px;
+}
+
+.img-container {
+    display: inline-block;
+    height: 200px;
+}
+
+a:hover {
+    color: green;
+}
+
+tbody tr:nth-child(odd) {
+    background-color:darkgoldenrod;
+    visibility: hidden;
+}
+
+tbody td {
+    height: 50px;
+}
+
+aside > h2 {
+    font-family:'Courier New', Courier, monospace;
+}
+
+.preferred, .author, h2 {
+    font-weight: bold;
+}
+
+input {
+    padding: 5px;
+}
+
+.emphasis {
+    font-size: 20px;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.menu li:hover {
+    background-color: orangered;
+}
+
+.menu a {
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.menu {
+    background: orange;
+    padding: 0;
+}
+
+aside {
+    float: right;
+}

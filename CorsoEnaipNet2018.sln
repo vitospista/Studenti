@@ -142,6 +142,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Preparazione
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_DvdStore", "CorsoEnaip2018_DvdStore\CorsoEnaip2018_DvdStore.csproj", "{F22A810D-2581-4250-A9DE-49E89E5BC7F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EEDD1D87-0EAB-4AE5-8ED9-529E50EB4285}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

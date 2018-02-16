@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mio meteo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Meteo del Friuli Venezia Giulia</h1>
+            <div class="img-container"><img id="cover" src="copertina.jpg" alt="bella copertina" /></div>
+            <div class="img-container" style="height:20px;"><img id="cover" src="copertina.jpg" alt="bella copertina" /></div>
+            <nav>
+                <p>Menu</p>
+                <ul class="menu">
+                    <li><a href="#trieste">Trieste</a></li>
+                    <li><a href="#udine">Udine</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2 class="preferred"><a name="trieste"></a>Trieste</h2>
+                <p>La <span class="emphasis">temperatura</span> <em>oggi</em> è <strong>5 °C.</strong></p>
+                <p>La velocità del vento oggi è 20 km/h.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2">Temperature ora per ora</td>
+                        </tr>
+                        <tr>
+                            <td>Ora</td>
+                            <td>Temperatura</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6:00</td>
+                            <td>1°</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                            <td>7°</td>
+                        </tr>
+                        <tr>
+                            <td>18:00</td>
+                            <td>5°</td>
+                        </tr>
+                        <tr>
+                            <td>24:00</td>
+                            <td>3°</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <br />
+            <section>
+                <h2><a name="udine"></a>Udine</h2>
+                <p>La temperatura oggi è 2 °C.</p>
+                <p>La velocità del vento oggi è 5 km/h.</p>
+            </section>
+
+            <form method="post" action="message-received.html">
+                <div>
+                    <label>Nome:</label>
+                    <input type="text" name="name" maxlength="10" />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input type="password" name="password" />
+                </div>
+                <div>
+                    <label>I am Happy:</label>
+                    <input type="checkbox" name="iamhappy" />
+                </div>
+                <div>
+                    <label>Male:</label>
+                    <input type="radio" name="gender" value="male" />
+                    <label>Female:</label>
+                    <input type="radio" name="gender" value="female" />
+                </div>
+                <div>
+                    <label>Date of Birth:</label>
+                    <input type="date" name="birth" />
+                </div>
+                <div>
+                    <input type="hidden" value="sdnvIPUAIP" name="hidden-value" />
+                </div>
+                <div>
+                    <input type="submit" value="Send data" />
+                </div>
+            </form>
+
+            <aside>
+                <br />
+                <h2>Fonti:</h2>
+                <ol type="a">
+                    <li><a href="http://www.ilmeteo.it">ilmeteo.it</a></li>
+                    <li>chetempochefa.it</li>
+                </ol>
+
+                <br />
+                <div>
+                    <h2>Autori</h2>
+                    <ul>
+                        <li class="preferred author">Steve Jobs</li>
+                        <li class="author">Bill Gates</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <blockquote>
+                La vita è come il meteo,
+                non sai mai quando piove.
+            </blockquote>
+        </footer>
+        <pre>
+    Riga 1
+        Riga 2
+            Riga 3
+        </pre>
+    </body>
+</html>
