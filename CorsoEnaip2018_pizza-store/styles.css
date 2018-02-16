@@ -1,0 +1,28 @@
+body {
+    width: 650px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+#presentation {
+    width: 100%;
+}
+
+ul {
+    display: inline-block;
+}
+
+ul li {
+    display: inline-block;
+}
+
+nav {
+    background-color: orange;
+}
