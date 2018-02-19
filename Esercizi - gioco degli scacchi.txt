@@ -1,4 +1,4 @@
-1) SCACCHI
+ï»¿1) SCACCHI
 Modellare il gioco degli scacchi con opportuni oggetti.
 In particolare:
 -) Una classe ChessSquare rappresenta una singola casella sulla scacchiera;
@@ -8,24 +8,24 @@ In particolare:
     -) bool CanMoveTo(ChessSquare square)
 	-) void MoveTo(ChessSquare square)
 	-) Square ActualPosition { get; }
-	-) ColorType Color { get; }      // è il colore Bianco o Nero
--) Ogni pezzo implementa questi due metodi in base alle mosse che può fare.
+	-) ColorType Color { get; }      // Ã¨ il colore Bianco o Nero
+-) Ogni pezzo implementa questi due metodi in base alle mosse che puÃ² fare.
     Ad esempio la classe ChessPawn rappresenta una torre,
-	e può muoversi solo verso caselle che hanno la stessa coordinata orizzontale
+	e puÃ² muoversi solo verso caselle che hanno la stessa coordinata orizzontale
 	o la stessa coordinata verticale di quella attuale.
-Ogni parte di questo esercizio può essere svolto su più livelli di difficoltà, dal più facile in su:
+Ogni parte di questo esercizio puÃ² essere svolto su piÃ¹ livelli di difficoltÃ , dal piÃ¹ facile in su:
 -) ChessSquare:
     1) implementarlo come coppia di coordinate intere, da 0 a 7 (quindi 8 righe e 8 colonne)
 	2) implementarlo come coppia di coordinate, una intera (da 1 a 8) e una come lettera (da 'A' a 'H')
-	    (diventa più difficile gestire i movimenti, ad esempio per un pedone non basta fare 'riga++',
+	    (diventa piÃ¹ difficile gestire i movimenti, ad esempio per un pedone non basta fare 'riga++',
 		devo passare da una lettera alla successiva)
 -) CanMoveTo:
     1) implementarlo solo verificando che la casella di arrivo sia nelle mosse possibili
 	    (esempio: non posso muovere un pedone di 3 mosse avanti);
 	2) implementarlo verificando che sia rispettata la condizione al punto 1)
-	    e in più che non ci siano pezzi in mezzo (una torre o un alfiere
+	    e in piÃ¹ che non ci siano pezzi in mezzo (una torre o un alfiere
 		non possono "scavalcare" gli altri pezzi!)
 	3) implementarlo verificando come al punto 1), e poi verificando che:
-		a) se il pezzo è un Re, non deve finire sotto scacco;
-		b) se il pezzo è un altro, il suo movimento non deve provocare uno scacco del proprio Re.
+		a) se il pezzo Ã¨ un Re, non deve finire sotto scacco;
+		b) se il pezzo Ã¨ un altro, il suo movimento non deve provocare uno scacco del proprio Re.
 -)

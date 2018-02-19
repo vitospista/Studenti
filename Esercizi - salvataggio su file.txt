@@ -1,12 +1,12 @@
-PRIMO STEP
+ÔªøPRIMO STEP
 
 Il cliente ha un elenco di istanze di una certa classe di dominio.
-Questa classe ha alcune propriet‡
+Questa classe ha alcune propriet√†
     (crearne alcune a scelta, di diversi tipi: bool, int, double, string, ...);
 
 Il cliente vuole salvare queste istanze in un file,
     salvando una istanza su ogni riga,
-    e formattando gli oggetti in formato JSON (vedi pi˘ sotto).
+    e formattando gli oggetti in formato JSON (vedi pi√π sotto).
 
 Implementare una classe Saver
     che prenda l'elenco di istanze, le trasformi in stringhe e le salvi sul file.
@@ -29,19 +29,19 @@ class C
 e una istanza con questi valori:
 var c = new C { Code = "c1", Value = 123, IsValid = true };
 
-la rappresentazione json su una riga Ë:
+la rappresentazione json su una riga √®:
 { "Code": "c1", "Value": 123, "IsValid": true }
 
-mentre la rappresentazione querystring Ë:
+mentre la rappresentazione querystring √®:
 Code=c1;Value=123;IsValid=true
 
 Re-implementare il problema usando il pattern Strategy:
 porre le due formattazioni in due classi distinte, che derivino
     da una classe comune Formatter (con un metodo abstract da sovrascrivere).
-La classe Saver avr‡ una propriet‡ di tipo Formatter, settata dall'esterno.
+La classe Saver avr√† una propriet√† di tipo Formatter, settata dall'esterno.
 Il Saver deve occuparsi solo di aprire il file,
     aggiungerci l'elenco di stringhe formattate,
     e chiudere il file.
 Il Saver deve demandare al Formatter
-    la responsabilit‡ di formattare la singola riga.
+    la responsabilit√† di formattare la singola riga.
 

@@ -1,4 +1,4 @@
-CONSEGNA
+ï»¿CONSEGNA
 
 Si supponga di dover progettare gli oggetti di un videogioco di combattimento.
 Ci sono tre tipi di personaggi:
@@ -8,35 +8,35 @@ Ci sono tre tipi di personaggi:
 Ogni singolo personaggio ha un nome epico e certo numero di punti-vita di partenza (pv).
 Quando viene attaccato, perde un tot di pv in base a chi ha attaccato.
 I tre tipi di personaggi infliggono danni agli avversari in modo diverso:
-1) guerriero: ha una proprietà PercentualeDanno che indica quale percentuale
+1) guerriero: ha una proprietÃ  PercentualeDanno che indica quale percentuale
     di pv toglie all'avversario (se l'avversario ha 80 pv e la
-	PercentualeDanno è 10%, vuol dire che l'attacco sottrae 8 pv).
+	PercentualeDanno Ã¨ 10%, vuol dire che l'attacco sottrae 8 pv).
 	Se i pv da sottrarre sono < 5, sottrarre 5.
-2) stregone: ha una proprietà che indica la PotenzaMassima, ma la magia è un mistero,
+2) stregone: ha una proprietÃ  che indica la PotenzaMassima, ma la magia Ã¨ un mistero,
     quindi il numero di pv che toglie di volta in volta va trovato
 	moltiplicando la PotenzaMassima per un numero casuale da 0 a 1
 	calcolato sul momento (per generare numeri casuali usare classe Random)
-3) orco: ha una proprietà Forza che indica quanti pv fissi toglie
+3) orco: ha una proprietÃ  Forza che indica quanti pv fissi toglie
 	ogni volta che infligge un attacco.
-Ogni personaggio ha anche una proprietà di tipo Velocità.
+Ogni personaggio ha anche una proprietÃ  di tipo VelocitÃ .
 
 Il gioco si svolge in turni.
 Ad ogni turno, ogni personaggio attacca.
-Attaccano per primi i personaggi più veloci (quale metodo di LINQ
-    permette di ordinare una lista in base a una proprietà?).
+Attaccano per primi i personaggi piÃ¹ veloci (quale metodo di LINQ
+    permette di ordinare una lista in base a una proprietÃ ?).
 Ogni avversario attacca un altro avversario scelto a caso (usare Random anche qui).
-Quando un personaggio ha esaurito i pv, muore, e quindi non può più combattere.
+Quando un personaggio ha esaurito i pv, muore, e quindi non puÃ² piÃ¹ combattere.
 Vince l'ultimo personaggio che resta in vita.
 
 IMPLEMENTAZIONE
 Creare un progetto Console che:
 -) Crea una lista di personaggi, di tipo diverso,
-   e con diverse Forza, Velocità, PercentualeDanno, ecc.
+   e con diverse Forza, VelocitÃ , PercentualeDanno, ecc.
 -) Crea un'istanza della classe Arena, a cui passare la lista di personaggi
--) Avvia il gioco (cioè la successione di turni e combattimenti finché 
-    non c'è un vincitore). Per avviare il gioco, creare il metodo StartGame
+-) Avvia il gioco (cioÃ¨ la successione di turni e combattimenti finchÃ© 
+    non c'Ã¨ un vincitore). Per avviare il gioco, creare il metodo StartGame
 	nella classe Arena.
-	Deve essere la classe Arena a decidere con i Random chi è il bersaglio
+	Deve essere la classe Arena a decidere con i Random chi Ã¨ il bersaglio
 	di ogni personaggio a ogni turno.
 	Al personaggio viene passato l'avversario a cui togliere pv.
 
@@ -46,7 +46,7 @@ sono due alternative.
 
 ALTERNATIVA FACILE MA MENO CORRETTA DAL PUNTO DI VISTA DELLA OOP
 Nei metodo "Fight" di ogni personaggio, dopo aver inflitto i danni all'avversario,
-	viene stampato a Console quello che è successo
+	viene stampato a Console quello che Ã¨ successo
 	(ad esempio: "'Shrek l'Orco Bruto' ha tolto 35 pv a 'Voldemort lo Stregone'")
 L'Arena nel suo StartGame stampa in Console l'inizio del gioco e anche la fine del gioco
     con il nome del vincitore.
@@ -55,30 +55,30 @@ IMPLEMENTAZIONE PIU' COMPLESSA MA PIU' CORRETTA E PIU' FLESSIBILE
 Vanno slegate le classi dal concetto di "stampa in Console".
 NESSUNA di loro deve chiamare Console.WriteLine.
 Bisogna creare degli event per notificare quello che succede durante il gioco,
-    poi sarà chi si aggancia agli eventi a decidere se stampare in Console,
+    poi sarÃ  chi si aggancia agli eventi a decidere se stampare in Console,
 	o creare figure 2D su un Canvas, ecc ecc.
 In particolare gli eventi sono:
 	-) quando un personaggio attacca;
 	-) quando un personaggio viene ferito;
 	-) quando un personaggio muore;
-	-) quando la partita è finita e c'è un vincitore.
+	-) quando la partita Ã¨ finita e c'Ã¨ un vincitore.
 Ogni evento va creato nella classe giusta,
     e tutti gli eventi devono seguire il "pattern" usato da .NET: EventHandler<TEventArgs>.
-	Cioè, i metodi agganciabili all'evento sono del tipo:
+	CioÃ¨, i metodi agganciabili all'evento sono del tipo:
 	public void MetodoDaAgganciare(object sender, TEventArgs e);
 Il Main, prima di avviare il gioco, si lega a tutti gli eventi delle varie classi,
     e come metodi da agganciare agli eventi usa delle lambda che stampano in Console
 	le varie informazioni.
 Ad esempio, quando il guerriero "Karn il Sanguinario" colpisce "Gandalf il Grigio" ,
-    in Console verrà scritto:
+    in Console verrÃ  scritto:
 	    "Karn il Sanguinario ha attaccato con PercentualeDanno 20%"
 		"Gandalf il Grigio ha perso 40 pv, ora ha 180 pv",
 		ecc. ecc.
-Questa seconda implementazione è più flessibile perché non incastro
+Questa seconda implementazione Ã¨ piÃ¹ flessibile perchÃ© non incastro
 le classi di questo gioco insieme con la Console.
 Gli oggetti "sparano" gli eventi, senza dover decidere se stampare in Console,
 se mostrare in 3D in un ambiente OpenGL, se salvare su database, o inviare
 un messaggio via Internet... le classi si occupano solo del "loro piccolo mondo":
 combattere fra di loro.
-Chi usa queste classi può decidere come gestire gli eventi generati
+Chi usa queste classi puÃ² decidere come gestire gli eventi generati
     (---> da qui il nome EventHandler).
