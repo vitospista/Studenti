@@ -19,10 +19,52 @@ ul {
     display: inline-block;
 }
 
-ul li {
-    display: inline-block;
-}
-
 nav {
     background-color: orange;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+}
+
+nav > ul {
+    float: right;
+    margin: auto;
+}
+
+nav li {
+    display: inline;
+    line-height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav a {
+    padding: 10px;
+}
+
+td > h2, td > p {
+    margin: 5px 30px;
+    text-align: left;
+}
+
+.menu {
+    border: 1px solid #888;
+    background-color: #EEE;
+    margin: 10px auto;
+    width: 95%;
+}
+
+.menu-img {
+    width: 100px;
+    height: 70px;
+}
+
+.menu-img-td {
+    width: 105px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
 }
