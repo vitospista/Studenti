@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mio meteo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" /> 
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-inverse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#trieste">Trieste</a></li>
+                    <li><a href="#udine">Udine</a></li>
+                    <li><a href="#gorizia">Gorizia</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Meteo del Friuli Venezia Giulia</h1>
+            <div><img src="copertina.jpg" alt="bella copertina" /></div>
+            <div class="row">
+                <section class="col-md-4 col-sm-6">
+                    <h2><a name="trieste"></a>Trieste</h2>
+                    <p>La <span>temperatura</span> <em>oggi</em> è <strong>5 °C.</strong></p>
+                    <p>La velocità del vento oggi è 20 km/h.</p>
+                    <table class="table">
+                        <thead>
+                            <tr><td colspan="2">Temperature ora per ora</td></tr>
+                            <tr><td>Ora</td><td>Temperatura</td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>6:00</td><td>1°</td></tr>
+                            <tr><td>12:00</td><td>7°</td></tr>
+                            <tr><td>18:00</td><td>5°</td></tr>
+                            <tr><td>24:00</td><td>3°</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="col-md-4 col-sm-6">
+                    <h2><a name="udine"></a>Udine</h2>
+                    <p>La <span>temperatura</span> <em>oggi</em> è <strong>5 °C.</strong></p>
+                    <p>La velocità del vento oggi è 20 km/h.</p>
+                    <table class="table">
+                        <thead>
+                            <tr><td colspan="2">Temperature ora per ora</td></tr>
+                            <tr><td>Ora</td><td>Temperatura</td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>6:00</td><td>1°</td></tr>
+                            <tr><td>12:00</td><td>7°</td></tr>
+                            <tr><td>18:00</td><td>5°</td></tr>
+                            <tr><td>24:00</td><td>3°</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="col-md-4 col-sm-6">
+                    <h2><a name="gorizia"></a>Gorizia</h2>
+                    <p>La <span>temperatura</span> <em>oggi</em> è <strong>5 °C.</strong></p>
+                    <p>La velocità del vento oggi è 20 km/h.</p>
+                    <table class="table">
+                        <thead>
+                            <tr><td colspan="2">Temperature ora per ora</td></tr>
+                            <tr><td>Ora</td><td>Temperatura</td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>6:00</td><td>1°</td></tr>
+                            <tr><td>12:00</td><td>7°</td></tr>
+                            <tr><td>18:00</td><td>5°</td></tr>
+                            <tr><td>24:00</td><td>3°</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <form method="post" action="message-received.html">
+                <div class="form-group">
+                    <h2 class="text-center">Mandaci un commento!</h2>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nome:</label>
+                    <input class="form-control" type="text" name="name" maxlength="10" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email:</label>
+                    <input class="form-control" type="email" name="email" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password:</label>
+                    <input class="form-control" type="password" name="password" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">I am Happy:</label>
+                    <input type="checkbox" name="iamhappy" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Male:</label>
+                    <input type="radio" name="gender" value="male" />
+                    <label class="control-label">Female:</label>
+                    <input type="radio" name="gender" value="female" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date of Birth:</label>
+                    <input class="form-control" type="date" name="birth" />
+                </div>
+                <div>
+                    <input type="hidden" value="sdnvIPUAIP" name="hidden-value" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Commento:</label>
+                    <textarea name="comment" class="form-control" rows="10" cols="50">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Send data" />
+                </div>
+            </form>
+
+            <aside>
+                <br />
+                <h2>Fonti:</h2>
+                <ol type="a">
+                    <li><a href="http://www.ilmeteo.it">ilmeteo.it</a></li>
+                    <li>chetempochefa.it</li>
+                </ol>
+
+                <br />
+                <div>
+                    <h2>Autori</h2>
+                    <ul>
+                        <li>Steve Jobs</li>
+                        <li>Bill Gates</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <blockquote>
+                La vita è come il meteo,
+                non sai mai quando piove.
+            </blockquote>
+        </footer>
+        <pre>
+    Riga 1
+        Riga 2
+            Riga 3
+        </pre>
+    </body>
+</html>
