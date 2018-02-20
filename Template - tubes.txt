@@ -1,13 +1,13 @@
-REQUISITI
+ÔªøREQUISITI
 
 Una fabbrica forgia tubi di diverso tipo, e su ogni tubo applica delle operazioni in catena.
 I tubi possono essere in ghisa, in acciaio o in PVC.
 Ogni tubo ha le seguenti caratteristiche: lunghezza di progetto, lunghezza effettiva, peso di progetto, peso effettivo, colore.
 
-La sequenza di operazioni Ë:
+La sequenza di operazioni √®:
 1) creazione tubo, con settaggio delle due lunghezze e dei due pesi.
-2) controllo sulle misure: se la lunghezza effettiva differisce da quella di progetto di pi˘ di un certo delta,
-    il tubo Ë segnato come difettoso. Lo stesso per il peso.
+2) controllo sulle misure: se la lunghezza effettiva differisce da quella di progetto di pi√π di un certo delta,
+    il tubo √® segnato come difettoso. Lo stesso per il peso.
 3) colorazione finale del tubo in base al materiale.
 
 
@@ -15,11 +15,11 @@ La sequenza di operazioni Ë:
 IMPLEMENTAZIONE
 
 1)
-Creare una classe astratta Tube con le propriet‡ di cui sopra,
+Creare una classe astratta Tube con le propriet√† di cui sopra,
 e poi una classe derivata per ogni materiale diverso (IronTube, PvcTube...).
 
 Creare una enum StatusType con i seguenti valori: New, Checked, Rejected, Ready.
-La classe Tube ha una propriet‡ di tipo StatusType (che potrebbe chiamarsi... Status?),
+La classe Tube ha una propriet√† di tipo StatusType (che potrebbe chiamarsi... Status?),
     che viene settata dalle altre classi lungo il processo.
 
 2)
@@ -43,9 +43,9 @@ Quindi potrebbero generarsi tubi di lunghezza del tipo: 4.0018, 3.9996, 4.0003, 
 Creare una classe Checker astratta, che faccia da template.
 Il suo metodo Check fa le seguenti cose:
 - prende un Tube in input
-- se il tubo Ë gi‡ in stato Rejected, il Checker non fa niente.
-- se il tubo Ë New o Checked, il Check controlla il tubo secondo i suoi vincoli
-    (l'effettivo controllo Ë demandato alle classi Checker derivate)
+- se il tubo √® gi√† in stato Rejected, il Checker non fa niente.
+- se il tubo √® New o Checked, il Check controlla il tubo secondo i suoi vincoli
+    (l'effettivo controllo √® demandato alle classi Checker derivate)
 - se il controllo passa, lo stato del tubo per quella caratteristica viene messo a Checked.
 - se il controllo del tubo non passa, lo status del tubo viene messo a Rejected.
 Ci sono due Checker derivati, per controllare peso e lunghezza: LengthChecker e WeightChecker.
@@ -60,11 +60,11 @@ tutti i tubi in stato Rejected (dentro il metodo, usare il Where di LINQ!).
 5)
 Creare una classe Painter, che lavori come Visitor.
 La classe deve settare il colore sui tubi, ponendo un colore diverso per ogni tipo diverso di tubo.
-Ad esempio, per i PvcTube, dovr‡ settare il colore ad Arancione (il colore del Tube puÚ essere una semplice stringa!).
+Ad esempio, per i PvcTube, dovr√† settare il colore ad Arancione (il colore del Tube pu√≤ essere una semplice stringa!).
 Per implementare correttamente il pattern Visitor per questa classe, andranno creati:
 - un interfaccia IVisitor, con i 3 overload per i tre tipi di tubi di input
 - il metodo astratto "Accept(IVisitor visitor)" sulla classe base Tube, e tutti gli override sulle classi derivate da Tube.
-Ricordarsi che nel Visitor, chi d‡ l'avvio al giro Ë la classe visitata, non il visitor.
+Ricordarsi che nel Visitor, chi d√† l'avvio al giro √® la classe visitata, non il visitor.
 
 6)
 Una classe finale Approver che pone in stato Ready tutti i tubi arrivati fino a qui.

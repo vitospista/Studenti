@@ -1,17 +1,17 @@
-Abbiamo una tazza.
-Può essere:
+ï»¿Abbiamo una tazza.
+PuÃ² essere:
 - riempita
 - svuotata
 - lavata
 - bevuta in parte.
 
-Quando una tazza è creata, è vuota.
-Può essere riempita solo se è vuota (cioè svuotata o bevuta del tutto)
+Quando una tazza Ã¨ creata, Ã¨ vuota.
+PuÃ² essere riempita solo se Ã¨ vuota (cioÃ¨ svuotata o bevuta del tutto)
     altrimenti lancia eccezione.
-Può essere svuotata o bevuta solo se non è vuota,
+PuÃ² essere svuotata o bevuta solo se non Ã¨ vuota,
     altrimenti lancia eccezione.
-Una persona può bere in frazioni di 1/10 (posso bere 2/10, 7/10...).
-    se cerco di bere più di quello che rimane nella tazza, lancia eccezione.
-Quando una persona comincia a bere, solo lui può continuare a bere da quella tazza,
+Una persona puÃ² bere in frazioni di 1/10 (posso bere 2/10, 7/10...).
+    se cerco di bere piÃ¹ di quello che rimane nella tazza, lancia eccezione.
+Quando una persona comincia a bere, solo lui puÃ² continuare a bere da quella tazza,
     a meno che la tazza non venga lavata.
-Quando una tazza viene lavata, è anche automaticamente svuotata.
+Quando una tazza viene lavata, Ã¨ anche automaticamente svuotata.

@@ -1,10 +1,10 @@
-1) Dato il progetto Employees, modificare la classe Employee nel seguente modo:
+﻿1) Dato il progetto Employees, modificare la classe Employee nel seguente modo:
 L'Employee non distingue tra bonus e malus,
 ma ha una lista di "Calculator".
 Ogni calculator riceve la paga corrente calcolata e restituisce 
 la paga aggiornata con le proprie aggiunte o sottrazione, in una catena
 che alla fine restituisce la paga finale.
-Ci sar� una classe base:
+Ci sarà una classe base:
 
 abstract Calculator
 {
