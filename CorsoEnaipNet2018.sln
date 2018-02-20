@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ripasso", "Ripasso", "{61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}"
 EndProject
@@ -81,6 +81,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esercizi", "Esercizi", "{AB
 		provetta 12 febbraio.txt = provetta 12 febbraio.txt
 		provetta 26 gennaio.md = provetta 26 gennaio.md
 		Template - tubes.txt = Template - tubes.txt
+		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispense", "Dispense", "{CA8C711F-3409-4D6B-9D8A-0B40B8D6D855}"

@@ -75,7 +75,7 @@
                     </table>
                 </section>
             </div>
-            <form method="post" action="message-received.html">
+            <form method="get" action="message-received.html">
                 <div class="form-group">
                     <h2 class="text-center">Mandaci un commento!</h2>
                 </div>
@@ -110,8 +110,15 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Commento:</label>
-                    <textarea name="comment" class="form-control" rows="10" cols="50">
-                    </textarea>
+                    <textarea name="comment" class="form-control" rows="10" cols="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Lavoro</label>
+                    <select class="form-control" name="lavoro">
+                        <option>Studente</option>
+                        <option>Meccanico</option>
+                        <option>Insegnante</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Send data" />
