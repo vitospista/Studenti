@@ -71,8 +71,9 @@ Il Main, prima di avviare il gioco, si lega a tutti gli eventi delle varie class
 	le varie informazioni.
 Ad esempio, quando il guerriero "Karn il Sanguinario" colpisce "Gandalf il Grigio" ,
     in Console verrà scritto:
-	    "Karn il Sanguinario ha attaccato con PercentualeDanno 20%"
+	    "Karn il Sanguinario ha attaccato togliendo 25 pv"
 		"Gandalf il Grigio ha perso 40 pv, ora ha 180 pv",
+		"Shrek l'Orco ha attaccato togliendo 30pv all'avversario",
 		ecc. ecc.
 Questa seconda implementazione è più flessibile perché non incastro
 le classi di questo gioco insieme con la Console.
