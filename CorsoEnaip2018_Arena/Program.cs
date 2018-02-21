@@ -67,9 +67,66 @@ namespace CorsoEnaip2018_Arena
         }
     }
 
+    //class Arena
+    //{
+    //    private Character[] _characters;
+
+    //    private Random _r;
+
+    //    public Arena()
+    //    {
+    //        _r = new Random();
+    //    }
+
+    //    public void Insert(IEnumerable<Character> characters)
+    //    {
+    //        if (characters == null)
+    //            throw new ArgumentNullException(nameof(characters));
+
+    //        _characters = characters
+    //            .OrderByDescending(x => x.Speed)
+    //            .ToArray();
+    //    }
+
+    //    public void StartFight()
+    //    {
+    //        while (true)
+    //        {
+    //            for (int i = 0; i < _characters.Length; i++)
+    //            {
+    //                var c = _characters[i];
+
+    //                if (c.IsAlive)
+    //                {
+    //                    int attackedIndex;
+
+    //                    do
+    //                    {
+    //                        attackedIndex = _r.Next(_characters.Length);
+    //                    }
+    //                    while (attackedIndex == i || !_characters[attackedIndex].IsAlive);
+
+    //                    var attacked = _characters[attackedIndex];
+
+    //                    c.Attack(attacked);
+
+    //                    if (_characters.Count(x => x.IsAlive) == 1)
+    //                    {
+    //                        var winner = _characters.First(x => x.IsAlive);
+    //                        Finished?.Invoke(this, new FinishedEventArgs { Winner = winner });
+    //                        return;
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+
+    //    public event EventHandler<FinishedEventArgs> Finished;
+    //}
+
     class Arena
     {
-        private Character[] _characters;
+        private List<Character> _characters;
 
         private Random _r;
 
@@ -85,39 +142,67 @@ namespace CorsoEnaip2018_Arena
 
             _characters = characters
                 .OrderByDescending(x => x.Speed)
-                .ToArray();
+                .ToList();
         }
 
         public void StartFight()
         {
             while (true)
             {
-                for (int i = 0; i < _characters.Length; i++)
+                for (int i = 0; i < _characters.Count; i++)
                 {
                     var c = _characters[i];
 
-                    if (c.IsAlive)
+                    int attackedIndex;
+                    Character attacked;
+
+                    do
                     {
-                        int attackedIndex;
+                        attackedIndex = _r.Next(_characters.Count);
+                        attacked = _characters[attackedIndex];
+                    }
+                    while (attacked == c || !attacked.IsAlive);
 
-                        do
-                        {
-                            attackedIndex = _r.Next(_characters.Length);
-                        }
-                        while (attackedIndex == i || !_characters[attackedIndex].IsAlive);
+                    c.Attack(attacked);
 
-                        var attacked = _characters[attackedIndex];
+                    if (!attacked.IsAlive)
+                        _characters.Remove(attacked);
 
-                        c.Attack(attacked);
-
-                        if (_characters.Count(x => x.IsAlive) == 1)
-                        {
-                            var winner = _characters.First(x => x.IsAlive);
-                            Finished?.Invoke(this, new FinishedEventArgs { Winner = winner });
-                            return;
-                        }
+                    if (_characters.Count == 1)
+                    {
+                        var winner = _characters.First();
+                        Finished?.Invoke(this, new FinishedEventArgs { Winner = winner });
+                        return;
                     }
                 }
+
+                //foreach(var c in _characters.ToArray())
+                //{
+                //    if (!c.IsAlive)
+                //        continue;
+
+                //    int attackedIndex;
+                //    Character attacked;
+
+                //    do
+                //    {
+                //        attackedIndex = _r.Next(_characters.Count);
+                //        attacked = _characters[attackedIndex];
+                //    }
+                //    while (attacked == c || !attacked.IsAlive);
+
+                //    c.Attack(attacked);
+
+                //    if (!attacked.IsAlive)
+                //        _characters.Remove(attacked);
+
+                //    if (_characters.Count == 1)
+                //    {
+                //        var winner = _characters.First();
+                //        Finished?.Invoke(this, new FinishedEventArgs { Winner = winner });
+                //        return;
+                //    }
+                //}
             }
         }
 
