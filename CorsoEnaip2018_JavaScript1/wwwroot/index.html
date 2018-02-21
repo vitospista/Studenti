@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    console.log("hello js!");
+
+    // JS is dynamic:
+    var i = 5;
+    i = "ciao";
+    i = undefined;
+
+    // weakly-typed loosely-typed
+    var a1 = 5;
+    var a2 = "2";
+    var sum = a1 + a2;
+    console.log(sum);
+    var diff = a1 - a2;
+    console.log(diff);
+
+    var condition = "0";
+
+    if(condition) {
+      console.log("is true");
+    } else {
+      console.log("is false");
+    }
+
+    if ("0" == 0) {
+      console.log("string 0 = number 0")
+    }
+
+    var i = 3;
+    var i3 = i + i2;
+    var i2 = 6;
+    var i2 = 4;
+    console.log("i = " + i);
+    console.log("i2 = " + i2);
+    console.log("i3 = " + i3);
+
+    console.log("ciclo for:")
+    for(var index = 0; index < 3; index++) {
+      console.log("index vale: " + index);
+    }
+    console.log("fuori dal loop index vale: " + index);
+
+    // alert("an alert!");
+
+    Foo();
+
+    function Foo(){
+      console.log('Foo');
+      var insideFoo = 12;
+
+      FooFoo();
+
+      function FooFoo(){
+        console.log("FooFoo");
+        var insideInsideFoo = 13;
+        console.log("insideInsideFoo: " + insideInsideFoo);
+        console.log("insideFoo: " + insideFoo);
+        console.log("i: " + i);
+
+        var i = "inside value";
+
+        console.log("i: " + i);
+      }
+
+      FooFoo();
+    }
+
+    //this causes ReferenceError: variable not defined
+    // console.log(insideFoo);
+
+    console.log("i = " + i);
+
+    function Sum(a1, a2){
+      return a1+a2;
+    }
+
+    try {
+      throw new Error();
+    } catch(e){
+      if(e instanceof ReferenceError){
+        console.log("e is Error");
+      } else {
+        console.log("e is NOT Error");
+      }
+    }
+
+    function HideH1() {
+      var titleId = document.getElementById("title");
+      titleId.style.textAlign = "center";
+      
+      var titleClassElements = document.getElementsByClassName("title");
+      for(var i = 0; i < titleClassElements.length; i++){
+        // this put an inline style
+        // titleClassElements[i].style.color = "blue";
+
+        var classes = titleClassElements[i].classList;
+        var firstClass = classes[0];
+        classes.remove(firstClass);
+        classes.add("changed-title");
+        classes.add(firstClass);
+        console.log(classes);
+      }
+
+      // var x = document.get
+    }
+
+    function updateCount(){
+      var ta = document.getElementById("words");
+      var p = document.getElementById("words-count");
+      p.innerHTML = ta.value.length;
+    }
+
+  </script>
+  <style>
+    .title {
+      color: red;
+    }
+    .changed-title {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title" class="title">Hello!</h1>
+  <h1 class="title">Hello!</h1>
+  <button onclick="Foo();">Click me!</button>
+  <button onclick="HideH1();">Hide the title!</button>
+  <textarea id="words" onkeyup="updateCount();"></textarea>
+  <p id="words-count"></p>
+</body>
+</html>
