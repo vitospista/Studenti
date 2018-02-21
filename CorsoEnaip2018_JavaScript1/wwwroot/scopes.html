@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    console.log("in js there are only 2 types of scope:");
+    console.log("the global scope (everything outside of any function)");
+    console.log("local scope (inside of a certain function)");
+
+    // this is in the global scope:
+    var i = 1;
+
+    // I can redeclare the same variable:
+    var i = 2;
+
+    // the second declaration is ignored:
+    // there will be just a single "i" at the global level.
+
+    function f() {
+      var i = 3;
+      // this variable is in the scope of "f",
+      // so is a different variable from the previous global "i".
+      // the two variables are updated separately.
+    }
+
+    var v1 = 5;
+    function f2() {
+      var v2 = 6;
+      function f3() {
+        var v3 = 7;
+        var v = v1 + v2 + v3;
+        // to calculate v, js searches for v1, v2, v3.
+
+        // v1 is not found in the scope of f3,
+        // so it is searched in the scope of the outer function f2.
+        // v1 is not found in the scope of f2,
+        // so it is searched in outer scope
+        // that is the gloabl scope. And it is found there.
+
+        // v2 is searched in the same way,
+        // and it is found in the scope of f2.
+
+        // v3 is searched in the same way,
+        // and is found directly in the scope of the f3.
+      }
+    }
+
+    // variables declared inside a loop (for, while, ...)
+    // are seen not only in the loop block,
+    // but in the whole scope that contains the loop.
+    console.log("ciclo for:")
+    for(var index = 0; index < 3; index++) {
+      console.log("index vale: " + index);
+    }
+    // the variable index is seen in the global scope,
+    // because the for is declared in the global scope.
+    console.log("fuori dal loop index vale: " + index);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

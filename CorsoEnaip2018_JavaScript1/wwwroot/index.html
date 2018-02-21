@@ -6,32 +6,75 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
-    console.log("hello js!");
+    console.log("intro a js!");
 
-    // JS is dynamic:
+    console.log("JS is dynamic");
+    console.log("the same variable can store values of different types:");
     var i = 5;
+    console.log("i: " + i);
     i = "ciao";
-    i = undefined;
+    console.log("i: " + i);
 
-    // weakly-typed loosely-typed
+    console.log("js is 'weakly-typed' or 'loosely-typed':");
     var a1 = 5;
     var a2 = "2";
     var sum = a1 + a2;
+    console.log("number + string is converted in string:");
     console.log(sum);
     var diff = a1 - a2;
+    console.log("number - string is converted in number");
     console.log(diff);
 
-    var condition = "0";
-
-    if(condition) {
+    console.log("CONDITIONS");
+    console.log("You can use boolean but also other types.");
+    console.log("if(true) returns:");
+    if(true) {
+      console.log("is true");
+    } else {
+      console.log("is false");
+    }
+    console.log("with numbers, 0 returns false, non-0 returns true.");
+    console.log("if(1):");
+    if(1) {
+      console.log("is true");
+    } else {
+      console.log("is false");
+    }
+    console.log("if(0):");
+    if(0) {
       console.log("is true");
     } else {
       console.log("is false");
     }
 
-    if ("0" == 0) {
-      console.log("string 0 = number 0")
+    console.log("with strings, an empty string returns false, the others return true.");
+    console.log('if("ciao"):');
+    if("ciao") {
+      console.log("is true");
+    } else {
+      console.log("is false");
     }
+    console.log("if(0):");
+    console.log('if(""):');
+    if("") {
+      console.log("is true");
+    } else {
+      console.log("is false");
+    }
+
+    console.log("this can generate confusion:");
+    console.log('if(0) is false, if("0") is true...');
+    console.log('but 0 == "0" is true!');
+    console.log('and also, "0" == false is true!');
+
+    console.log("the single = is for assignments of values to variables");
+
+    console.log("the double == is for comparing 'loosely' two values");
+    console.log("this means that if they are of different types,");
+    console.log("js tries to convert to the same type");
+    console.log('for example, "0" is a string and 0 is a number,');
+    console.log('but "0" == 0 returns:');
+    console.log("0" == 0);
 
     var i = 3;
     var i3 = i + i2;
@@ -46,34 +89,6 @@
       console.log("index vale: " + index);
     }
     console.log("fuori dal loop index vale: " + index);
-
-    // alert("an alert!");
-
-    Foo();
-
-    function Foo(){
-      console.log('Foo');
-      var insideFoo = 12;
-
-      FooFoo();
-
-      function FooFoo(){
-        console.log("FooFoo");
-        var insideInsideFoo = 13;
-        console.log("insideInsideFoo: " + insideInsideFoo);
-        console.log("insideFoo: " + insideFoo);
-        console.log("i: " + i);
-
-        var i = "inside value";
-
-        console.log("i: " + i);
-      }
-
-      FooFoo();
-    }
-
-    //this causes ReferenceError: variable not defined
-    // console.log(insideFoo);
 
     console.log("i = " + i);
 
