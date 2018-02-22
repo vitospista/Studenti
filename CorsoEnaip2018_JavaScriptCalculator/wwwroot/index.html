@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <style>
+        .container {
+            width: 400px;
+        }
+
+        .row {
+            margin: 10px auto;
+        }
+
+        .btn {
+            font-weight: bold;
+            font-size: 20px;
+            width: 70%;
+            padding-bottom: 10%;
+            /* width: 100%; */
+        }
+    </style>
+    <script>
+        function sum() {
+            function doSum(a, b) {
+                return a + b;
+            }
+            operate(doSum);
+        }
+
+        function sub() {
+            function doSub(a, b) {
+                return a - b;
+            }
+            operate(doSub);
+        }
+
+        function mul() {
+            function doMul(a, b) {
+                return a * b;
+            }
+            operate(doMul);
+        }
+
+        function div() {
+            function doDiv(a, b) {
+                return a / b;
+            }
+            operate(doDiv);
+        }
+
+        function operate(calculate) {
+            var n1 = document.getElementById("operand1").value;
+            var n2 = document.getElementById("operand2").value;
+
+            var result = calculate(+n1, +n2);
+
+            if (isNaN(result)){
+                alert('you must insert only numbers!');
+            } else {
+                document.getElementById("result").value = result;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">calculator<h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <input class="form-control" type="number" id="operand1" />
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="number" id="operand2" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <button id="sum" onclick="sum();" class="btn btn-primary">+</button>
+            </div>
+            <!-- potevo mettere la funzione in linea, ma così l'HTML è meno "pulito" -->
+            <!-- <button id="sum" onclick="operate(function(a,b){return a+b;});">+</button> -->
+            <div class="col-md-3 text-center">
+                <button id="sub" onclick="sub();" class="btn btn-primary text-center">-</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <button id="mul" onclick="mul();" class="btn btn-primary text-center">*</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <button id="div" onclick="div();" class="btn btn-primary text-center">/</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input class="form-control" type="number" id="result" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
