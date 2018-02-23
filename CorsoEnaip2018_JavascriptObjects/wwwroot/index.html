@@ -3,10 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <title></title>
-  
+  <style>
+    button {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <h1>It Works!</h1>
+  <button onclick="logThisGlobal();">Log This Global</button>
+  <button onclick="container.logContainingLogThisGlobal();">Log Global nested in container's function!</button>
+  <button onclick="container.logWithLogThisGlobal();">Log This Global as container's function!</button>
+  <button id="b4">Log This Global nested in event listener!</button>
+  <button id="b5">Log This Global as event listener!</button>
   <script src="scripts.js"></script>
 </body>
 </html>
