@@ -3,11 +3,166 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-  <script>
-
-  </script>
+    <style>
+        body {
+            width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            text-align:center;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto;
+        }
+        td {
+            height: 100px;
+            width: 100px;
+            border: 1px solid #000;
+            margin: 0;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
-  <h1>It Works!</h1>
+    <h1>Tria!</h1>
+    <div>
+        <div id="player1" class="player"><p>GIOCATORE 1</p></div>
+        <div id="player2" class="player"><p>GIOCATORE 2</p></div>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td id="td1" onclick="tdClick(this);"></td>
+                <td id="td2" onclick="tdClick(this);"></td>
+                <td id="td3" onclick="tdClick(this);"></td>
+            </tr>
+            <tr>
+                <td id="td4" onclick="tdClick(this);"></td>
+                <td id="td5" onclick="tdClick(this);"></td>
+                <td id="td6" onclick="tdClick(this);"></td>
+            </tr>
+            <tr>
+                <td id="td7" onclick="tdClick(this);"></td>
+                <td id="td8" onclick="tdClick(this);"></td>
+                <td id="td9" onclick="tdClick(this);"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var PLAYER_1 = "player1";
+        var PLAYER_2 = "player2";
+        var player = PLAYER_1;
+        var finished = false;
+
+        markPlayerUI(player, true);
+
+        function tdClick(cell) {
+            if (finished || cellAlreadyMarked(cell)) {
+                return;
+            }
+
+            setSymbolOnCell(cell);
+
+            setTimeout(
+                function () {
+                    if (threeSymbolsInLine()) {
+                        alert(player + ' ha vinto!');
+                        finished = true;
+                        return;
+                    }
+                    else if (noMoreMoves()) {
+                        alert('Partita pari! Nessuno ha vinto!');
+                        finished = true;
+                    } else {
+                        switchPlayer();
+                    }
+                },
+                1);
+        }
+
+        function cellAlreadyMarked(cell) {
+            return cell.style.backgroundImage;
+        }
+
+        function threeSymbolsInLine() {
+            var result =
+                areThreeEqual('td1', 'td2', 'td3') ||
+                areThreeEqual('td4', 'td5', 'td6') ||
+                areThreeEqual('td7', 'td8', 'td9') ||
+                areThreeEqual('td1', 'td4', 'td7') ||
+                areThreeEqual('td2', 'td5', 'td8') ||
+                areThreeEqual('td3', 'td6', 'td9') ||
+                areThreeEqual('td1', 'td5', 'td9') ||
+                areThreeEqual('td3', 'td5', 'td7');
+
+            return result;
+        }
+
+        function noMoreMoves() {
+
+            var initialArray = [];
+            for (var i = 0; i < 9; i++) {
+                initialArray.push(i+1);
+            }
+
+            var result =
+                initialArray
+                    .map(function (el) {
+                        return getImage('td' + (el));
+                    })
+                    .every(function (x) { return x; });
+
+            return result;
+        }
+
+        function setSymbolOnCell(cell) {
+
+            var imageName = (player == PLAYER_1) ? 'X' : 'O';
+
+            // l'operatore ternario è zucchero sintattico per
+            // la seguente espressione:
+            //var imageName;
+            //if (player == PLAYER_1) {
+            //    imageName = 'X';
+            //} else {
+            //    imageName = 'O';
+            //}
+
+            cell.style.backgroundSize = "50px 50px";
+            cell.style.backgroundRepeat = 'no-repeat';
+            cell.style.backgroundPosition = 'center'; 
+            cell.style.backgroundImage = "url('" + imageName + ".png')";
+        }
+
+        function getImage(id) {
+            return document.getElementById(id).style.backgroundImage;
+        }
+
+        function areThreeEqual(c1, c2, c3) {
+            return getImage(c1) && (getImage(c1) == getImage(c2)) && (getImage(c2) == getImage(c3));
+        }
+
+        function switchPlayer() {
+            if (player == PLAYER_1) {
+                player = PLAYER_2;
+                markPlayerUI(PLAYER_1, false);
+                markPlayerUI(PLAYER_2, true);
+            } else {
+                player = PLAYER_1;
+                markPlayerUI(PLAYER_1, true);
+                markPlayerUI(PLAYER_2, false);
+            }
+        }
+
+        function markPlayerUI(playerName, isSelected) {
+            var playerLabel = document.getElementById(playerName);
+            var background = isSelected ? 'yellow' : 'white';
+            playerLabel.style.backgroundColor = background;
+        }
+    </script>
 </body>
 </html>
