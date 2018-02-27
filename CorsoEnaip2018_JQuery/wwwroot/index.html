@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Titolone</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Età</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Mario
+                </td>
+                <td>
+                    24
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input id="text-normal" />
+    <input id="text-reverse" />
+    <button class="btn" onclick="cambiaTitolo();">Cambia titolo</button>
+    <button class="btn" onclick="cambiaEtaDiMario();">Cambia età di Mario</button>
+    <button class="btn" onclick="aggiungiRigaInFondo();">Aggiungi Riga in fondo</button>
+    <button class="btn" onclick="aggiungiRigaInMezzo();">Aggiungi Riga in mezzo</button>
+
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $('button').css('display', 'block');
+        // equivalente senza jQuery:
+        //var buttons = document.getElementsByTagName('button');
+        //for (let b of buttons)
+        //    b.style.display = 'block';
+
+        // nel body il conteggio dei children
+        // parte dal primo elemento,
+        // NON conta solo i button!
+        $('body > button:nth-child(6)').css('color', 'red');
+
+        $('.btn').css('background-color', 'white');
+
+        $('table td').css('background-color', '#DDD');
+
+        $('h1,.btn').css('font-family', 'tahoma');
+
+        $('#text-normal').css('padding', '10px');
+
+        //hook event listener
+        $('#text-normal').on('input', function (event)
+        {
+            $('#text-reverse').val($('#text-normal').val()
+                .split("")
+                .reverse()
+                .join(""));
+        });
+
+        $('h1').on('click', function (event)
+        {
+            alert('hai cliccato sul titolo!');
+        })
+
+        function cambiaTitolo()
+        {
+            // modifica il contenuto degli elementi selezionati
+            $('h1').html('Titolo cambiato');
+        }
+
+        function cambiaEtaDiMario()
+        {
+            var etaElement = $('table > tbody > tr:nth-child(1) > td:nth-child(2)');
+            etaElement.html(+etaElement.html() + 1)
+        }
+
+        function aggiungiRigaInFondo()
+        {
+            var newName = $('#text-normal').val();
+
+            var newRow =
+                `<tr>
+                    <td>${newName}</td>
+                    <td>18</td>
+                </tr>`;
+
+            $('tbody').append(newRow);
+
+            $('tbody tr:nth-child(3) td').css('background-color', 'yellow');
+        }
+
+        function aggiungiRigaInMezzo()
+        {
+            var newName = $('#text-normal').val();
+
+            var newRow =
+                `<tr>
+                    <td>${newName}</td>
+                    <td>18</td>
+                </tr>`;
+
+            $(newRow).insertAfter($('tbody tr:nth-child(1)'));
+        }
+
+    </script>
+</body>
+</html>

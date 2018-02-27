@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        // usando 'var', 'i' è disponibile anche fuori dal for.
+        function usingVar()
+        {
+            for (var i = 0; i < 3; i++) {
+                // ...
+            }
+            console.log(i);
+        }
+
+        // usando 'let', 'i' NON è più disponibile fuori dal blocco 'for'.
+        function usingLet()
+        {
+            for (let i = 0; i < 3; i++) {
+                // ...
+            }
+            // questa riga lancia eccezione,
+            //console.log(i);
+        }
+
+        usingVar();
+        usingLet();
+
+        var odds = [1, 3, 5, 7, 9];
+        var evens = odds.map(o => o - 1);
+        var greaterOdds = odds.filter(o => o > 5);
+
+        var name = "Mario";
+        var greeter = "mamma";
+        var greeting =
+`Ciao ${name}!
+Ti saluta ${greeter}!`;
+        console.log(greeting);
+
+        // la stringa è costruita una volta sola,
+        // non varia più anche se successivamente
+        // cambio il valore alle variabili.
+        name = "Luigi";
+        console.log(greeting);
+
+        const constant = "unchangable value";
+        constant = "another value";
+
+
+
+    </script>
+</body>
+</html>
