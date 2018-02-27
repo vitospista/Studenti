@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var STATUS_NEW = "new";
+        var STATUS_REJECTED = "rejected";
+        var STATUS_CHECKED = "checked";
+        var STATUS_READY = "ready";
+
+        var STATUS = {
+            NEW: STATUS_NEW,
+            REJECTED: STATUS_REJECTED,
+            CHECKED: STATUS_CHECKED,
+            READY: STATUS_READY,
+        };
+
+        var TYPE = {
+            PVC: "pvc",
+            STEEL: "steel",
+            CAST_IRON: "cast iron",
+        };
+
+        function Tube(projectLength, projectWeight, type)
+        {
+            this.projectLength = projectLength;
+            this.projectWeight = projectWeight;
+            this.type = type;
+
+            this.realLength = projectLength * generateRandomScale(25);
+            this.realWeight = projectWeight * generateRandomScale(40);
+
+            // scegliere una delle due:
+            // this.status = STATUS_NEW;
+            this.status = STATUS.NEW;
+
+            return this;
+        }
+        // una funzione Factory poteva essere fatta così,
+        // ma non avrebbe avuto nulla di più della funzione costrutture
+        // fatta sopra.
+        //function CreateTube(projectLength, projectWeight, type)
+        //{
+        //    var newObj = {
+        //        projectLength: projectLength,
+        //        projectWeight: projectWeight,
+        //        type: type,
+        //        realLength: projectLength * (1 + ((Math.random() - 0.5) / 25)),
+        //        realWeight: projectWeight * (1 + ((Math.random() - 0.5) / 25)),
+        //        status: STATUS.NEW
+        //    };
+
+        //    return newObj;
+        //}
+
+        function generateRandomScale(shiftScale)
+        {
+            return 1 + ((Math.random() - 0.5) / shiftScale);
+        }
+
+        function Checker() { }
+        Checker.prototype.check = function (tube)
+        {
+            if (tube.status == STATUS.REJECTED) {
+                return;
+            }
+            if (this.controlPassed(tube)) {
+                tube.status = STATUS.CHECKED;
+            } else {
+                tube.status = STATUS.REJECTED;
+            }
+        }
+        function LengthChecker() { }
+        LengthChecker.prototype.__proto__ = Checker.prototype;
+        LengthChecker.prototype.controlPassed = function (tube)
+        {
+            var absoluteShift = Math.abs(tube.projectLength - tube.realLength);
+            var percentageShift = absoluteShift / tube.projectLength;
+
+            return percentageShift < 0.01;
+
+            // other way
+            //var absoluteShift = tube.projectLength - tube.realLength;
+            //var percentageShift = absoluteShift / tube.projectLength;
+            //return (percentageShift > -0.01) && (percentageShift < 0.01);
+        }
+
+        function Remover()
+        {
+            this.filterRemoved = function(tubes)
+            {
+                return tubes.filter(function (t)
+                {
+                    return t.status != STATUS.REJECTED;
+                });
+            }
+        }
+
+        function Painter()
+        {
+            this.paint = function(tube)
+            {
+                switch (tube.type) {
+                    case TYPE.CAST_IRON:
+                        tube.color = "brown";
+                        break;
+                    case TYPE.PVC:
+                        tube.color = "orange";
+                        break;
+                    case TYPE.STEEL:
+                        tube.color = "blue";
+                        break;
+                }
+            }
+        }
+
+        function Approver()
+        {
+            this.approve = function (tube)
+            {
+                tube.status = STATUS.READY;
+            }
+        }
+
+        var lc = new LengthChecker();
+        var r = new Remover();
+        var p = new Painter();
+        var a = new Approver();
+
+        var tubes = [
+            new Tube(50, 24, TYPE.PVC),
+            new Tube(80, 60, TYPE.STEEL),
+            new Tube(20, 25, TYPE.CAST_IRON)
+        ];
+
+        for (var t of tubes) {
+            lc.check(t);
+        }
+
+        var okTubes = r.filterRemoved(tubes);
+
+        for (var t of okTubes) {
+            p.paint(t);
+            a.approve(t);
+        }
+
+        console.log(okTubes);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

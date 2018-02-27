@@ -1,12 +1,15 @@
 ﻿REQUISITI
 
-Una fabbrica forgia tubi di diverso tipo, e su ogni tubo applica delle operazioni in catena.
+Una fabbrica forgia tubi di diverso tipo,
+e su ogni tubo applica delle operazioni in catena.
 I tubi possono essere in ghisa, in acciaio o in PVC.
-Ogni tubo ha le seguenti caratteristiche: lunghezza di progetto, lunghezza effettiva, peso di progetto, peso effettivo, colore.
+Ogni tubo ha le seguenti caratteristiche: lunghezza di progetto,
+lunghezza effettiva, peso di progetto, peso effettivo, colore.
 
 La sequenza di operazioni è:
 1) creazione tubo, con settaggio delle due lunghezze e dei due pesi.
-2) controllo sulle misure: se la lunghezza effettiva differisce da quella di progetto di più di un certo delta,
+2) controllo sulle misure: se la lunghezza effettiva differisce
+	da quella di progetto di più di un certo delta,
     il tubo è segnato come difettoso. Lo stesso per il peso.
 3) colorazione finale del tubo in base al materiale.
 
