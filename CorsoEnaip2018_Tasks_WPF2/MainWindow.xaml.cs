@@ -14,6 +14,8 @@ namespace CorsoEnaip2018_Tasks_WPF2
 
         private async void CalculateMaxPrime_Click(object sender, RoutedEventArgs e)
         {
+            Spinner.IsBusy = true;
+
             var upperLimit = Input.Text;
 
             Result.Text = "Calculating...";
@@ -40,6 +42,12 @@ namespace CorsoEnaip2018_Tasks_WPF2
             {
                 Result.Text = "Errore! Input non corretto!";
             }
+            finally
+            {
+                Spinner.IsBusy = false;
+            }
+
+            Thread.Sleep(1000);
 
             Debug.WriteLine(
                 $"On Button Click handler after Prime calculation" +
@@ -51,6 +59,8 @@ namespace CorsoEnaip2018_Tasks_WPF2
     {
         public static int FindMaxPrimeUnder(string upperLimitString)
         {
+            //Thread.Sleep(500);
+
             int upperLimit = int.Parse(upperLimitString);
 
             int max = 2;

@@ -4,23 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorsoEnaip2018_Tasks_WPF2"
+        xmlns:tlkt="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="350"
         Width="525">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <tlkt:BusyIndicator Name="Spinner">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" FontSize="24" Name="Input" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-        <TextBlock Grid.Row="1" FontSize="24" Name="Result" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <Button Grid.Row="2"
+            <TextBox Grid.Row="0" FontSize="24" Name="Input" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
+            <TextBlock Grid.Row="1" FontSize="24" Name="Result" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Button Grid.Row="2"
                 FontSize="24"
                 Content="Calculate Max Prime"
                 Name="CalculateMaxPrime"
                 Click="CalculateMaxPrime_Click"></Button>
-    </Grid>
+        </Grid>
+    </tlkt:BusyIndicator>
 </Window>
