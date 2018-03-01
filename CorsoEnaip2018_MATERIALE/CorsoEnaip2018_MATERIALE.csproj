@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C832247-36A2-46A3-A50D-E793FD9F87F3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CorsoEnaip2018_MATERIALE</RootNamespace>
+    <AssemblyName>CorsoEnaip2018_MATERIALE</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="EmployeeTests.playlist" />
+    <None Include="provetta 26 gennaio.md" />
+    <None Include="web projects - specifiche.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseCorso.sql" />
+    <Content Include="Design Pattern fatti.txt" />
+    <Content Include="Esercizi - Arena.txt" />
+    <Content Include="Esercizi - cup.txt" />
+    <Content Include="Esercizi - Employee.txt" />
+    <Content Include="Esercizi - gioco degli scacchi.txt" />
+    <Content Include="Esercizi - salvataggio su file.txt" />
+    <Content Include="Esercizi - Template - sales 2.txt" />
+    <Content Include="Esercizi - template - sales.txt" />
+    <Content Include="Esercizi - Visitor.txt" />
+    <Content Include="Preparazione provetta 26 gennaio.txt" />
+    <Content Include="provetta 12 febbraio.txt" />
+    <Content Include="SOLID.txt" />
+    <Content Include="Template - tubes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
