@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorsoEnaip2018_Tasks_WebsiteDownload"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+        Height="350"
+        Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Row="0" Grid.Column="0"
+                 Name="UrlTB"
+                 FontSize="16"/>
+        <Button Grid.Row="0" Grid.Column="1"
+                Name="LoadBtn"
+                Click="LoadBtn_Click"
+                Content="Load"/>
+        <ScrollViewer Grid.Row="1" Grid.Column="0">
+            <TextBlock Grid.ColumnSpan="2"
+                       Name="HTMLContent"
+                       TextWrapping="Wrap"/>
+        </ScrollViewer>
     </Grid>
 </Window>

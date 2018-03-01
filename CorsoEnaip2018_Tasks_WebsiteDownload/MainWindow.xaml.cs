@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CorsoEnaip2018_Tasks_WebsiteDownload
 {
@@ -29,6 +17,18 @@ namespace CorsoEnaip2018_Tasks_WebsiteDownload
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void LoadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HTMLContent.Text = "loading...";
+
+            var client = new HttpClient();
+
+            var result = await client.GetAsync(UrlTB.Text);
+            var html = await result.Content.ReadAsStringAsync();
+
+            HTMLContent.Text = html;
         }
     }
 }
