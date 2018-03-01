@@ -32,12 +32,12 @@ namespace CorsoEnaip2018_Dictionary
             // se uso una chiave non esistente nel dizionario,
             // il dizionario lancia eccezione
             try { Employee notExists = d["Luigi"]; }
-            catch (Exception ex) { }
+            catch { }
 
             // se cerco di inserire una chiave già inserita,
             // il dizionario lancia eccezione.
             try { d.Add(e1.Name, e1); }
-            catch (Exception ex) { }
+            catch { }
 
             // se uso 'var', C# a compile time cerca di capire
             // a che classe appartiente la variabile.
