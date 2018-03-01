@@ -44,8 +44,12 @@ namespace CorsoEnaip208_Tasks_WPF
     {
         public event EventHandler<WorkerEventArgs> StepDone;
 
+        // quando marco un metodo con 'async'
+        // posso usare al suo interno l'operatore 'await'.
         public async Task DoWork()
         {
+            // posso fare 'await' solo su un metodo
+            // che restituisca un Task o un Task<T> 
             await Task.Delay(500);
 
             StepDone?.Invoke(this, new WorkerEventArgs(25));

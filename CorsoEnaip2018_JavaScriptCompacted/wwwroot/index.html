@@ -54,6 +54,13 @@
                         : acc.concat([x]),
                 []);
 
+        ordered = items
+            //.sort((a, b) => (a.id - b.id) || (b.date - a.date))
+            .filter(el => el.date == new Date(
+                Math.max.apply(null, items
+                    .filter(x => x.id == el.id)
+                    .map(x => x.date))));
+
         console.log(ordered);
 
         //var numbers = [1, 2, 3, 4, 5, 6];
