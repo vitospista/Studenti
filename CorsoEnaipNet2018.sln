@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ripasso", "Ripasso", "{61E3A2F8-3AD2-44B0-A113-38FB5BAD13DD}"
 EndProject
@@ -155,6 +155,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Tasks_WebsiteDownload", "CorsoEnaip2018_Tasks_WebsiteDownload\CorsoEnaip2018_Tasks_WebsiteDownload.csproj", "{F9D67D4D-A032-4657-8510-F2DE0064BF56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_MATERIALE", "CorsoEnaip2018_MATERIALE\CorsoEnaip2018_MATERIALE.csproj", "{6C832247-36A2-46A3-A50D-E793FD9F87F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Tasks_WebsiteDownload_2", "CorsoEnaip2018_Tasks_WebsiteDownload_2\CorsoEnaip2018_Tasks_WebsiteDownload_2.csproj", "{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -970,6 +972,18 @@ Global
 		{6C832247-36A2-46A3-A50D-E793FD9F87F3}.Release|x64.Build.0 = Release|Any CPU
 		{6C832247-36A2-46A3-A50D-E793FD9F87F3}.Release|x86.ActiveCfg = Release|Any CPU
 		{6C832247-36A2-46A3-A50D-E793FD9F87F3}.Release|x86.Build.0 = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|x64.Build.0 = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Debug|x86.Build.0 = Debug|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|x64.ActiveCfg = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|x64.Build.0 = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|x86.ActiveCfg = Release|Any CPU
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1042,6 +1056,7 @@ Global
 		{BEC17577-3979-4959-B6AC-7855BD477AE3} = {8E7273DE-202A-4DFD-94E1-550326131DB6}
 		{F9D67D4D-A032-4657-8510-F2DE0064BF56} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 		{6C832247-36A2-46A3-A50D-E793FD9F87F3} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
+		{07A454A3-6AA0-48E9-AFFC-E91E9526FDA3} = {AB991B04-6F97-4331-AAC6-22CC410E4DB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F070B229-D065-4021-B301-FCAAD756BD1B}

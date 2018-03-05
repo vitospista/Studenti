@@ -1,0 +1,35 @@
+﻿<Window x:Class="CorsoEnaip2018_Tasks_WebsiteDownload_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CorsoEnaip2018_Tasks_WebsiteDownload_2"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Grid>
+        <!--
+        
+        
+        URL1        Load Fastest
+        URL2        Load All
+        URL3      
+        __________________________
+        |                        |
+        |                        |
+        |                        |
+        |                        |
+        |                        |
+        __________________________
+        
+        
+        Task.WhenAny   ===> URL + veloce: "google.com"; lenght: 24000
+        
+        Task.WhenAll   ===>
+                                URL: google; lenght: 5000
+                                URL: facebook; length: 10000
+        
+        -->
+    </Grid>
+</Window>
