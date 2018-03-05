@@ -7,29 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="350"
-        Width="525">
+        Width="525"
+        FontSize="24">
     <Grid>
-        <!--
-        
-        
-        URL1        Load Fastest
-        URL2        Load All
-        URL3      
-        __________________________
-        |                        |
-        |                        |
-        |                        |
-        |                        |
-        |                        |
-        __________________________
-        
-        
-        Task.WhenAny   ===> URL + veloce: "google.com"; lenght: 24000
-        
-        Task.WhenAll   ===>
-                                URL: google; lenght: 5000
-                                URL: facebook; length: 10000
-        
-        -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                    Orientation="Vertical">
+            <TextBox Name="TB1"/>
+            <TextBox Name="TB2"/>
+            <TextBox Name="TB3"/>
+        </StackPanel>
+
+        <Button Grid.Row="0" Grid.Column="1"
+                Name="LoadFastestButton"
+                Content="Load Fastest"
+                Click="LoadFastestButton_Click"
+                Padding="5"/>
+        <Button Grid.Row="1" Grid.Column="1"
+                Name="LoadAllButton"
+                Content="Load All"
+                Click="LoadAllButton_Click"
+                Padding="5"/>
+
+        <ScrollViewer Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Name="ResultTB" TextWrapping="Wrap" />
+        </ScrollViewer>
     </Grid>
 </Window>
