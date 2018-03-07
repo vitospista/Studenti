@@ -24,25 +24,75 @@ namespace CorsoEnaip2018_dyn_web
 
             app.Run(async (context) =>
             {
-                // www.localhost:12321/...?day=6&month=3&city=Trieste&day=7
+                var requestType = context.Request.Method;
 
-                if (context.Request.Query.Count > 0)
+                // esercizio: stampare tutti i parametri della query,
+                // nella forma <chiave1> : { <valore1>, <valore2> }
+                // nella forma <chiave2> : { <valore3>, <valore4> }
+                if (context.Request.Path == "/")
                 {
-                    // esercizio: stampare tutti i parametri della query,
-                    // nella forma <chiave1> : { <valore1>, <valore2> }
-                    // nella forma <chiave2> : { <valore3>, <valore4> }
+                    var html =
+                       "<!DOCTYPE html>" +
+                       "<html>" +
+                           "<body>" +
+                               $"<p>Elenco di parametri della query:</p>" +
+                               "<ul>";
+
                     foreach (var q in context.Request.Query.Keys)
                     {
                         var sv = context.Request.Query[q];
 
-                        var keyValue = q + " = {" + sv + "}" + Environment.NewLine;
-
-                        await context.Response.WriteAsync(keyValue);
-
                         //StringValues è simile a un array di stringhe string[]
                         // Query lavora come un Dictionary<string, string[]>
-
                         // Request.Query è un Dictionary<string, StringValues>
+
+                        var keyValue = $"{q} = {{ {sv} }}{Environment.NewLine}";
+
+                        var li = $"<li>{keyValue}</li>";
+
+                        html += li;
+                    }
+
+                    html +=
+                                "</ul>" +
+                            "</body>" +
+                        "</html>";
+
+                    await context.Response.WriteAsync(html);
+                }
+                else
+                {
+                    var pathValues = context.Request.Path.Value.Split('/');
+
+                    if (pathValues[1] == "meteo") //    /meteo/...
+                    {
+                        if (string.Equals(pathValues[2], "trieste", StringComparison.InvariantCultureIgnoreCase)) //  /meteo/trieste/..
+                        {
+                            var html =
+                                "<!DOCTYPE html>" +
+                                "<html>" +
+                                    "<head>" +
+                                        "<meta charset=\"utf-8\" />" +
+                                    "</head>" +
+                                    "<body>" +
+                                        $"<p style=\"color:red;\">La temperatura a Trieste è 10°</p>" +
+                                    "</body>" +
+                                "</html>";
+
+                            await context.Response.WriteAsync(html);
+                        }
+                        else if (pathValues[2] == "udine")  //  /meteo/udine/..
+                        {
+                            var html =
+                                "<!DOCTYPE html>" +
+                                "<html>" +
+                                    "<body>" +
+                                        $"<p>La temperatura a Udine è 7°</p>" +
+                                    "</body>" +
+                                "</html>";
+
+                            await context.Response.WriteAsync(html);
+                        }
                     }
                 }
             });
