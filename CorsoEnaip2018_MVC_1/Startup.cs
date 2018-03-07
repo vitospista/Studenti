@@ -27,7 +27,7 @@ namespace CorsoEnaip2018_MVC_1
             {
                 routes.MapRoute(
                     "default",
-                    "{controller}/{action}");
+                    "{controller=Home}/{action=Index}");
             });
 
             /*

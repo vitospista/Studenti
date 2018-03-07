@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace CorsoEnaip2018_Reflection
@@ -44,6 +45,46 @@ namespace CorsoEnaip2018_Reflection
             //ManuallyCompare(oldInstance, newInstance);
 
             ReflectionCompare(oldInstance, newInstance);
+
+            // posso invocare metodi tramite reflection
+            var doubleMethod = type.GetMethod(nameof(C.Double));
+
+            var doubleResult = (int)doubleMethod.Invoke(
+                oldInstance, new object[] { 12 });
+
+            var instanceOfCCraetedWithReflection = (C)type
+                .GetConstructor(new Type[0])
+                .Invoke(new object[0]);
+
+
+            // parto con il nome di una classe e di un metodo.
+            // voglio riuscire a invocare quel metodo.
+
+            var className = "C";
+            var methodName = "Double";
+
+            var assembly = Assembly.GetExecutingAssembly();
+
+            var types = assembly.GetTypes();
+
+            var retrivedType = types.First(x => x.Name == className);
+
+            var anotherInstance = retrivedType
+                .GetConstructor(new Type[0])
+                .Invoke(new object[0]);
+
+            var methodInfo = retrivedType.GetMethod(methodName);
+
+            var result = methodInfo.Invoke(anotherInstance, new object[] { 12 });
+
+            var CpropertyNames = typeof(C)
+                .GetProperties()
+                .Select(pi => pi.Name)
+                .ToList();
+
+            foreach(var name in CpropertyNames)
+                Console.WriteLine(name);
+
 
             Console.Read();
         }
@@ -99,15 +140,22 @@ namespace CorsoEnaip2018_Reflection
 
                 if (!object.Equals(newValue, oldValue))
                 {
+                    var displayAttribute =
+                        pi.GetCustomAttribute<DisplayNameAttribute>();
+
+                    var displayName = displayAttribute != null
+                        ? displayAttribute.DisplayName
+                        : pi.Name;
+
                     if (newValue == null)
                     {
                         Console.WriteLine(
-                            $"Il valore di {pi.Name} è stato rimosso.");
+                            $"Il valore di {displayName} è stato rimosso.");
                     }
                     else
                     {
                         Console.WriteLine(
-                            $"Il valore di {pi.Name} è cambiato in: {newValue}.");
+                            $"Il valore di {displayName} è cambiato in: {newValue}.");
                     }
                 }
             }
@@ -161,17 +209,6 @@ namespace CorsoEnaip2018_Reflection
             return Year == other.Year &&
                 Month == other.Month &&
                 Day == other.Day;
-        }
-    }
-
-    class O
-    {
-        public static bool Equals(object o1, object o2)
-        {
-            if (o1 == null && o2 == null)
-                return true;
-
-            return o1.Equals(o2);
         }
     }
 }

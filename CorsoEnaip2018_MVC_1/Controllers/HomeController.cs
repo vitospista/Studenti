@@ -8,9 +8,9 @@ namespace CorsoEnaip2018_MVC_1.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "Ciao bello!";
+            return View();
         }
     }
 }
