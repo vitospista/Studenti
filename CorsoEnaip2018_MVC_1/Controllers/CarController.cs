@@ -22,11 +22,55 @@ namespace CorsoEnaip2018_MVC_1.Controllers
             return View(Models);
         }
 
-        public ViewResult Edit(int id)
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            var model = Models.First(x => x.Id == id);
+            #region soluzione meno efficiente
+            // questo funziona ma è poco efficiente
+            // (sia Any che First scorrono tutta la lista
+            //     fino a trovare un match)
+            //if (Models.Any(x => x.Id == id))
+            //{
+            //    var model = Models.First(x => x.Id == id);
+
+            //    return View(model);
+            //}
+            //else
+            //{
+            //    return NotFound();
+            //}
+            #endregion
+
+            var model = Models.FirstOrDefault(x => x.Id == id);
+
+            if (model == null)
+                return NotFound();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Car model)
+        {
+            #region soluzione meno efficiente
+            // questo funziona ma è poco efficiente
+            // (sia Any che First scorrono tutta la lista
+            //     fino a trovare un match)
+            //var old = Models.FirstOrDefault(x => x.Id == model.Id);
+
+            //var index = Models.IndexOf(old);
+
+            //Models[index] = model;
+            #endregion
+
+            var index = Models.FindIndex(x => x.Id == model.Id);
+
+            if (index == -1)
+                return NotFound();
+
+            Models[index] = model;
+
+            return View("Index", Models);
         }
     }
 }
