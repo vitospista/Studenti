@@ -1,0 +1,31 @@
+﻿@using CorsoEnaip2018_MVC_1.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Car
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elimina macchina</title>
+  <link rel="stylesheet" href="~/bootstrap.css" />
+</head>
+<body>
+  <div class="container text-center" style="width:500px;">
+    <h1>Elimina Auto</h1>
+
+    <form method="post">
+      <div class="form-group">
+        <p>
+          Sarà eliminata la macchina
+          '@Model.Brand @Model.Name'.
+          Confermi?
+        </p>
+      </div>
+      <div class="form-group">
+        <a href="/car/index" class="btn btn-default">Annulla</a>
+        <input type="submit" class="btn btn-danger" value="Conferma Eliminazione" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>
