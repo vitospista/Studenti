@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model int
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -31,6 +33,7 @@
 </head>
 <body>
     <h1>Tria!</h1>
+    <h2>@Model</h2>
     <div>
     @foreach(var i in Enumerable.Range(1, 2))
     {

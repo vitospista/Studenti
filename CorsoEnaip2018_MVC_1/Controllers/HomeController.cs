@@ -10,6 +10,8 @@ namespace CorsoEnaip2018_MVC_1.Controllers
     {
         public ViewResult Index()
         {
+            var v = View(); 
+
             return View();
         }
     }

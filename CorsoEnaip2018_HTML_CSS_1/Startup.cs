@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CorsoEnaip2018_MVC_1
+namespace CorsoEnaip2018_HTML_CSS_1
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -23,14 +22,9 @@ namespace CorsoEnaip2018_MVC_1
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
+            app.UseDefaultFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    "default",
-                    "{controller=Car}/{action=Index}");
-            });
+            app.UseStaticFiles();
         }
     }
 }
