@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CorsoEnaip2018_SuperHeroes.Models;
+using CorsoEnaip2018_SuperHeroes.Infrastructure;
 
 namespace CorsoEnaip2018_SuperHeroes.Controllers
 {
@@ -12,21 +13,30 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
     {
         public IActionResult Index()
         {
+            ViewData[Constants.TITLE_KEY] = "SuperHeroes da ViewData";
+            ViewBag.BagTitle = "SuperHeroes da ViewBag";
+
+            var td = TempData;
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            ViewData["Message"] = "Your application description page.";
+            var model = new SuperHero();
 
-            return View();
+            return View(model);
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Edit(SuperHero model)
         {
-            ViewData["Message"] = "Your contact page.";
+            // ...
 
-            return View();
+            TempData["Message"] =
+                $"Aggiunto supereroe '{model.Name}'";
+
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Error()
