@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using System.Text;
 using Microsoft.Extensions.Primitives;
+using CorsoEnaip2018_SuperHeroes.Models;
+using CorsoEnaip2018_SuperHeroes.DataAccess;
 
 namespace CorsoEnaip2018_SuperHeroes
 {
@@ -24,6 +26,10 @@ namespace CorsoEnaip2018_SuperHeroes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSingleton<
+                IRepository<SuperHero>,
+                SuperHeroInMemoryRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

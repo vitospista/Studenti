@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CorsoEnaip2018_SuperHeroes.DataAccess
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         List<T> FindAll();
         T Find(int id);
