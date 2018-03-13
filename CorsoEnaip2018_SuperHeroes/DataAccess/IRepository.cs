@@ -6,8 +6,8 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
     {
         List<T> FindAll();
         T Find(int id);
-        void Update(T model);
+        bool Update(T model);
         void Insert(T model);
-        void Delete(T model);
+        bool Delete(T model);
     }
 }

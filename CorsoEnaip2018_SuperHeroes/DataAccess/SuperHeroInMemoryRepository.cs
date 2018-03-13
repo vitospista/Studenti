@@ -1,6 +1,7 @@
 ﻿using CorsoEnaip2018_SuperHeroes.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,9 +17,9 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
             _models = new List<SuperHero>();
         }
 
-        public void Delete(SuperHero model)
+        public bool Delete(SuperHero model)
         {
-            _models.Remove(model);
+            return _models.Remove(model);
         }
 
         public SuperHero Find(int id)
@@ -42,11 +43,28 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
             _models.Add(model);
         }
 
-        public void Update(SuperHero model)
+        public bool Update(SuperHero model)
         {
             var index = _models.FindIndex(x => x.Id == model.Id);
 
-            _models[index] = model;
+            // posso controllare le condizioni e restituire il risultato
+            // in due modi diversi.
+            // questo è il primo:
+            var isIndexValid = index > -1;
+
+            if (isIndexValid)
+                _models[index] = model;
+
+            return isIndexValid;
+
+
+            // questo è il secondo:
+            //if (index == -1)
+            //    return false;
+
+            //_models[index] = model;
+
+            //return true;
         }
     }
 }

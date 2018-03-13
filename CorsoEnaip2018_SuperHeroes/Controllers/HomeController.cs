@@ -41,6 +41,9 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
             else
             {
                 model = _repository.Find(id);
+
+                if (model == null)
+                    return NotFound();
             }
 
             return View(model);
@@ -60,7 +63,9 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
             }
             else
             {
-                _repository.Update(model);
+                var result = _repository.Update(model);
+                if (!result)
+                    return NotFound();
             }
 
             TempData["Message"] =
