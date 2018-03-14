@@ -29,7 +29,7 @@ namespace CorsoEnaip2018_SuperHeroes
 
             services.AddSingleton<
                 IRepository<SuperHero>,
-                SuperHeroInMemoryRepository>();
+                SuperHeroSqlRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
