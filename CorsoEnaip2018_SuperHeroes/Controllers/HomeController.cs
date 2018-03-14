@@ -74,6 +74,30 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var model = _repository.Find(id);
+
+            if (model == null)
+                return NotFound();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(SuperHero model)
+        {
+            var success = _repository.Delete(model);
+
+            if (!success)
+                return NotFound();
+
+            TempData["message"] = $"Rimosso supereroe {model.Name}";
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
