@@ -1,0 +1,5 @@
+Differenze tra Stored Procedures e Functions quando dobbiamo eseguire una SELECT:
+
+http://www.sqlservercentral.com/blogs/xsql-blog/2017/04/19/sql-server-functions-vs-stored-procedures-to-return-result-sets/
+
+
