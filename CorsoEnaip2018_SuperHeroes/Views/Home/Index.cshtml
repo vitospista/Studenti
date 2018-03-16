@@ -2,13 +2,35 @@
   Nuovo Supereroe
 </a>
 <p>@TempData["Message"]</p>
-<ul>
-  @foreach(var sh in Model)
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Forza</th>
+      <th>Può volare</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (var sh in Model)
   {
-      <li>
-        @sh.Name
-        <a asp-controller="Home" asp-action="Edit"
-           asp-route-id="@sh.Id">Modifica</a>
-      </li>
+    <tr>
+      <td>@sh.Name</td>
+      <td>@sh.Strength</td>
+      <td>@(sh.CanFly ? "Sì" : "No")</td>
+      <td>
+        <a asp-controller="Home" asp-action="Edit" asp-route-id="@sh.Id"
+           class="btn btn-primary">
+          Modifica
+        </a>
+      </td>
+      <td>
+        <a asp-controller="Home" asp-action="Delete" asp-route-id="@sh.Id"
+           class="btn btn-danger">
+          Rimuovi
+        </a>
+      </td>
+    </tr>
   }
-</ul>
+  </tbody>
+</table>

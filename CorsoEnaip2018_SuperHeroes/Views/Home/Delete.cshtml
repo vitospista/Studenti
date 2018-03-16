@@ -2,7 +2,7 @@
 
 <h1>Elimina Supereroe</h1>
 <form method="post">
-  <input type="hidden" value="@Model.Name" />
+  <input type="hidden" asp-for="@Model.Name" />
   <div class="form-group">
     <p>Vuoi davvero rimuovere il supereroe '@Model.Name'?</p>
   </div>
