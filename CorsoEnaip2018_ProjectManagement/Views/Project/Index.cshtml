@@ -1,0 +1,33 @@
+﻿@{
+  Layout = "_Layout";
+}
+
+@model List<Project>
+
+<h1>Lista di progetti dell'azienda</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cliente</th>
+      <th>Data Consegna</th>
+      <th>Stato</th>
+      <th>Guadagno</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var p in Model)
+    {
+      <tr>
+        <td>@p.Name</td>
+        <td>@p.Customer</td>
+        <td>@p.DeliveryDate.ToString("yyyy/MM/dd")</td>
+        <td>@(p.EndDate > p.DeliveryDate ? "Scaduto" : "Ok")</td>
+        <td>@(p.Price - p.Cost) €</td>
+        <td><a href="/Project/Edit/@(p.Id)" class="btn btn-primary">Modifica</a></td>
+        <td><a href="/Project/Delete/@(p.Id)" class="btn btn-danger">Elimina</a></td>
+      </tr>
+    }
+  </tbody>
+</table>

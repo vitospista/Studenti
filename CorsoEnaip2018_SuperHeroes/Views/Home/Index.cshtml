@@ -1,0 +1,14 @@
+﻿<a class="btn btn-primary" asp-controller="Home" asp-action="Edit">
+  Nuovo Supereroe
+</a>
+<p>@TempData["Message"]</p>
+<ul>
+  @foreach(var sh in Model)
+  {
+      <li>
+        @sh.Name
+        <a asp-controller="Home" asp-action="Edit"
+           asp-route-id="@sh.Id">Modifica</a>
+      </li>
+  }
+</ul>

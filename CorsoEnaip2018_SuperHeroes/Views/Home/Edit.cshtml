@@ -1,0 +1,47 @@
+﻿@section Styles {
+  <link href="~/css/forms.css" rel="stylesheet" />
+}
+
+@model SuperHero
+
+<h1>Nuovo Supereroe</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="SecretName" class="control-label"></label>
+    <input asp-for="SecretName" class="form-control" />
+    <span asp-validation-for="SecretName"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Birth" class="control-label"></label>
+    <input type="date" asp-for="Birth" class="form-control" />
+    <span asp-validation-for="Birth"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Strength" class="control-label"></label>
+    <input type="number" asp-for="Strength" class="form-control" />
+    <span asp-validation-for="Strength"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="CanFly" class="control-label"></label>
+    <input type="checkbox" asp-for="CanFly" />
+    <span asp-validation-for="CanFly"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="KilledVillains" class="control-label"></label>
+    <input type="number" asp-for="KilledVillains" class="form-control" />
+    <span asp-validation-for="KilledVillains"></span>
+  </div>
+
+  <div class="form-group">
+    <a class="btn btn-default" asp-controller="Home" asp-action="Index">
+      Annulla
+    </a>
+    <input type="submit" class="btn btn-primary" value="Salva" />
+  </div>
+</form>

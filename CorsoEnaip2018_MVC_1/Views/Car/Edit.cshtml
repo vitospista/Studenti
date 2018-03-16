@@ -1,0 +1,40 @@
+﻿@using CorsoEnaip2018_MVC_1.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Car
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dettaglio macchina</title>
+  <link rel="stylesheet" href="~/bootstrap.css" />
+</head>
+<body>
+  <div class="container" style="width:500px;">
+    <h1 class="text-center">Modifica Dettaglio Auto</h1>
+
+    <form method="post">
+      <div class="form-group">
+        <label class="control-label">Marca</label>
+        <input class="form-control" asp-for="Brand" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Modello</label>
+        <input class="form-control" asp-for="Name" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Data di produzione</label>
+        <input type="date" class="form-control" asp-for="Created" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Prezzo</label>
+        <input type="number" class="form-control" asp-for="Price" />
+      </div>
+      <div class="form-group">
+        <a href="/car/index" class="btn btn-default">Annulla</a>
+        <input type="submit" class="btn btn-primary" value="Salva" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>

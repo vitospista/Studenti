@@ -1,0 +1,66 @@
+﻿@model int
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tria</title>
+    <style>
+        body {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto;
+        }
+
+        td {
+            height: 50px;
+            width: 50px;
+            border: 1px solid #000;
+            margin: 0;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tria!</h1>
+    <h2>@Model</h2>
+    <div>
+    @foreach(var i in Enumerable.Range(1, 2))
+    {
+        <div id="player@(i)" class="i">
+        @if (i == 2)
+        {
+            <p>PLAYER @i CREATED IN DATES: @(new DateTime(2018, i, 07).ToString("dd/MM/yyyy"))</p>
+        }
+        else
+        {
+            <p>GIOCATORE @i CREATO IN DATA: @(new DateTime(2018, i, 07).ToString("dd/MM/yyyy"))</p>
+        }
+        </div>
+    }
+    </div>
+    <table>
+        <tbody>
+        @foreach(var r in Enumerable.Range(0, 3))
+        {
+            <tr>
+            @foreach(var c in Enumerable.Range(0, 3))
+            {
+                <td id="td@(((r*3)+c)+1)">@(((r*3)+c)+1)</td>
+            }
+            </tr>
+        }
+        </tbody>
+    </table>
+</body>
+</html>
