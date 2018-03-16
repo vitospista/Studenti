@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CSS - fondamenti.pdf" />
     <None Include="EmployeeTests.playlist" />
     <None Include="provetta 26 gennaio.md" />
     <None Include="web projects - specifiche.docx" />
