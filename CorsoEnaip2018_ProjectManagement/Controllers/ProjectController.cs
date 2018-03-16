@@ -1,4 +1,5 @@
-﻿using CorsoEnaip2018_ProjectManagement.Models;
+﻿using CorsoEnaip2018_ProjectManagement.DataAccess;
+using CorsoEnaip2018_ProjectManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,22 +10,24 @@ namespace CorsoEnaip2018_ProjectManagement.Controllers
 {
     public class ProjectController : Controller
     {
-        private static readonly List<Project> _projects = new List<Project>
+        private IRepository<Project> _repository;
+
+        public ProjectController(IRepository<Project> repository)
         {
-            new Project(1, "Manhattan", "Generali SPA", "Mario Rossi", new DateTime(2018, 1, 1), new DateTime(2018, 2, 2), new DateTime(2018, 1, 31), 50000, 30000),
-            new Project(2, "Marshall", "Danieli SRL", "Luigi Neri", new DateTime(2017, 6, 6), new DateTime(2017, 12, 31), new DateTime(2017, 12, 15), 100000, 80000),
-            new Project(3, "Area 51", "Dottor Evil", "Anna Gialli", new DateTime(2018, 1, 1), new DateTime(2018, 4, 10), new DateTime(2018, 4, 10), 50000, 30000),
-        };
+            _repository = repository;
+        }
 
         public IActionResult Index()
         {
-            return View(_projects);
+            var models = _repository.FindAll();
+
+            return View(models);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var model = _projects.FirstOrDefault(x => x.Id == id);
+            var model = _repository.Find(id);
 
             if (model == null)
                 return NotFound();
@@ -35,12 +38,10 @@ namespace CorsoEnaip2018_ProjectManagement.Controllers
         [HttpPost]
         public IActionResult Edit(Project model)
         {
-            var index = _projects.FindIndex(x => x.Id == model.Id);
+            var result = _repository.Update(model);
 
-            if (index == -1)
+            if (!result)
                 return NotFound();
-
-            _projects[index] = model;
 
             return RedirectToAction(nameof(Index));
         }
@@ -48,7 +49,7 @@ namespace CorsoEnaip2018_ProjectManagement.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var model = _projects.FirstOrDefault(x => x.Id == id);
+            var model = _repository.Find(id);
 
             if (model == null)
                 return NotFound();
@@ -59,12 +60,10 @@ namespace CorsoEnaip2018_ProjectManagement.Controllers
         [HttpPost]
         public IActionResult Delete(Project model)
         {
-            var index = _projects.FindIndex(x => x.Id == model.Id);
+            var result = _repository.Delete(model);
 
-            if (index == -1)
+            if (!result)
                 return NotFound();
-
-            _projects.RemoveAt(index);
 
             return RedirectToAction(nameof(Index));
         }
