@@ -42,6 +42,10 @@ namespace CorsoEnaip2018_SuperHeroes
             services.AddScoped<
                 IRepository<SuperHero>,
                 SuperHeroEntityFrameworkRepository>();
+
+            services.AddScoped<
+                IRepository<Villain>,
+                VillainEntityFrameworkRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

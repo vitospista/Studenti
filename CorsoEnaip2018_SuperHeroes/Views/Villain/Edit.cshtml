@@ -1,0 +1,43 @@
+﻿@section Styles {
+  <link href="~/css/forms.css" rel="stylesheet" />
+}
+
+@{
+    var nemeses = (List<SuperHero>)ViewData["nemeses"];
+
+    var selectListItems = nemeses.Select(x =>
+      new SelectListItem
+      {
+        Value = x.Id.ToString(),
+        Text = x.Name
+      });
+}
+
+@model Villain
+
+<h1>Nuovo Cattivo</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="NemesisId" class="control-label"></label>
+    <select asp-for="NemesisId" class="form-control"
+            asp-items="selectListItems">
+    </select>
+  </div>
+  <div class="form-group">
+    <label asp-for="Killed" class="control-label"></label>
+    <input asp-for="Killed" type="checkbox" />
+    <span asp-validation-for="Killed"></span>
+  </div>
+  <div class="form-group">
+    <a class="btn btn-default" asp-controller="Villain" asp-action="Index">
+      Annulla
+    </a>
+    <input type="submit" class="btn btn-primary" value="Salva" />
+  </div>
+</form>

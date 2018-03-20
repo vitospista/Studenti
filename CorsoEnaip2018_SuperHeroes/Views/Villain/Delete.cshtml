@@ -1,0 +1,13 @@
+﻿@model Villain
+
+<h1>Elimina Cattivo</h1>
+<form method="post">
+  <input type="hidden" asp-for="@Model.Name" />
+  <div class="form-group">
+    <p>Vuoi davvero rimuovere il cattivo '@Model.Name'?</p>
+  </div>
+  <div class="form-group">
+    <a class="btn btn-default" asp-controller="Villain" asp-action="Index">Annulla</a>
+    <input type="submit" class="btn btn-danger" value="Conferma" />
+  </div>
+</form>
