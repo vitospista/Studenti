@@ -13,7 +13,6 @@ namespace CorsoEnaip2018_SuperHeroes.Models
 
         [Required]
         [DisplayName("El nome de figon")]
-        // [DisplayName(Resources.SuperHeroNameProperty)]
         public string Name { get; set; }
 
         [Required]

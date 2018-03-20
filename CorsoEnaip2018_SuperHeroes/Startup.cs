@@ -11,6 +11,8 @@ using System.Text;
 using Microsoft.Extensions.Primitives;
 using CorsoEnaip2018_SuperHeroes.Models;
 using CorsoEnaip2018_SuperHeroes.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace CorsoEnaip2018_SuperHeroes
 {
@@ -27,16 +29,25 @@ namespace CorsoEnaip2018_SuperHeroes
         {
             services.AddMvc();
 
-            services.AddSingleton<
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                // configura un database "in memory",
+                // utile per fare test
+                //options.UseInMemoryDatabase("_");
+
+                // usa database SQL Server effettivo:
+                options.UseSqlServer(Configuration["ConnectionString"]);
+            });
+
+            services.AddScoped<
                 IRepository<SuperHero>,
-                SuperHeroSqlRepository>();
+                SuperHeroEntityFrameworkRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             /*
              * ASP.NET funziona come catena di MIDDLEWARE
-             * 
              */
 
             if (env.IsDevelopment())
