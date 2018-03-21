@@ -2,6 +2,14 @@
 
 namespace CorsoEnaip2018_ProjectManagement.Models
 {
+// Invece di SqlReader e SqlCommand, usare EntityFramework
+// Per l'Index di Project, creare un ViewModel solo coi dati necessari
+// A scelta, Customer o Manager devono essere entità esterne,
+// collegate da una relazione uno-a-molti con la classe Project.
+// Sulla View di Edit, usare un 'select' per selezionare Customer/Manager
+
+
+
     public class Project
     {
         public Project() { }

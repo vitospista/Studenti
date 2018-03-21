@@ -3,6 +3,7 @@ using CorsoEnaip2018_SuperHeroes.Models;
 using CorsoEnaip2018_SuperHeroes.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace CorsoEnaip2018_SuperHeroes.Controllers
