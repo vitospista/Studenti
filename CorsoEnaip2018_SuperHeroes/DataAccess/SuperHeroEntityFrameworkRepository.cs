@@ -33,7 +33,9 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
 
         public List<SuperHero> FindAll()
         {
-            var models = _context.SuperHeroes.ToList();
+            var models = _context.SuperHeroes
+                .Include(x => x.Enemies)
+                .ToList();
 
             return models;
         }

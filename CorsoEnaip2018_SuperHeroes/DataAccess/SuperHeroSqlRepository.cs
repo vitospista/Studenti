@@ -35,7 +35,7 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
                     cmd.Parameters.Add(new SqlParameter("Birth", model.Birth));
                     cmd.Parameters.Add(new SqlParameter("Strength", model.Strength));
                     cmd.Parameters.Add(new SqlParameter("CanFly", model.CanFly));
-                    cmd.Parameters.Add(new SqlParameter("KilledVillains", model.KilledVillains));
+                    //cmd.Parameters.Add(new SqlParameter("KilledVillains", model.KilledVillains));
 
                     cmd.ExecuteNonQuery();
                 }
@@ -87,7 +87,7 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
                                 Birth = (DateTime)reader[nameof(SuperHero.Birth)],
                                 Strength = (int)reader[nameof(SuperHero.Strength)],
                                 CanFly = (bool)reader[nameof(SuperHero.CanFly)],
-                                KilledVillains = (int)reader[nameof(SuperHero.KilledVillains)]
+                                //KilledVillains = (int)reader[nameof(SuperHero.KilledVillains)]
                             };
                         }
                         else
@@ -123,7 +123,7 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
                                 Birth = (DateTime)reader[nameof(SuperHero.Birth)],
                                 Strength = (int)reader[nameof(SuperHero.Strength)],
                                 CanFly = (bool)reader[nameof(SuperHero.CanFly)],
-                                KilledVillains = (int)reader[nameof(SuperHero.KilledVillains)]
+                                //KilledVillains = (int)reader[nameof(SuperHero.KilledVillains)]
                             };
 
                             list.Add(sh);
@@ -159,7 +159,7 @@ namespace CorsoEnaip2018_SuperHeroes.DataAccess
                     cmd.Parameters.Add(new SqlParameter("birth", model.Birth));
                     cmd.Parameters.Add(new SqlParameter("strength", model.Strength));
                     cmd.Parameters.Add(new SqlParameter("canfly", model.CanFly));
-                    cmd.Parameters.Add(new SqlParameter("killedvillains", model.KilledVillains));
+                    //cmd.Parameters.Add(new SqlParameter("killedvillains", model.KilledVillains));
                     cmd.Parameters.Add(new SqlParameter("id", model.Id));
 
                     var result = cmd.ExecuteNonQuery();

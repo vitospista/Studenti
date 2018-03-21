@@ -1,5 +1,7 @@
 ﻿using CorsoEnaip2018_SuperHeroes.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace CorsoEnaip2018_SuperHeroes.DataAccess
 {

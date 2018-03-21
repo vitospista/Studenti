@@ -30,8 +30,6 @@ namespace CorsoEnaip2018_SuperHeroes.Models
         [DisplayName("El svola")]
         public bool CanFly { get; set; }
 
-        [Range(0, int.MaxValue)]
-        [DisplayName("Quanti mati el gà copà")]
-        public int KilledVillains { get; set; }
+        public List<Villain> Enemies { get; set; }
     }
 }

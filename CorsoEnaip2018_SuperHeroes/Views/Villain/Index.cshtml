@@ -7,6 +7,7 @@
     <tr>
       <th>Nome</th>
       <th>Ammazzato</th>
+      <th>Nemesi</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
     <tr>
       <td>@m.Name</td>
       <td>@m.Killed</td>
+      <td>@m.Nemesis.Name</td>
       <td>
         <a asp-controller="Villain" asp-action="Edit" asp-route-id="@m.Id"
            class="btn btn-primary">

@@ -58,6 +58,10 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
                 return View(model);
             }
 
+            var message = model.Id == 0
+                ? $"Aggiunto cattivo '{model.Name}'"
+                : $"Modificato cattivo '{model.Name}";
+
             if (model.Id == 0)
             {
                 _repository.Insert(model);
@@ -69,8 +73,7 @@ namespace CorsoEnaip2018_SuperHeroes.Controllers
                     return NotFound();
             }
 
-            TempData["Message"] =
-                $"Aggiunto cattivo '{model.Name}'";
+            TempData["Message"] = message;
 
             return RedirectToAction(nameof(Index));
         }

@@ -15,7 +15,7 @@
 
 @model Villain
 
-<h1>Nuovo Cattivo</h1>
+<h1>@(Model.Id == 0 ? "Nuovo" : "Modifica") Cattivo</h1>
 
 <form method="post">
   <div class="form-group">

@@ -1,4 +1,6 @@
-﻿<a class="btn btn-primary" asp-controller="SuperHero" asp-action="Edit">
+﻿@model List<SuperHeroRow>
+
+<a class="btn btn-primary" asp-controller="SuperHero" asp-action="Edit">
   Nuovo Supereroe
 </a>
 <p>@TempData["Message"]</p>
@@ -8,6 +10,8 @@
       <th>Nome</th>
       <th>Forza</th>
       <th>Può volare</th>
+      <th>Assegnati</th>
+      <th>Uccisi</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -18,6 +22,8 @@
       <td>@sh.Name</td>
       <td>@sh.Strength</td>
       <td>@(sh.CanFly ? "Sì" : "No")</td>
+      <td>@sh.AssignedVillains</td>
+      <td>@sh.KilledVillains</td>
       <td>
         <a asp-controller="SuperHero" asp-action="Edit" asp-route-id="@sh.Id"
            class="btn btn-primary">
