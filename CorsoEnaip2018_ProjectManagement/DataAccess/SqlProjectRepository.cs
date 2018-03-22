@@ -48,7 +48,7 @@ namespace CorsoEnaip2018_ProjectManagement.DataAccess
                         {
                             Id = (int)r["Id"],
                             Name = (string)r["Name"],
-                            Customer = (string)r["Customer"],
+                            //Customer = (string)r["Customer"],
                             Manager = (string)r["Manager"],
                             StartDate = (DateTime)r["StartDate"],
                             EndDate = (DateTime)r["EndDate"],
@@ -87,7 +87,7 @@ namespace CorsoEnaip2018_ProjectManagement.DataAccess
                         {
                             Id = (int)r["Id"],
                             Name = (string)r["Name"],
-                            Customer = (string)r["Customer"],
+                            //Customer = (string)r["Customer"],
                             Manager = (string)r["Manager"],
                             StartDate = (DateTime)r["StartDate"],
                             EndDate = (DateTime)r["EndDate"],
