@@ -1,0 +1,27 @@
+﻿@model Book
+
+@{ 
+    var authors = (List<Author>)ViewData["authors"];
+    var authorList = authors.Select(x => new SelectListItem
+    {
+        Text = x.Name,
+        Value = x.Id.ToString()
+    });
+}
+
+<form method="post">
+  <div class="form-group">
+    <label>Libro</label>
+    <input asp-for="Title" />
+  </div>
+  <div class="form-group">
+    <label>Authors</label>
+    <select multiple
+            asp-items="authorList"
+            name="authorsIds">
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" />
+  </div>
+</form>
