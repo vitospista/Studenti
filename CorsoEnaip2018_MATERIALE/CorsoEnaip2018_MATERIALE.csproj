@@ -54,6 +54,7 @@
     <None Include="CSS - fondamenti.pdf" />
     <None Include="Esercizi\provetta 26 gennaio.md" />
     <None Include="web projects - specifiche.docx" />
+    <None Include="Security - fundamentals.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseCorso.sql" />
