@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var loginChecker = {
+            username: '',
+            password: '',
+            login: function () {
+                this.username = document.getElementById("username").value;
+                this.password = document.getElementById("password").value;
+
+                if (this.username == "mario.rossi"
+                    && this.password == "123pass") {
+                    console.log("correct credential, you're logged in!");
+                } else {
+                    console.log("wrong credential!");
+                }
+            }
+        }
+
+        loginChecker.login = function () {
+            console.log("correct credential, you're logged in!");
+        }
+
+        function Positive() {
+            // questa variabile esiste solo dentro la funzione Positive.
+            // quindi nessuno dall'esterno può leggerla o modificarla.
+            var _value = 0;
+            this.getValue = function () {
+                // CLOSURE: la variabile è stata dichiarata al di fuori,
+                // ma continua a "vivere" finché questa funzione esiste.
+                return _value;
+            }
+            this.setValue = function(value) {
+                if (value < 0) {
+                    throw new Error();
+                } else {
+                    _value = value;
+                }
+            }
+            return this;
+        }
+        var p = new Positive();
+
+        p.setValue(4);
+        console.log(p.getValue());
+
+        //p.setValue(-5);
+        //console.log(p.getValue());
+
+        // anche se modifico la funzione setValue,
+        // NON posso accedere direttamente al _value
+        // della funzione Positive.
+        p.setValue = function (value) {
+            this._value = value; // non funziona, this._value è un'intero nuovo campo su this.
+        }
+        p.setValue(-5);
+        console.log(p.getValue());
+
+    </script>
+</head>
+<body>
+    <label>Username</label>
+    <input id="username" />
+    <label>Password</label>
+    <input id="password" />
+    <input type="submit" value="Login" onclick="loginChecker.login();"/>
+</body>
+</html>
