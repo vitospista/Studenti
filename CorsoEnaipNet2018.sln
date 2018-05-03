@@ -178,9 +178,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorsoEnaip2018_ManyToMany",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorsoEnaip2018_Authentication", "CorsoEnaip2018_Authentication\CorsoEnaip2018_Authentication.csproj", "{9DEF6EA6-D949-4516-8190-80B4611D9F49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_AspNetCoreTest1", "CorsoEnaip2018_AspNetCoreTest1\CorsoEnaip2018_AspNetCoreTest1.csproj", "{CFE0B607-38F7-40F9-BCBA-7BBC60695B63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorsoEnaip2018_AspNetCoreTest1", "CorsoEnaip2018_AspNetCoreTest1\CorsoEnaip2018_AspNetCoreTest1.csproj", "{CFE0B607-38F7-40F9-BCBA-7BBC60695B63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_AspNetCoreTest1.Test", "CorsoEnaip2018_AspNetCoreTest1.Test\CorsoEnaip2018_AspNetCoreTest1.Test.csproj", "{B40183D0-A1E5-474C-B582-5EC581CF162B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorsoEnaip2018_AspNetCoreTest1.Test", "CorsoEnaip2018_AspNetCoreTest1.Test\CorsoEnaip2018_AspNetCoreTest1.Test.csproj", "{B40183D0-A1E5-474C-B582-5EC581CF162B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsoEnaip2018_Reactive", "CorsoEnaip2018_Reactive\CorsoEnaip2018_Reactive.csproj", "{7F7648CE-28C4-462A-BA60-4457F94B9C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1152,6 +1154,18 @@ Global
 		{B40183D0-A1E5-474C-B582-5EC581CF162B}.Release|x64.Build.0 = Release|Any CPU
 		{B40183D0-A1E5-474C-B582-5EC581CF162B}.Release|x86.ActiveCfg = Release|Any CPU
 		{B40183D0-A1E5-474C-B582-5EC581CF162B}.Release|x86.Build.0 = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|x64.Build.0 = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Debug|x86.Build.0 = Debug|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|x64.ActiveCfg = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|x64.Build.0 = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|x86.ActiveCfg = Release|Any CPU
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1237,6 +1251,7 @@ Global
 		{9DEF6EA6-D949-4516-8190-80B4611D9F49} = {EEDD1D87-0EAB-4AE5-8ED9-529E50EB4285}
 		{CFE0B607-38F7-40F9-BCBA-7BBC60695B63} = {EEDD1D87-0EAB-4AE5-8ED9-529E50EB4285}
 		{B40183D0-A1E5-474C-B582-5EC581CF162B} = {EEDD1D87-0EAB-4AE5-8ED9-529E50EB4285}
+		{7F7648CE-28C4-462A-BA60-4457F94B9C34} = {6AD43BA3-31CA-40D9-B8A9-92B721A84E13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F070B229-D065-4021-B301-FCAAD756BD1B}
